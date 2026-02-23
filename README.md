@@ -115,44 +115,19 @@ The built files will be generated inside the `dist/` folder.
 
 ## Pushing Changes
 
-Point to the root project folder:
-
-```bash
-cd ./Web-Design-Game
-```
-
-After that, you can list the files that have been changed with 
-
-```bash
-git status
-```
-
-Then you can add specific files,
-
-```bash
-git add src/components/Example.vue
-```
-
-or you can just add everything that has changes. 
-
+Add all changes
 ```bash
 git add .
 ```
-
-Then write a commit message.
-
+Write a commit message
 ```bash
 git commit -m "Description of my changes."
 ```
 
-And finally, push the commit.
-
-It's a great idea to push your code often. Try not to leave for the day without pushing.
-
+Push the commit
 ```bash
 git push
 ```
-
 
 
 ## Notes

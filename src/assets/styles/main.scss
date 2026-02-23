@@ -4,3 +4,23 @@ body {
     margin: 0;
     height: 100%;
 }
+
+.game-window {
+  display: flex;
+  height: 100vh; /* full screen */
+}
+
+.editor {
+  flex: 1;
+  border-right: 1px solid #ccc;
+}
+
+.output {
+  flex: 1;
+  display: flex;
+}
+
+.output-placeholder {
+  flex: 1;
+  background-color: #f5f5f5;
+}
