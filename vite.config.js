@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [vue()],
-  base: "https://devinneleigh.github.io/Web-Design-Game/dist/",
+  base: mode === "production" ? "https://devinneleigh.github.io/Web-Design-Game/dist/" : "/",
   css: {
     preprocessorOptions: {
       scss: {
@@ -16,4 +16,4 @@ export default defineConfig({
     // Optional: adjust chunk size warning if needed
     chunkSizeWarningLimit: 1000, // in KB, default is 500
   }
-})
+}))
