@@ -1,5 +1,5 @@
 ## Link to live site
-`https://devinneleigh.github.io/Web-Design-Game/`
+`https://devinneleigh.github.io/Web-Design-Game/dist`
 
 ## Access
 
