@@ -12,16 +12,9 @@ const editor = ref(null)
 
 onMounted(() => {
   new EditorView({
-    doc: `console.log("Hello CodeMirror!");`,
+    doc: "\n".repeat(24),
     extensions: [basicSetup, javascript(), oneDark],
     parent: editor.value
   })
 })
 </script>
-
-<style scoped>
-.editor {
-  border: 1px solid #ccc;
-  height: 300px;
-}
-</style>
