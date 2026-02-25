@@ -1,12 +1,17 @@
 <template>
   <div class="game-window">
-    <div class="editor">
-      <CodeEditor />
-    </div>
-
-    <div class="output">
+    <div class="left-side">
+      <div class="editor">
+        <CodeEditor />
+      </div>
+    <div class="instructions-wrapper">
       <!-- Placeholder for now -->
-      <div class="output-placeholder"></div>
+      <div class="instructions"></div>
+    </div>
+    </div>
+    <div class="output-wrapper">
+      <!-- Placeholder for now -->
+      <div class="output"></div>
     </div>
   </div>
 </template>
