@@ -2,15 +2,15 @@
   <div class="game-window">
     <div class="left-side">
       <div class="editor custom-border">
-        <CodeEditor />
+        <CodeEditor></CodeEditor>
       </div>
     <div class="instructions custom-border">
-      <GameInstructions />
+      <GameInstructions></GameInstructions>
     </div>
     </div>
     <div class="output custom-border">
       <!-- Placeholder for now -->
-      <CodeOutput />
+      <CodeOutput></CodeOutput>
     </div>
   </div>
 </template>
