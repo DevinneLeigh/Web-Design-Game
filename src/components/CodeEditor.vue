@@ -12,7 +12,7 @@ const editor = ref(null)
 
 onMounted(() => {
   new EditorView({
-    doc: "\n".repeat(24),
+    doc: "<h1 class=\"title\">Hello World</h1>\n" + "\n".repeat(18),
     extensions: [basicSetup, javascript(), oneDark],
     parent: editor.value
   })

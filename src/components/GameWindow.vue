@@ -1,22 +1,23 @@
 <template>
   <div class="game-window">
     <div class="left-side">
-      <div class="editor">
+      <div class="editor custom-border">
         <CodeEditor />
       </div>
-    <div class="instructions-wrapper">
-      <!-- Placeholder for now -->
-      <div class="instructions"></div>
+    <div class="instructions custom-border">
+      <GameInstructions />
     </div>
     </div>
-    <div class="output-wrapper">
+    <div class="output custom-border">
       <!-- Placeholder for now -->
-      <div class="output"></div>
+      <CodeOutput />
     </div>
   </div>
 </template>
 
 <script setup>
 import CodeEditor from './CodeEditor.vue'
+import GameInstructions from './GameInstructions.vue'
+import CodeOutput from './CodeOutput.vue';
 </script>
 
