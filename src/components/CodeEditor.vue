@@ -3,28 +3,55 @@
 </template>
 
 <script setup>
-import { ref, onMounted, defineExpose } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { EditorView, basicSetup } from 'codemirror'
-import { javascript } from '@codemirror/lang-javascript'
+import { html } from '@codemirror/lang-html'
+import { css } from '@codemirror/lang-css'
 import { oneDark } from '@codemirror/theme-one-dark'
+
+const props = defineProps({
+  modelValue: String,
+  language: String
+})
+
+const emit = defineEmits(['update:modelValue']) 
 
 const editor = ref(null)
 let editorView = null 
 
 onMounted(() => {
-  const savedContent = localStorage.getItem("editorContent") || "<h1 class=\"title\">Hello World</h1>\n" + "\n".repeat(18)
+  const languageExtension =
+    props.language === 'css'
+      ? css()
+      : html()
 
   editorView = new EditorView({
-    doc: savedContent,
-    extensions: [basicSetup, javascript(), oneDark],
+    doc: props.modelValue || '',
+    extensions: [
+      basicSetup, 
+      languageExtension,
+      oneDark,
+      EditorView.updateListener.of(update => {
+        if (update.docChanged) {
+          emit('update:modelValue', update.state.doc.toString())
+        }
+      }),
+    ],
     parent: editor.value
   })
 })
 
-function getContent() {
-  return editorView ? editorView.state.doc.toString() : ""
-}
-
-defineExpose({ getContent })
+watch(
+  () => props.modelValue,
+  (newVal) => {
+    if (!editorView) return
+    const current = editorView.state.doc.toString()
+    if (newVal !== current) {
+      editorView.dispatch({
+        changes: { from: 0, to: current.length, insert: newVal }
+      })
+    }
+  }
+)
 
 </script>

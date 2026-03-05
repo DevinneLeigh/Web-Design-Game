@@ -6,10 +6,3 @@
         <a href="https://devinneleigh.github.io/GroupPortfolio_SWDV-280/index.html" target="_blank">SWDV 280 Portfolio Site</a>
     </footer>
 </template>
-<style scoped lang="scss">
-    @import "@/assets/main.scss";
-    footer a {
-        color: $blue;
-        text-decoration: none;
-    }
-</style>
