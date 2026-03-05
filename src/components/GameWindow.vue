@@ -4,7 +4,7 @@
       <div class="instructions custom-border">
         <GameInstructions />
       </div>
-      <div>
+      <div class="editor-section">
         <div class="editor-tabs">
           <button :class="{ active: activeTab === 'html' }" @click="activeTab = 'html'">HTML</button>
           <button :class="{ active: activeTab === 'css' }" @click="activeTab = 'css'">CSS</button>
@@ -22,12 +22,12 @@
             language="css" 
           />
         </div>
-      </div>
-      <div class="save-button">
-      <Button 
-        label="Save Code" 
-        buttonClass="custom-button" 
-        @action="handleSave" ></Button>
+        <div class="save-button">
+          <Button 
+            label="Save Code" 
+            buttonClass="custom-button" 
+            @action="handleSave" ></Button>
+        </div>
       </div>
     </div>
     <div class="output">
