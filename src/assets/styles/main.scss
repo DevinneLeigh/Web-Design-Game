@@ -84,17 +84,19 @@ $xxl: 1400px;
     @include lg { // 960px
       width: 400px;
     }
-    .instructions {
-      height: 400px;
-      background-color: $dark2;
-      padding: 20px 20px 0 20px;
-      overflow: auto;
-      @include lg { // 960px
-        height: 40%;
-      }
-      h2 {
-        font-size: 24px;
-      }
+  .instructions {
+    flex: 1;
+    min-height: 200px;
+    background-color: $dark2;
+    padding: 20px;
+    overflow-y: auto;
+    @include lg { // 960px
+    flex: 0 0 40%;
+  }
+  h2 {
+    font-size: 24px;
+  }
+}
     }
     .editor-section {
       height: 400px;
@@ -118,8 +120,8 @@ $xxl: 1400px;
         }
       }
     }
-  }
 }
+
 
 
 .output {
