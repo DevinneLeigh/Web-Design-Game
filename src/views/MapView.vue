@@ -1,6 +1,7 @@
 
 <script setup>
 import { useRouter } from "vue-router"
+import { RouterLink } from "vue-router"
 import { worlds } from "@/data/levels"
 
 const router = useRouter()
@@ -24,11 +25,14 @@ function goToLevel(levelId) {
           v-for="level in world.levels"
           :key="level.id"
           @click="goToLevel(level.id)"
-          class="level-node"
+          class="level-node" 
         >
           {{ level.title }}
         </button>
       </div>
     </div>
   </div>
+    <RouterLink to="/level/project1">
+    <button class="custom-button">Go to Project</button>
+  </RouterLink>
 </template>

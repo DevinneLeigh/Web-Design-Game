@@ -1,6 +1,9 @@
 import { world1 } from "./world1"
 import { world2 } from "./world2"
-import { landingPage } from "./landing-page"
+
+import { playerProject } from "./player-project"
+
+export { playerProject }
 
 export const worlds = [
   {
@@ -15,11 +18,10 @@ export const worlds = [
   }
 ]
 
-// Flattened list (useful for lookup by id)
+
 export const allLevels = [
   ...world1,
-  ...world2
+  ...world2,
+  ...playerProject
 ]
 
-// Landing page is separate
-export const playerProject = landingPage
