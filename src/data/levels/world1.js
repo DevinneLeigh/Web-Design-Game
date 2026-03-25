@@ -48,25 +48,46 @@ export const world1 = [
 
     instructions: `
         <h2>Adding Lists</h2>
+        <p>Lists in HTML present information in a more visually appealing way than listing the same items in paragraphs.
+        They are used to display related items separately, allowing the reader to more easily parse the information.
+        There are three types of lists: ordered lists <code><ol> </ol></code>, unordered lists <code><ul> </ul></code>, and
+        description lists <code><dl> </dl></code>, though description lists are rarely ever used.</p>
+
+        <h2>Ordered Lists</h2>
+        <p>Ordered lists are numbered; these can be used for instructions or events that occur in a sequence.</p>
+
+        <ol>
+          <li>First</li>
+          <li>Second</li>
+          <li>Third</li>
+        </ol>
+
+        <h2>Unordered Lists</h2>
+        <p>Unordered lists have bullet points rather than numbers, and while they show the list items in the order they were written,
+        the reader knows that the order of the items does not matter.</p>
+
+        <ul>
+          <li>Coffee</li>
+          <li>Tea</li>
+          <li>Milk</li>
+        </ul>
+
+        <h2>List Items</h2>
+        <p>Within ordered and unordered lists, the individual list items are enclosed in list item tags <code><li> </li>.
+        Lists can have any number of list items, and the numbers in ordered lists will automatically count up with each item.</p>
+
+        <h2>Task</h2>
+        <p>The comment in the starter code contains a complete sentence. Under the paragraph, create an <strong>unordered list</strong>
+        of the chores. Remember to capitalize the first word of each list item.
     `,
-    hint: "",
+    hint: "Each item in a list must be placed within a list item tag.",
 
     starterCode: {
-      html: `<h2>An Unordered HTML List</h2>
+      html: `<!--Today, I need to mow the lawn, wash the dishes, and walk the dog.-->
+      <p>Today's chores:</p>
 
-<ul>
-  <li>Coffee</li>
-  <li>Tea</li>
-  <li>Milk</li>
-</ul>  
 
-<h2>An Ordered HTML List</h2>
-
-<ol>
-  <li>Coffee</li>
-  <li>Tea</li>
-  <li>Milk</li>
-</ol> `,
+`,
       css: ``
     },
 
