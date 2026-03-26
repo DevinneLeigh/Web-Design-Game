@@ -39,8 +39,8 @@
     
     <Popup
   :open="showCompletionPopup"
-  :title="`${level.title} Complete!`"
-  message="You met this level's requirements. Keep going!"
+  :title="`${level.title} Complete`"
+  message="Your code met all the requirements. Good job!"
   @close="closeCompletionPopup"
 />
   </div>

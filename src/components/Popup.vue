@@ -3,6 +3,8 @@
             <div class="popupInner">
                 <h2>{{ title }}</h2>
                 <p>{{ message }}</p>
+                <img :src="star" alt="Rotating star" />
+                <br>
                 <button type="button" 
                 class="popupButton"
                 @click="closePopup">Close</button>
@@ -10,19 +12,24 @@
         </div>
 </template>
 <script>
+import star from '../assets/styles/star.gif'
 export default {
         name: "Popup",
         emits: ['close'],
         props: {
                 open: { type: Boolean, default: false },
-                title: { type: String, default: 'Level Complete!' },
-                message: { type: String, default: 'Great work. Your level objectives are complete.' }
+                title: { type: String, default: '' },
+                message: { type: String, default: '' }
+        },
+        data() {
+                return { star }
         },
         methods: {
                 closePopup() {
                         this.$emit('close')
                 }
         }
+        
 }
 </script>
 <style lang="scss" scoped>
@@ -38,23 +45,27 @@ export default {
         justify-content: center;
 
         .popupInner {
-            background: white;
+            background: rgb(39, 39, 62);
             padding: 20px;
             border-radius: 8px;
             text-align: center;
+
+            img {
+                width: 350px;
+            }
         }
 
         .popupButton {
             margin-top: 20px;
             padding: 10px 20px;
-            background: #ffb9b9;
+            background: #ff7b7b;
             color: white;
             border: none;
             border-radius: 9px;
             cursor: pointer;
 
             &:hover {
-                background: #ff7b7b;
+                background: #e96666;
             }
         }
     }
