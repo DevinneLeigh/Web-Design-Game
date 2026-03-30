@@ -1,8 +1,11 @@
 <template>
-  <div class="game-window">
+  <div v-if="!level">
+      <p>Level not found. Please select a level from the map.</p>
+  </div>
+  <div class="game-window" v-else>
     <div class="left-side">
       <div class="instructions custom-border">
-        <GameInstructions />
+        <GameInstructions :instructions="level.instructions" />
       </div>
       <div class="editor-section">
         <div class="editor-tabs">
@@ -44,13 +47,12 @@ import Button from './Button.vue'
 
 const activeTab = ref('html')
 
-const htmlCode = ref(
-  localStorage.getItem("htmlCode") || "<h1 class=\"title\">Hello World</h1>\n" + "\n".repeat(18)
-)
+const props = defineProps({
+  level: Object
+})
 
-const cssCode = ref(
-  localStorage.getItem("cssCode") || "body {\n  background-color: #ececef;\n  font-family: 'Arial', sans-serif;\n}\n\n.title {\n  color: #282C34;\n  text-align: center;\n}\n" + "\n".repeat(10)
-)
+const htmlCode = ref(props?.level?.starterCode?.html)
+const cssCode = ref(props?.level?.starterCode?.css)
 
 
 
@@ -67,9 +69,15 @@ const previewDoc = computed(() => `
 
 
 function handleSave() {
-  localStorage.setItem('htmlCode', htmlCode.value)
-  localStorage.setItem('cssCode', cssCode.value)
+  localStorage.setItem(htmlKey, htmlCode.value)
+  localStorage.setItem(cssKey, cssCode.value)
   alert('Code saved!')
+}
+
+function getLandingRequirements(progress, landingPage) {
+  return landingPage.requirements.filter(req =>
+    progress.unlockedConcepts.includes(req.concept)
+  )
 }
 </script>
 

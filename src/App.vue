@@ -3,7 +3,9 @@
   <div class="container py-4">
     <h1 class="mb-4 text-center">Web Design Game</h1>
   </div>
-  <GameWindow></GameWindow>
+  <div id="main">
+    <router-view />
+  </div>
   <Footer></Footer>
 </template>
 
@@ -11,4 +13,5 @@
 import Nav from './components/Nav.vue';
 import GameWindow from './components/GameWindow.vue';
 import Footer from './components/Footer.vue';
+import LevelView from './views/LevelView.vue';
 </script>
