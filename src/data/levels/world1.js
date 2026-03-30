@@ -48,7 +48,7 @@ export const world1 = [
 
     instructions: `
         <h2>Adding Lists</h2>
-        <p>Lists in HTML present information in a more visually appealing way than listing the same items in paragraphs. They are used to display related items separately, allowing the reader to more easily parse the information. There are three types of lists: ordered lists <code>&lt;ol&gt; &lt;/ol&gt;</code>, unordered lists <code>&lt;ul&gt; &lt;/ul&gt;</code>, and description lists <code>&lt;dl&gt; &lt;/dl&gt;</code>, though description lists are rarely ever used.</p>
+        <p>Lists in HTML present information in a more visually appealing way than listing the same items in paragraphs. They are used to display related items separately, allowing the reader to more easily parse the information. There are three types of lists: ordered lists &lt;code&gt;&lt;ol&gt; &lt;/ol&gt;&lt;/code&gt;, unordered lists &lt;code&gt;&lt;ul&gt; &lt;/ul&gt;&lt;/code&gt;, and description lists &lt;code&gt;&lt;dl&gt; &lt;/dl&gt;&lt;/code&gt;, though description lists are rarely ever used.</p>
 
         <h2>Ordered Lists</h2>
         <p>Ordered lists are numbered; these can be used for instructions or events that occur in a sequence.</p>
@@ -69,7 +69,7 @@ export const world1 = [
         </ul>
 
         <h2>List Items</h2>
-        <p>Within ordered and unordered lists, the individual list items are enclosed in list item tags <code>&lt;li&gt; &lt;/li&gt;</code>. Lists can have any number of list items, and the numbers in ordered lists will automatically count up with each item.</p>
+        <p>Within ordered and unordered lists, the individual list items are enclosed in list item tags &lt;code&gt;&lt;li&gt; &lt;/li&gt;&lt;/code&gt;. Lists can have any number of list items, and the numbers in ordered lists will automatically count up with each item.</p>
 
         <h2>Task</h2>
         <p>The comment in the starter code contains a complete sentence. Under the paragraph, create an <strong>unordered list</strong> of the chores. Remember to capitalize the first word of each list item.</p>
