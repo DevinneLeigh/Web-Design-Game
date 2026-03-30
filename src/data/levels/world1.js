@@ -50,8 +50,8 @@ export const world1 = [
         <h2>Adding Lists</h2>
         <p>Lists in HTML present information in a more visually appealing way than listing the same items in paragraphs.
         They are used to display related items separately, allowing the reader to more easily parse the information.
-        There are three types of lists: ordered lists <code><ol> </ol></code>, unordered lists <code><ul> </ul></code>, and
-        description lists <code><dl> </dl></code>, though description lists are rarely ever used.</p>
+        There are three types of lists: ordered lists (<ol> </ol>), unordered lists (<ul> </ul>), and
+        description lists (<dl> </dl>), though description lists are rarely ever used.</p>
 
         <h2>Ordered Lists</h2>
         <p>Ordered lists are numbered; these can be used for instructions or events that occur in a sequence.</p>
@@ -73,7 +73,7 @@ export const world1 = [
         </ul>
 
         <h2>List Items</h2>
-        <p>Within ordered and unordered lists, the individual list items are enclosed in list item tags <code><li> </li></code>.
+        <p>Within ordered and unordered lists, the individual list items are enclosed in list item tags (<li> </li>).
         Lists can have any number of list items, and the numbers in ordered lists will automatically count up with each item.</p>
 
         <h2>Task</h2>
@@ -93,7 +93,7 @@ export const world1 = [
     completion: {
       requiredHTML: [`<!--Today, I need to mow the lawn, wash the dishes, and walk the dog.-->
       <p>Today's chores:</p>
-      
+
       <ul>
         <li>Mow the lawn</li>
         <li>Wash the dishes</li>
