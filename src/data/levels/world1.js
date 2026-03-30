@@ -73,12 +73,12 @@ export const world1 = [
         </ul>
 
         <h2>List Items</h2>
-        <p>Within ordered and unordered lists, the individual list items are enclosed in list item tags <code><li> </li>.
+        <p>Within ordered and unordered lists, the individual list items are enclosed in list item tags <code><li> </li></code>.
         Lists can have any number of list items, and the numbers in ordered lists will automatically count up with each item.</p>
 
         <h2>Task</h2>
         <p>The comment in the starter code contains a complete sentence. Under the paragraph, create an <strong>unordered list</strong>
-        of the chores. Remember to capitalize the first word of each list item.
+        of the chores. Remember to capitalize the first word of each list item.</p>
     `,
     hint: "Each item in a list must be placed within a list item tag.",
 
@@ -86,14 +86,19 @@ export const world1 = [
       html: `<!--Today, I need to mow the lawn, wash the dishes, and walk the dog.-->
       <p>Today's chores:</p>
 
-
-`,
+      `,
       css: ``
     },
 
     completion: {
-      requiredHTML: [],
-
+      requiredHTML: [`<!--Today, I need to mow the lawn, wash the dishes, and walk the dog.-->
+      <p>Today's chores:</p>
+      
+      <ul>
+        <li>Mow the lawn</li>
+        <li>Wash the dishes</li>
+        <li>Walk the dog</li>
+      </ul>`],
       requiredCSS: []
     }
   },
