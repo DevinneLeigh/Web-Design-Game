@@ -2,6 +2,7 @@ export const world1 = [
   {
     id: "w1-l1",
     title: "Heading and Paragraphs",
+    description: "Learn how to add headings and paragraphs to your webpage.",
     concept: "html-headings",
     unlocked: true,
 
@@ -43,44 +44,31 @@ export const world1 = [
     {
     id: "w1-l2",
     title: "Lists",
+    description: "Learn how to add ordered and unordered lists to your webpage.",
     concept: "html-lists",
     unlocked: false,
 
     instructions: `
         <h2>Adding Lists</h2>
-        <p>Lists in HTML present information in a more visually appealing way than listing the same items in paragraphs. They are used to display related items separately, allowing the reader to more easily parse the information. There are three types of lists: ordered lists &lt;code&gt;&lt;ol&gt; &lt;/ol&gt;&lt;/code&gt;, unordered lists &lt;code&gt;&lt;ul&gt; &lt;/ul&gt;&lt;/code&gt;, and description lists &lt;code&gt;&lt;dl&gt; &lt;/dl&gt;&lt;/code&gt;, though description lists are rarely ever used.</p>
-
-        <h2>Ordered Lists</h2>
-        <p>Ordered lists are numbered; these can be used for instructions or events that occur in a sequence.</p>
-
-        <ol>
-          <li>First</li>
-          <li>Second</li>
-          <li>Third</li>
-        </ol>
-
-        <h2>Unordered Lists</h2>
-        <p>Unordered lists have bullet points rather than numbers, and while they show the list items in the order they were written, the reader knows that the order of the items does not matter.</p>
-
-        <ul>
-          <li>Coffee</li>
-          <li>Tea</li>
-          <li>Milk</li>
-        </ul>
-
-        <h2>List Items</h2>
-        <p>Within ordered and unordered lists, the individual list items are enclosed in list item tags &lt;code&gt;&lt;li&gt; &lt;/li&gt;&lt;/code&gt;. Lists can have any number of list items, and the numbers in ordered lists will automatically count up with each item.</p>
-
-        <h2>Task</h2>
-        <p>The comment in the starter code contains a complete sentence. Under the paragraph, create an <strong>unordered list</strong> of the chores. Remember to capitalize the first word of each list item.</p>
     `,
-    hint: "Each item in a list must be placed within a list item tag.",
+    hint: "",
 
     starterCode: {
-      html: `<!--Today, I need to mow the lawn, wash the dishes, and walk the dog.-->
-      <p>Today's chores:</p>
+      html: `<h2>An Unordered HTML List</h2>
 
-      `,
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>  
+
+<h2>An Ordered HTML List</h2>
+
+<ol>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol> `,
       css: ``
     },
 
@@ -100,6 +88,7 @@ export const world1 = [
   {
     id: "w1-l3",
     title: "Formatting",
+    description: "Learn how to format text using HTML tags.",
     concept: "html-formatting",
     unlocked: false,
 
@@ -153,6 +142,7 @@ export const world1 = [
       {
     id: "w1-l5",
     title: "Divs, Spans, and Sections",
+    description: "Learn how to use divs, spans, and sections to structure your webpage.",
     concept: "html-div",
     unlocked: false,
 
@@ -176,6 +166,7 @@ export const world1 = [
         {
     id: "w1-l6",
     title: "Classes and IDs",
+    description: "Learn how to use classes and IDs to style specific elements on your webpage.",
     concept: "html-classes-ids",
     unlocked: false,
 
@@ -199,6 +190,7 @@ export const world1 = [
       {
     id: "w1-l7",
     title: "Images",
+    description: "Learn how to add images to your webpage using the img tag.",
     concept: "html-images",
     unlocked: false,
 
@@ -221,6 +213,7 @@ export const world1 = [
       {
     id: "w1-l8",
     title: "Tables",
+    description: "Learn how to add tables to your webpage using the table tag.",
     concept: "html-tables",
     unlocked: false,
 
@@ -243,6 +236,7 @@ export const world1 = [
       {
     id: "w1-l9",
     title: "Parent and Child",
+    description: "Learn about parent and child elements in HTML and how they relate to each other.",
     concept: "html-parent-child",
     unlocked: false,
 
@@ -265,6 +259,7 @@ export const world1 = [
   {
     id: "w1-l10",
     title: "Forms",
+    description: "Learn how to create forms in HTML to collect user input.",
     concept: "html-forms",
     unlocked: false,
 

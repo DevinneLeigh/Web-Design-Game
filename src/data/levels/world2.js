@@ -2,6 +2,7 @@ export const world2 = [
   {
     id: "w2-l1",
     title: "Colors",
+    description: "Learn how to use colors in CSS to style your webpage.",
     concept: "css-colors",
 
     instructions: `
@@ -97,6 +98,7 @@ export const world2 = [
   {
     id: "w2-l2",
     title: "Fonts and Formatting",
+    description: "Learn how to use different fonts and format text using CSS.",
     concept: "css-fonts-formatting",
     unlocked: false,
 
@@ -122,6 +124,7 @@ export const world2 = [
   {
     id: "w2-l3",
     title: "Backgrounds",
+    description: "Learn how to add backgrounds to your webpage using CSS.",
     concept: "css-backgrounds",
     unlocked: false,
 
@@ -145,6 +148,7 @@ export const world2 = [
   {
     id: "w2-l4",
     title: "Padding and Margin",
+    description: "Learn how to use padding and margin in CSS to create space around elements on your webpage.",
     concept: "css-padding-margin",
     unlocked: false,
 
@@ -168,6 +172,7 @@ export const world2 = [
   {
     id: "w2-l5",
     title: "Borders and Rounded Corners",
+    description: "Learn how to add borders and rounded corners to elements on your webpage using CSS.",
     concept: "css-borders-rounded-corners",
     unlocked: false,
 
@@ -195,6 +200,7 @@ export const world2 = [
   {
     id: "w2-l6",
     title: "Gradients",
+    description: "Learn how to create gradient backgrounds and effects using CSS.",
     concept: "css-Gradients",
     unlocked: false,
 
@@ -217,6 +223,7 @@ export const world2 = [
   {
     id: "w2-l7",
     title: "Text and Box Shadow",
+    description: "Learn how to add shadows to text and boxes on your webpage using CSS.",
     concept: "css-shadows",
     unlocked: false,
 
@@ -264,6 +271,7 @@ export const world2 = [
   {
     id: "w2-l9",
     title: "Grid Layout",
+    description: "Learn how to create grid layouts for your webpage using CSS Grid.",
     concept: "css-grid",
     unlocked: false,
 
@@ -287,6 +295,7 @@ export const world2 = [
   {
     id: "w2-l10",
     title: "Animation",
+    description: "Learn how to create animations on your webpage using CSS.",
     concept: "css-animation",
     unlocked: false,
 

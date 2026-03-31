@@ -20,15 +20,36 @@ function goToLevel(levelId) {
     >
       <h2>{{ world.name }}</h2>
 
-      <div class="levels">
-        <button
+      <div class="levels accordion" :id="`level-accordion-${world.id}`">
+          <div
           v-for="level in world.levels"
           :key="level.id"
-          @click="goToLevel(level.id)"
-          class="level-node" 
         >
-          {{ level.title }}
-        </button>
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"   
+          :data-bs-target="`#collapse-${level.id}`"
+          :aria-controls="`collapse-${level.id}`">
+            {{ level.title }}
+          </button>
+        </h2>
+        <div
+          :id="`collapse-${level.id}`"
+          class="accordion-collapse collapse"
+          :data-bs-parent="'#level-accordion'"
+        >
+          <div class="accordion-body">
+            {{ level.description }}
+            <div class="level-actions">
+              <button
+                @click="goToLevel(level.id)"
+                class="level-node" 
+              >
+                Go to level
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   </div>

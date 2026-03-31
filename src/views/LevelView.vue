@@ -17,6 +17,8 @@ const level = allLevels.find(l => l.id === route.params.id)
 </script>
 
 <template>
-  <GameWindow :level="level" />
+  <div class="level-main">
+    <GameWindow :level="level" />
+  </div>
 </template>
 
