@@ -127,18 +127,19 @@ export const world2 = [
 
     instructions: `
         <h2>Backgrounds</h2>
+        <p>See if you can add a background color to the textbox.</p>
     `,
-    hint: "",
+    hint: "Use background-color.",
 
     starterCode: {
-      html: ``,
-      css: ``
+      html: `<div class ="box">Hello World!</div>`,
+      css: `.box {font-size: 32px}`
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: ["box"],
 
-      requiredCSS: []
+      requiredCSS: ["background-color"]
     }
   },
   {
@@ -149,18 +150,19 @@ export const world2 = [
 
     instructions: `
         <h2>Padding and Margin</h2>
+        <p>Now, let's try adding some padding and margin around the box to create space.</p>
     `,
-    hint: "",
+    hint: "Padding creates space inside the element, while margin creates space outside the element.",
 
     starterCode: {
-      html: ``,
-      css: ``
+      html: `<div class ="box">Hello World!</div>`,
+      css: `.box {background-color: Lightblue; font-size: 32px;}`
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: ["box"],
 
-      requiredCSS: []
+      requiredCSS: ["padding", "margin"]
     }
   },
   {
@@ -171,21 +173,23 @@ export const world2 = [
 
     instructions: `
         <h2>Borders</h2>
-        <p></p>
+        <p>Try adding a border to the box.</p>
         <h2>Rounded Corners</h2>
-        <p></p>
+        <p>Now, make the corners rounded.</p>
     `,
-    hint: "",
+    hint: "Use border and border-radius.",
 
     starterCode: {
-      html: ``,
-      css: ``
+      html: `<div class="box">Hello World!</div>`,
+      css: `.box {
+  background-color: lightblue;
+  padding: 20px;`
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: ["box"],
 
-      requiredCSS: []
+      requiredCSS: ["border", "border-radius"]
     }
   },
   {
