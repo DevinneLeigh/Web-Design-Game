@@ -29,17 +29,16 @@ import { worlds } from "@/data/levels"
         <div
           :id="`collapse-${level.id}`"
           class="accordion-collapse collapse"
-          :data-bs-parent="'#level-accordion'"
+          :data-bs-parent="`#level-accordion-${world.id}`"
         >
-          <div class="accordion-body">
+          <div class="accordion-body level-body">
             {{ level.description }}
             <div class="level-actions">
-              <button
-                @click="goToLevel(level.id)"
-                class="level-node" 
-              >
-                Go to level
-              </button>
+                <RouterLink :to="`/level/${level.id}`">
+                <button class="level-node">
+                    Start
+                </button>
+                </RouterLink>
             </div>
           </div>
         </div>

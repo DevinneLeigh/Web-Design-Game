@@ -7,6 +7,7 @@ $light: #ABB2BF;
 $light2: #7D8799;
 $pink: #E06C75;
 $blue: #56B6C2;
+$blue2: #15373B;
 $purple: #C678DD;
 $green: #98C379;
 $white: #ececef;
@@ -266,13 +267,40 @@ iframe {
     width: 50%;
     .levels {
       border-radius: 20px;
+      .level-body {
+        border: solid 2px $blue;
+        color: $white;
+        padding: 10px 20px;
+        .level-actions {
+          margin-top: 20px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          button{
+            text-shadow: .7px .7px 1px #0000007c;
+            border: solid 2px $purple;
+            border-radius: 20px;
+            background: $purple;
+            padding: 5px 30px;
+            color: $dark;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            &:hover {
+              border: solid 2px $white;
+              background: none;
+              color: $white;
+            }
+          }
+        }
+      }
     }
   }
 }
 
 
-/* Default button */
-.accordion-button, .accordion-button:not(.collapsed){
+.accordion-button{
+  text-shadow: .7px .7px 1px #0000007c;
   background: none;
   color: $light;
   border: solid 2px $blue;
@@ -280,25 +308,29 @@ iframe {
   margin-top: 5px;
 }
 
+.accordion-button:not(.collapsed){
+  background: $blue;
+  color: $dark;
+  border: solid 2px $blue;
+}
 
-/* Always make the arrow white */
-.accordion-button::after, .accordion-button:not(.collapsed)::after {
+
+/* Arrow color */
+.accordion-button::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgb(171 178 191)' stroke-width='2' viewBox='0 0 16 16'%3e%3cpolyline points='4 6 8 10 12 6'/%3e%3c/svg%3e");
+
+}
+/* Accordion open arrow color */
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgb(33 37 43)' stroke-width='2' viewBox='0 0 16 16'%3e%3cpolyline points='4 6 8 10 12 6'/%3e%3c/svg%3e");
 
 }
 
 /* Remove blue focus ring */
 .accordion-button:focus {
   box-shadow: none;
-  color: $light;
-  border: solid 2px $blue;
-  border-radius: 12px 12px 0 0;
 }
 
-.accordion-body, .accordion-body:not(.collapsed) {
-  background-color: $dark2;
-  padding: 10px;
-}
 
 
 
