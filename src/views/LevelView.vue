@@ -5,10 +5,6 @@ import GameWindow from "@/components/GameWindow.vue"
 
 const route = useRoute()
 
-// const level = worlds
-//   .flatMap(w => w.levels)
-//   .find(l => l.id === route.params.id)
-
 const allLevels = [
   ...worlds.flatMap(w => w.levels),
   ...playerProject
