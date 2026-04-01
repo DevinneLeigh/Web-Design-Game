@@ -12,6 +12,7 @@
         </div>
 </template>
 <script>
+import confetti from 'canvas-confetti';
 import star from '../assets/styles/star.gif'
 export default {
         name: "Popup",
@@ -23,6 +24,13 @@ export default {
         },
         data() {
                 return { star }
+        },
+        watch: {
+                open(newVal) {
+                        if (newVal) {
+                                confetti()
+                        }
+                }
         },
         methods: {
                 closePopup() {
