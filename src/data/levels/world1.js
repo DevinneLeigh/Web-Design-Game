@@ -148,8 +148,23 @@ export const world1 = [
 
     instructions: `
         <h2>Adding a Div Container</h2>
+        <p>The <code>&lt;div&gt;</code> tag is a block level element used for grouping other elements together. By applying CSS styles to your divs, you can easily control the layout of your webpage.</p>
+
+        <h2>Adding a Span Tag</h2>
+        <p>The <code>&lt;span&gt;</code> tag is an inline element used to modify part of a webpage. It doesn't do anything on its own, but can be modified easily  with CSS or JavaScript.</p>
+        <p>For example, if you wanted to change the color of one word, you could put it in a span tag and then style it:</p>
+        <code>
+          &lt;p&gt;My favorite color is &lt;span style="color:green"&gt;green&lt;/span&gt;.&lt;/p&gt;
+        </code>
+        <p>My favorite color is <span style="color: green;">Green</span>.</p>
+
+        <h2>Adding a Section Tag</h2>
+        <p>The <code>&lt;section&gt;</code> tag is used to group together related content within a larger webpage. Sections should include a heading tag.</p>
+
+        <h2>Challenge</h2>
+        <p>Create a div. Within your div, add two sections containing a h2 and a p tag. Using the span tag, make the first word in each p tag 30px large.</p>
     `,
-    hint: "",
+    hint: "To style all spans at once, apply your styling to the span tag itself in your CSS.",
 
     starterCode: {
       html: ``,
