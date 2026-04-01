@@ -29,7 +29,7 @@ import { worlds } from "@/data/levels"
         <div
           :id="`collapse-${level.id}`"
           class="accordion-collapse collapse"
-          :data-bs-parent="'#level-accordion-${world.id}'"
+          :data-bs-parent="`#level-accordion-${world.id}`"
         >
           <div class="accordion-body">
             {{ level.description }}
