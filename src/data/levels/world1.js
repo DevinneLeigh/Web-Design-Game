@@ -9,18 +9,26 @@ export const world1 = [
     instructions: `
     <h2>Adding Headings and text</h2>
 
-    <p></p>
+    <p>Headings and text are used to structure and organize content on a webpage.
+    They are the foundation of almost any webpage you come across. As such, they are the first thing this tutorial is going to cover.</p>
 
-    <ol>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ol>
+    <dl>
+      <dt>Headings</dt>
+      <dd>Headings are used to define the structure and hierarchy of content on a webpage. There are six levels of headings in HTML:
+      h1, h2, h3, h4, h5, h6. h1 is the most important heading; it's where the headline of the page usually goes, and there should only
+      be one h1 per page. From h1 to h6, the importance decreases, along with how large the font is.</dd>
 
-    <p></p>
+      <dt>Paragraphs</dt>
+      <dd>Paragraphs are used to define blocks of text on a webpage. Within the angle brackets, the tag for paragraphs is quite simple: p.
+      Even though it says it's a paragraph tag, it's typically used for almost all text content on a webpage. When you use a p tag, there 
+      is automatically line space added before and after the text, making it easier to read.</dd>
+    </dl>
+
+    <p>For this exercise, just examine the different headings and paragraph, noting the differences and similarities, then try to make your own! 
+    Please try to include at least two different heading tags and one paragraph tag of your own, though you can do more if you would like.</p>
 
     `,
-    hint: "",
+    hint: "The smaller the number for headings, the larger and more important it usually is.",
 
     starterCode: {
       html: `<h1>Heading 1</h1>
