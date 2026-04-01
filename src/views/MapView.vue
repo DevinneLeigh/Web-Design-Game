@@ -1,8 +1,6 @@
 
 <script setup>
 import { useRouter } from "vue-router"
-import { RouterLink } from "vue-router"
-import { worlds } from "@/data/levels"
 import LevelAccordion from "../components/LevelAccordion.vue"
 
 const router = useRouter()
