@@ -1,24 +1,11 @@
 
 <script setup>
-import { useRouter } from "vue-router"
 import { RouterLink } from "vue-router"
 import { worlds } from "@/data/levels"
-import LevelAccordion from "../components/LevelAccordion.vue"
 
-const router = useRouter()
-
-function goToLevel(levelId) {
-  router.push(`/level/${levelId}`)
-}
 </script>
 
 <template>
-  <div>
-    <LevelAccordion />
-  </div>
-</template>
-
-<!-- <template>
   <div class="map">
     <div
       v-for="world in worlds"
@@ -63,4 +50,4 @@ function goToLevel(levelId) {
     <RouterLink to="/level/project1">
     <button class="custom-button">Go to Project</button>
   </RouterLink>
-</template> -->
+</template>

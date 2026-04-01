@@ -2,7 +2,7 @@ export const world1 = [
   {
     id: "w1-l1",
     title: "Heading and Paragraphs",
-    description: "Learn how to add headings and paragraphs to your webpage.",
+    description: "Learn how to structure text content using HTML headings and paragraphs. Headings <h1> through <h6> define the hierarchy of your page, making it easier for users and search engines to understand your content. Paragraphs <p> are used to group blocks of text into readable sections. In this level, you’ll practice organizing content clearly and building the foundation of a well-structured webpage.",
     concept: "html-headings",
     unlocked: true,
 
