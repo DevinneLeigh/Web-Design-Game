@@ -52,20 +52,21 @@ export default {
   name: "Popup",
   emits: ['close'],
   props: {
-    open: { type: Boolean, default: false },
-    title: { type: String, default: '' },
-    message: { type: String, default: '' }
-  },
+        open: { type: Boolean, default: false },
+        title: { type: String, default: '' },
+        message: { type: String, default: '' },
+        showConfetti: { type: Boolean, default: true }
+},
   data() {
     return { star }
   },
-  watch: {
-    open(newVal) {
-      if (newVal) {
-        confetti()
-      }
-    }
-  },
+ watch: {
+        open(newVal) {
+                if (newVal && this.showConfetti) {
+                        confetti()
+                }
+        }
+},
   methods: {
     closePopup() {
       this.$emit('close')
