@@ -53,6 +53,7 @@ $xxl: 1400px;
 }
 **/
 
+
 .bg-dark {
   background-color: $dark !important;
 }
@@ -62,7 +63,7 @@ $xxl: 1400px;
 #app {
   height: 100%;
   width: 100%;
-  padding: 5px 25px;
+  padding: 0 25px;
   background: $dark;
   color: $light;
 }
@@ -70,9 +71,13 @@ $xxl: 1400px;
 .level-main {
   height: 100%;
   width: 100%;
-    @include lg { // 960px
+  @include lg { // 960px
     height: calc(100vh - 160px);
   }
+}
+
+.map-main {
+  padding: 40px 0 90px 0;
 }
 
 .game-window {
@@ -200,6 +205,10 @@ $xxl: 1400px;
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   p {
     margin: 0;
   }
@@ -264,12 +273,18 @@ iframe {
 
 .map {
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
   gap: 20px;
   max-width: 1200px;
   margin: auto;
+  @include md { // 768px
+    flex-flow: row;
+  }
   .world {
-    width: 50%;
+    width: 100%;
+    @include md { // 768px
+      width: 50%;
+    }
     .levels {
       border-radius: 20px;
       .level-body {

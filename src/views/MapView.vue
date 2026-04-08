@@ -11,14 +11,14 @@ function closeLanding() {
 </script>
 
 <template>
-  <Popup
-    :open="showLanding"
-    title="Welcome to the Web Design Game"
-    message="Learn web design by playing through interactive HTML and CSS coding challenges."
-    @close="closeLanding"
-  />
+  <div class="map-main">
+    <Popup
+      :open="showLanding"
+      title="Welcome to the Web Design Game"
+      message="Learn web design by playing through interactive HTML and CSS coding challenges."
+      @close="closeLanding"
+    />
 
-  <div>
     <LevelAccordion />
   </div>
 </template>
