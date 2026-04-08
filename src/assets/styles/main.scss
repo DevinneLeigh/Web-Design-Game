@@ -71,7 +71,7 @@ $xxl: 1400px;
   height: 100%;
   width: 100%;
     @include lg { // 960px
-    height: calc(100vh - 312px);
+    height: calc(100vh - 160px);
   }
 }
 
@@ -199,9 +199,14 @@ $xxl: 1400px;
   border-left: 3px solid $purple; 
 }
 
-footer a {
-  color: $blue;
-  text-decoration: none;
+footer {
+  p {
+    margin: 0;
+  }
+  a {
+    color: $blue;
+    text-decoration: none;
+  }
 }
 
 

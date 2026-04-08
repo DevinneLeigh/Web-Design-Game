@@ -33,8 +33,8 @@ function closeLandingHelp() {
 
   <Nav></Nav>
 
-  <div class="container py-4">
-    <h1 class="mb-4 text-center">Web Design Game</h1>
+  <div class="container py-2">
+    <h1 class="text-center">Web Design Game</h1>
   </div>
 
   <div id="main">
