@@ -288,7 +288,6 @@ iframe {
     .levels {
       border-radius: 20px;
       .level-body {
-        border: solid 2px $blue;
         color: $white;
         padding: 10px 20px;
         .level-actions {
@@ -323,16 +322,39 @@ iframe {
   text-shadow: .7px .7px 1px #0000007c;
   background: none;
   color: $light;
-  border: solid 2px $blue;
   border-radius: 12px 12px 0 0;
   margin-top: 5px;
 }
 
 .accordion-button:not(.collapsed){
-  background: $blue;
   color: $dark;
+}
+
+
+
+// Level locked 
+// .level-body, .accordion-button, .accordion-button:not(.collapsed) {
+//   border: solid 2px $light;
+// }
+// .accordion-button:not(.collapsed) {
+//   background: $light;
+// }
+
+// Level todo
+.level-body, .accordion-button, .accordion-button:not(.collapsed) {
   border: solid 2px $blue;
 }
+.accordion-button:not(.collapsed) {
+  background: $blue;
+}
+
+// Level completed
+// .level-body, .accordion-button,.accordion-button:not(.collapsed) {
+//   border: solid 2px $green;
+// }
+// .accordion-button:not(.collapsed) {
+//   background: $green;
+// }
 
 
 
