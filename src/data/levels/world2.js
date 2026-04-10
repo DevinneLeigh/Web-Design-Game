@@ -7,8 +7,23 @@ export const world2 = [
 
     instructions: `
         <h2>Colors in CSS</h2>
+
+        <p> Add 3 new CSS classes to match the style text colors. <p>
+
+        <p>Requirements:<p>
+
+        <p>1. Create a class named ".gray" and set its color to gray<p>
+        <p>2. Create a class named ".slateblue" and set its color to slateblue<p>
+        <p>3. Create a class named ".violet" and set its color to violet<p>
+
+        <p>Each class should use the "color" property.<p>
+
+        <p>Example format:<p>
+        <p>.classname {<p>
+        <p>color: value;<p>
+        <p>}<p>
     `,
-    hint: "",
+    hint: "Your goal: make the class name match the color of the text name.",
 
     starterCode: {
       html: `<div class="flex">
@@ -21,7 +36,6 @@ export const world2 = [
         <h3 class="gray">Gray</h3>
         <h3 class="slateblue">SlateBlue</h3>
         <h3 class="violet">Violet</h3>
-        <h3 class="lightgray">LightGray</h3>
     </div>
     <div>
         <h2>Hex Vale Colors</h2>
@@ -50,18 +64,6 @@ export const world2 = [
 }
 .mediumseagreen {
   color: mediumseagreen;
-}
-.gray {
-  color: gray;
-}
-.slateblue {
-  color: slateblue;
-}
-.violet {
-  color: violet;
-}
-.lightgray {
-  color: lightgray;
 }
 .hex-red {
   color: #ff0000;
