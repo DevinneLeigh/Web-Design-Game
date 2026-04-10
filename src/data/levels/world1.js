@@ -152,12 +152,35 @@ export const world1 = [
 
     instructions: `
         <h2>Adding Buttons</h2>
+        <p>Goal: Create a simple styled button</p>
+
+        <p>HTML Tasks:</p>
+        <p>1. Add a &lt;button&gt; element</p>
+        <p>2. Give it the class "btn"</p>
+        <p>3. Set the text to: Click Me</p>
+
+        <p>CSS Tasks:</p>
+
+        <p>4. Create a .btn class</p>
+
+        <p>5. Add these styles:</p>
+        <p>background-color: blue;</p>
+        <p>color: white;</p>
+        <p>padding: 10px;</p>
+        <p>border: none;</p>
     `,
-    hint: "",
+    hint: "You should see a blue button with white text that says (Click Me)",
 
     starterCode: {
-      html: ``,
-      css: ``
+      html: `<head>
+      <h1>Adding Buttons</h1>
+      </head>
+      <body>
+
+      <!-- Add your button Here -->
+
+      </body>`,
+      css: `/* Add your .btn class below */`
     },
 
     completion: {
