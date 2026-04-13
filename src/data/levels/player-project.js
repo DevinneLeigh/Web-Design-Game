@@ -1,11 +1,11 @@
 export const playerProject = [
-  {
-    id: "project1",
-    title: "Add a Heading",
-    concept: "html-headings",
-    unlocked: true,
+    {
+        id: "project1",
+        title: "Add a Heading",
+        concept: "html-headings",
+        unlocked: true,
 
-    instructions: `
+        instructions: `
     <h2>Instructions</h2>
 
     <p>
@@ -47,41 +47,71 @@ export const playerProject = [
     </p>
 
     `,
-    hint: "Use <h1>...</h1> inside the body.",
+        hint: "Use <h1>...</h1> inside the body.",
 
-    starterCode: {
-      html: `<div></div>`,
-      css: ``
+        starterCode: {
+            html: `<div></div>`,
+            css: ``,
+        },
+
+        completion: {
+            // code validator will collect all elements with a tag filter out any that don't meet the requirement
+            // tag: element required eg. "img"
+            // class: the tag needs to have all classes separated by a space "classA ClassB"
+            // childElements: required elements found under object with their own requirements
+            // order: you need to find an element that meets the order 2 requirements after an order order 1 element
+
+            // content: text needed to be found within an element
+            // contentStrictness: "loose" will make capitalization of text content not matter
+            requiredHTML: [
+                {
+                    tag: "div",
+                    class: "jumbotron",
+
+                    childElements: [
+                        {
+                            tag: "h1",
+                            order: 1,
+
+                            contentStrictness: "loose",
+                            content: "Welcome to My Website",
+                        },
+                        {
+                            tag: "p",
+                            order: 2,
+
+                            contentStrictness: "loose",
+                            content:
+                                "Learn web design by completing challenges.",
+                        },
+                    ],
+                },
+            ],
+
+            requiredCSS: [],
+        },
     },
 
-    completion: {
-      requiredHTML: ["h1"],
+    {
+        id: "project-2",
+        title: "Add a Button",
+        concept: "html-buttons",
+        unlocked: false,
 
-      requiredCSS: []
-    }
-
-  },
-
-  {
-    id: "project-2",
-    title: "Add a Button",
-    concept: "html-buttons",
-    unlocked: false,
-
-    instructions: `
+        instructions: `
         world 1 - level 2
     `,
-    hint: "Use <h1>...</h1> inside the body.",
+        hint: "Use <h1>...</h1> inside the body.",
 
-    starterCode: {
-      html: `<h1>My Page</h1>`,
-      css: ``
+        starterCode: {
+            html: `<h1>My Page</h1>`,
+            css: ``,
+        },
+
+        completion: {
+            requiredHTML: ["h1"],
+
+            requiredCSS: [],
+        },
     },
-
-    completion: {
-      requiredHTML: ["h1"],
-
-      requiredCSS: []
-    }
-  }
-]
+];
