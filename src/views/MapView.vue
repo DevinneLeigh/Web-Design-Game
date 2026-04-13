@@ -1,38 +1,24 @@
-
 <script setup>
-import { useRouter } from "vue-router"
-import { RouterLink } from "vue-router"
-import { worlds } from "@/data/levels"
+import { ref } from "vue"
+import LevelAccordion from "../components/LevelAccordion.vue"
+import Popup from "../components/Popup.vue"
 
-const router = useRouter()
+const showLanding = ref(true)
 
-function goToLevel(levelId) {
-  router.push(`/level/${levelId}`)
+function closeLanding() {
+  showLanding.value = false
 }
 </script>
 
 <template>
-  <div class="map">
-    <div
-      v-for="world in worlds"
-      :key="world.id"
-      class="world"
-    >
-      <h2>{{ world.name }}</h2>
+  <div class="map-main">
+    <Popup
+      :open="showLanding"
+      title="Welcome to the Web Design Game"
+      message="Learn web design by playing through interactive HTML and CSS coding challenges."
+      @close="closeLanding"
+    />
 
-      <div class="levels">
-        <button
-          v-for="level in world.levels"
-          :key="level.id"
-          @click="goToLevel(level.id)"
-          class="level-node" 
-        >
-          {{ level.title }}
-        </button>
-      </div>
-    </div>
+    <LevelAccordion />
   </div>
-    <RouterLink to="/level/project1">
-    <button class="custom-button">Go to Project</button>
-  </RouterLink>
 </template>

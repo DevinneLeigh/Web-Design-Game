@@ -36,6 +36,13 @@
     <div class="output">
       <iframe class="preview" :srcdoc="previewDoc"></iframe>
     </div>
+    
+    <Popup
+  :open="showCompletionPopup"
+  :title="`${level.title} Complete`"
+  message="Your code met all the requirements. Good job!"
+  @close="closeCompletionPopup"
+/>
   </div>
 </template>
 
@@ -44,8 +51,10 @@ import { ref, computed } from 'vue'
 import CodeEditor from './CodeEditor.vue'
 import GameInstructions from './GameInstructions.vue'
 import Button from './Button.vue'
+import Popup from './Popup.vue'
 
 const activeTab = ref('html')
+const showCompletionPopup = ref(false)
 
 const props = defineProps({
   level: Object
@@ -69,15 +78,26 @@ const previewDoc = computed(() => `
 
 
 function handleSave() {
-  localStorage.setItem(htmlKey, htmlCode.value)
-  localStorage.setItem(cssKey, cssCode.value)
-  alert('Code saved!')
+  const isCompleteNow = isLevelComplete()
+  showCompletionPopup.value = isCompleteNow
 }
 
-function getLandingRequirements(progress, landingPage) {
-  return landingPage.requirements.filter(req =>
-    progress.unlockedConcepts.includes(req.concept)
+function closeCompletionPopup() {
+  showCompletionPopup.value = false
+}
+
+function isLevelComplete() {
+  const completion = props?.level?.completion
+  if (!completion) return false
+  
+  const htmlOk = (htmlCode.value || '').toLowerCase().includes(
+    String(completion.requiredHTML?.[0] || '').toLowerCase()
   )
+  const cssOk = (cssCode.value || '').toLowerCase().includes(
+    String(completion.requiredCSS?.[0] || '').toLowerCase()
+  )
+  
+  return htmlOk && cssOk
 }
 </script>
 
