@@ -1,4 +1,4 @@
-<template>
+<template> 
   <div v-if="open" class="popup">
     <div class="popupInner">
       <h1>{{ title }}</h1>
@@ -6,32 +6,30 @@
       <div class="info-section">
         <h2>What this game is</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Ut ipsa ipsam et, fugit odit modi excepturi maiores 
-          praesentium doloribus autem vitae amet atque optio libero 
-          aspernatur magni, dolor distinctio facilis veniam nulla 
-          iusto rem eveniet perferendis. Consectetur suscipit dolorem, 
-          veniam obcaecati beatae voluptatum atque ipsum enim non at ab aperiam.
+          This game is a way to practice web design by fixing and improving different webpages. 
+          Each level gives you a layout that isn’t quite right, and your goal is to make it look 
+          better and function correctly using HTML and CSS. You will be provided with the instructions 
+          to learn how to do just that!
         </p>
       </div>
 
       <div class="info-section">
         <h2>How the game works</h2>
         <ul>
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
-          <li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
-          <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam.</li>
+          <li>Each level gives you a webpage with design problems</li>
+          <li>You edit the code to fix layout and styling issues</li>
+          <li>You can preview your changes live as you work</li>
+          <li>Fix all required issues to complete the level</li>
+          <li>Levels get harder as you continue through the game</li>
         </ul>
       </div>
 
       <div class="info-section">
         <h2>What you will learn</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Blanditiis, odio, harum dolor repudiandae aperiam adipisci
-           vitae quos aliquid ea suscipit inventore ab iusto, esse assumenda!
+          You will learn how to structure pages with HTML, style them using CSS, and fix common 
+          layout issues. This helps build real web development skills and improves your ability 
+          to design clean, user-friendly websites.
         </p>
       </div>
 
@@ -169,7 +167,6 @@ export default {
   }
 }
 
-/* mobile */
 @media (max-width: 767px) {
   .popup {
     padding: 16px;
@@ -213,7 +210,6 @@ export default {
   }
 }
 
-/* tablet */
 @media (min-width: 768px) and (max-width: 1023px) {
   .popup {
     padding: 3vw;
