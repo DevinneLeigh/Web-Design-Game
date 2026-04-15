@@ -4,7 +4,7 @@ import Nav from './components/Nav.vue'
 import Footer from './components/Footer.vue'
 import Popup from './components/Popup.vue'
 
-const showLandingHelp = ref(false)
+const showLandingHelp = ref(true)
 
 function openLandingHelp() {
   showLandingHelp.value = true
@@ -17,6 +17,7 @@ function closeLandingHelp() {
 
 <template>
   <button
+    v-if="!showLandingHelp"
     class="landing-button"
     @click="openLandingHelp"
   >
