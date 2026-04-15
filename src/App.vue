@@ -16,6 +16,13 @@ function closeLandingHelp() {
 </script>
 
 <template>
+    <button
+    v-if="!showLandingHelp && $route.path !== '/'"
+    class="back-button"
+    @click="$router.back()"
+  >
+    ← Back
+  </button>
   <button
     v-if="!showLandingHelp"
     class="landing-button"

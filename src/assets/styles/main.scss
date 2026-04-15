@@ -372,6 +372,29 @@ iframe {
   box-shadow: none;
 }
 
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100000;
+
+  background: #E06C75;
+  color: #21252B;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+
+  &:hover {
+    background: #C678DD;
+    color: #ececef;
+  }
+}
+
 .landing-button {
   position: fixed;
   top: 20px;
