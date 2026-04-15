@@ -3,7 +3,9 @@
     <div class="popupInner">
       <h1>{{ title }}</h1>
 
-      <div class="info-section">
+        <p>{{ message }}</p>
+
+      <!-- <div class="info-section">
         <h2>What this game is</h2>
         <p>
           This game is a way to practice web design by fixing and improving different webpages. 
@@ -31,7 +33,7 @@
           layout issues. This helps build real web development skills and improves your ability 
           to design clean, user-friendly websites.
         </p>
-      </div>
+      </div> -->
 
       <img :src="star" alt="Rotating star" />
 
@@ -43,6 +45,7 @@
 </template>
 
 <script>
+import { worlds } from "@/data/levels"
 import confetti from 'canvas-confetti'
 import star from '../assets/styles/star.gif'
 
