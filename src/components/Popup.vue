@@ -3,7 +3,7 @@
     <div class="popupInner">
       <h1>{{ title }}</h1>
 
-        <p>{{ message }}</p>
+        <div class="popupMessage" v-html="message"></div>
 
       <!-- <div class="info-section">
         <h2>What this game is</h2>
@@ -35,17 +35,17 @@
         </p>
       </div> -->
 
-      <img :src="star" alt="Rotating star" />
+      <img v-if="image" :src="image" alt="Popup Image" />
+      <!-- <img :src="star" alt="Rotating star" /> -->
 
       <button type="button" class="popupButton" @click="closePopup">
-        Start Game
+        {{ buttonText }}
       </button>
     </div>
   </div>
 </template>
 
 <script>
-import { worlds } from "@/data/levels"
 import confetti from 'canvas-confetti'
 import star from '../assets/styles/star.gif'
 
@@ -56,6 +56,8 @@ export default {
         open: { type: Boolean, default: false },
         title: { type: String, default: '' },
         message: { type: String, default: '' },
+        buttonText: { type: String, default: 'Continue' },
+        image: { type: String, default: '' },
         showConfetti: { type: Boolean, default: true }
 },
   data() {
@@ -97,7 +99,7 @@ export default {
   border: 3px solid #56b6c2;
   border-radius: 20px;
   padding: 35px;
-  text-align: left;
+  text-align: center;
   color: #abb2bf;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
 

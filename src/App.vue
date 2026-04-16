@@ -2,21 +2,21 @@
 import { ref } from "vue"
 import Nav from './components/Nav.vue'
 import Footer from './components/Footer.vue'
-import Popup from './components/Popup.vue'
+// import Popup from './components/Popup.vue'
 
-const showLandingHelp = ref(true)
+// const showLandingHelp = ref(true)
 
-function openLandingHelp() {
-  showLandingHelp.value = true
-}
+// function openLandingHelp() {
+//   showLandingHelp.value = true
+// }
 
-function closeLandingHelp() {
-  showLandingHelp.value = false
-}
+// function closeLandingHelp() {
+//   showLandingHelp.value = false
+// }
 </script>
 
 <template>
-    <button
+    <!-- <button
     v-if="!showLandingHelp && $route.path !== '/'"
     class="back-button"
     @click="$router.back()"
@@ -37,7 +37,7 @@ function closeLandingHelp() {
     title="Welcome to the Web Design Game"
     message="Learn web design by playing through interactive HTML and CSS coding challenges."
     @close="closeLandingHelp"
-  />
+  /> -->
 
   <Nav></Nav>
 

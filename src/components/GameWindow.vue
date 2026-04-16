@@ -41,6 +41,7 @@
   :open="showCompletionPopup"
   :title="`${level.title} Complete`"
   message="Your code met all the requirements. Good job!"
+  :image="star"
   @close="closeCompletionPopup"
 />
   </div>
@@ -52,6 +53,7 @@ import CodeEditor from './CodeEditor.vue'
 import GameInstructions from './GameInstructions.vue'
 import Button from './Button.vue'
 import Popup from './Popup.vue'
+import star from '../assets/styles/star.gif'
 
 const activeTab = ref('html')
 const showCompletionPopup = ref(false)
