@@ -189,9 +189,9 @@ $xxl: 1400px;
   background-color: $pink;
   color: $dark;
   border: none;
-  padding: 10px 20px;
+  //padding: 10px 20px;
   border-radius: 20px;
-  width: 150px;
+  //width: 150px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
@@ -262,10 +262,36 @@ footer {
 .editor {
   height: calc(100% - 91px);
 }
-
-.save-button {
-  height: 44px;
+.editor-buttons {
+  display: flex;
+  flex-flow: row;
+  justify-content: right;
+  gap: 10px;
+  .button { 
+    width: 150px;
+    padding: 5px;
+    color: $dark;
+    text-shadow: .7px .7px 1px #0000007c;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    &:hover {
+      border: solid 2px $white;
+      background: none;
+      color: $white;
+    }
+  }
+  .save{
+      background-color: $purple;
+      border: solid 2px $purple;
+  }
+  .submit{
+      background-color: $green;
+      border: solid 2px $green;
+  }
 }
+
 
 
 .cm-editor {

@@ -25,11 +25,19 @@
             language="css" 
           />
         </div>
-        <div class="save-button">
-          <Button 
-            label="Save Code" 
-            buttonClass="custom-button" 
-            @action="handleSave" ></Button>
+        <div class="editor-buttons">
+          <div>
+            <Button 
+              label="Save Code" 
+              buttonClass="save button" 
+              @action="handleSave" ></Button>
+          </div>
+          <div>
+            <Button 
+              label="Check Code" 
+              buttonClass="submit button" 
+              @action="handleCheck" ></Button>
+          </div>
         </div>
       </div>
     </div>
@@ -62,9 +70,19 @@ const props = defineProps({
   level: Object
 })
 
-const htmlCode = ref(props?.level?.starterCode?.html)
-const cssCode = ref(props?.level?.starterCode?.css)
+// const htmlCode = ref(props?.level?.starterCode?.html)
+// const cssCode = ref(props?.level?.starterCode?.css)
 
+const htmlKey = `html-${props.level.id}`
+const cssKey = `css-${props.level.id}`
+
+const htmlCode = ref(
+  localStorage.getItem(htmlKey) || props.level.starterCode.html
+)
+
+const cssCode = ref(
+  localStorage.getItem(cssKey) || props.level.starterCode.css
+)
 
 
 const previewDoc = computed(() => `
@@ -80,6 +98,11 @@ const previewDoc = computed(() => `
 
 
 function handleSave() {
+  localStorage.setItem(htmlKey, htmlCode.value)
+  localStorage.setItem(cssKey, cssCode.value)
+}
+
+function handleCheck() {
   const isCompleteNow = isLevelComplete()
   showCompletionPopup.value = isCompleteNow
 }
