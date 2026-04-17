@@ -18,6 +18,11 @@
 import confetti from 'canvas-confetti'
 import star from '../assets/styles/star.gif'
 
+const myConfetti = confetti.create(null, {
+  resize: true,
+  useWorker: true
+})
+
 export default {
   name: "Popup",
   emits: ['close'],
@@ -30,11 +35,17 @@ export default {
         showConfetti: { type: Boolean, default: false }
 },
  watch: {
-        open(newVal) {
-                if (newVal && this.showConfetti) {
-                        confetti()
-                }
-        }
+    open(newVal) {
+      if (newVal && this.showConfetti) {
+        myConfetti({
+          particleCount: 60,
+          spread: 60,
+          startVelocity: 25,
+          ticks: 70,
+          zIndex: 99999,
+        })
+      }
+    }
 },
   methods: {
     closePopup() {
@@ -262,4 +273,6 @@ export default {
     max-width: 1300px;
   }
 }
+
+
 </style>
