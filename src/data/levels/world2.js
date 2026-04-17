@@ -215,18 +215,64 @@ export const world2 = [
 
     instructions: `
         <h2>Gradients</h2>
+        <p>Gradients are used in visual design as a way to seamlessly transition into two or more colors.</p>
+        <p><b>Linear gradients</b> show a color change that can go up, down, left, or right depending on the angle you choose.</p>
+        <p><b>Top to Bottom Linear Gradient</b></p>
+        <p>   #gradient {<br>
+	                background: linear-gradient(to bottom, white, black)<br>
+              }</p>
+        <div id="linear-top"></div>
+        <p><b>Left to Right Linear Gradient</b></p>
+        <p>   #gradient {<br>
+	                background: linear-gradient(to right, white, black)<br>
+              }</p>
+        <div id="linear-left"></div>
+        <p><b>Radial gradients</b> show a color change in a circular progression, starting with a central point.</p>
+        <p>   #gradient {<br>
+	                background: radial-gradient( white, black)<br>
+              }</p>
+        <div id="radial"></div>
+        <h2>Task</h2>
+        <p>Use the given code to create some gradients!</p>
+        <p>1. Create a linear gradient that transitions from red at the top to yellow at the bottom.</p>
+        <p>2. Create a linear gradient that transitions from blue on the left to green on the right.</p>
+        <p>3. Create a radial gradient that transitions from white in the center to purple at the edges.</p>
     `,
     hint: "",
 
     starterCode: {
-      html: ``,
-      css: ``
+      html: `<p><b>Linear Gradient top to bottom</b></p>
+  <div id="gradient1"></div>
+
+<p><b>Linear Gradient left to right</b></p>
+  <div id="gradient2"></div>
+
+<p><b>Radial Gradient</b></p>
+  <div id="gradient3"></div>`,
+      css: `#gradient1 {
+  height: 5em;
+  width: 18em;
+  border: solid #000000;
+  background: ;
+}
+#gradient2 {
+  height: 5em;
+  width: 18em;
+  border: solid #000000;
+  background: ;
+}
+#gradient3 {
+  height: 5em;
+  width: 18em;
+  border: solid #000000;
+  background: ;
+}`
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: ["gradient1", "gradient2", "gradient3"],
 
-      requiredCSS: []
+      requiredCSS: ["linear-gradient", "radial-gradient"]
     }
   },
   {

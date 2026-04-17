@@ -300,6 +300,31 @@ iframe {
   background: white;
 }
 
+.instructions #linear-top {
+  border: solid #4db7ca;
+  height: 2em;
+  width: 10em;
+  margin-bottom: 1em;
+  background: linear-gradient(to bottom, #ffffff, #000000);
+}
+
+.instructions #linear-left {
+  border: solid #4db7ca;
+  height: 2em;
+  width: 10em;
+  margin-bottom: 1em;
+  background: linear-gradient(to right, #ffffff, #000000);
+}
+
+
+.instructions #radial {
+  border: solid #4db7ca;
+  height: 2em;
+  width: 10em;
+  margin-bottom: 1em;
+  background: radial-gradient( #ffffff, #1b2223);
+}
+
 .map-main {
   padding: 40px 0 90px 0;
 }
