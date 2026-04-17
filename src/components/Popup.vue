@@ -16,7 +16,7 @@
 
 <script>
 import confetti from 'canvas-confetti'
-import star from '../assets/styles/star.gif'
+import star from '../assets/images/star.gif'
 
 const myConfetti = confetti.create(null, {
   resize: true,

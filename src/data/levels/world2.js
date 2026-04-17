@@ -4,6 +4,8 @@ export const world2 = [
     title: "Colors",
     description: "Learn how to apply colors to text and elements using CSS. You’ll explore named colors, hexadecimal values, and how color affects visual design. This level builds your understanding of styling basics and how to make content more engaging and visually cohesive.",
     concept: "css-colors",
+    unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Colors in CSS</h2>
@@ -103,6 +105,7 @@ export const world2 = [
     description: "Learn how to change the font family, size, and style of text using CSS. This level introduces you to font properties like font-family, font-size, font-weight, and font-style. You’ll learn how to apply different fonts to your webpage and understand the impact of typography on design and readability.",
     concept: "css-fonts-formatting",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Fonts</h2>
@@ -129,6 +132,7 @@ export const world2 = [
     description: "Learn how to add background colors, images, and gradients to elements on your webpage using CSS. This level covers properties like background-color, background-image, background-size, and background-position. You’ll explore how to create visually appealing backgrounds that enhance the overall design of your site.",
     concept: "css-backgrounds",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Backgrounds</h2>
@@ -153,6 +157,7 @@ export const world2 = [
     description: "Learn how to control spacing and add white space around elements on your webpage using CSS. This level teaches you the difference between padding (space inside an element) and margin (space outside an element), and how to use these properties to improve the layout and readability of your content.",
     concept: "css-padding-margin",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Padding and Margin</h2>
@@ -177,6 +182,7 @@ export const world2 = [
     description: "Learn how to add borders and rounded corners to elements on your webpage using CSS. This level covers properties like border-width, border-style, border-color, and border-radius. You’ll explore how to create visually appealing borders and soften the edges of elements with rounded corners to enhance the overall design of your site.",
     concept: "css-borders-rounded-corners",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Borders</h2>
@@ -205,6 +211,7 @@ export const world2 = [
     description: "Learn how to create smooth transitions between colors using CSS gradients. This level introduces you to linear and radial gradients, and how to customize them with different color stops and angles. Gradients can add depth and visual interest to your designs, making them a powerful tool for enhancing the aesthetics of your webpage.",
     concept: "css-Gradients",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Gradients</h2>
@@ -228,6 +235,7 @@ export const world2 = [
     description: "Learn how to add depth and dimension to your webpage using CSS shadows. This level covers text-shadow for adding shadows to text, and box-shadow for creating shadows around elements. You’ll explore how to customize the color, size, and position of shadows to enhance the visual appeal of your design.",
     concept: "css-shadows",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Text Shadow</h2>
@@ -253,6 +261,7 @@ export const world2 = [
     description: "Learn how to create flexible and responsive layouts using CSS Flexbox. You’ll control alignment, spacing, and distribution of elements within a container. Flexbox makes it easier to design complex layouts that adapt to different screen sizes.",
     concept: "css-flexbox",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Flexbox</h2>
@@ -277,6 +286,7 @@ export const world2 = [
     description: "Learn how to create complex and responsive grid-based layouts using CSS Grid. This level introduces you to the grid container and grid item properties, allowing you to define rows, columns, and areas for precise control over your webpage's structure. CSS Grid is a powerful tool for building modern web designs that adapt seamlessly to different screen sizes.",
     concept: "css-grid",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Grid Layout</h2>
@@ -301,6 +311,7 @@ export const world2 = [
     description: "Learn how to create animations using CSS. This level covers keyframe animations, allowing you to define the stages of an animation and control its timing and behavior. You’ll explore how to animate properties like position, color, and size to bring your designs to life and create engaging user experiences.",
     concept: "css-animation",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Animation</h2>

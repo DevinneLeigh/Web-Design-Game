@@ -63,7 +63,7 @@ $xxl: 1400px;
 #app {
   height: 100%;
   width: 100%;
-  padding: 0 25px;
+  //padding: 0 25px;
   background: $dark;
   color: $light;
 }
@@ -71,13 +71,11 @@ $xxl: 1400px;
 .level-main {
   height: 100%;
   width: 100%;
+  padding: 0 25px 120px 25px;
   @include lg { // 960px
+    padding: 0 25px;
     height: calc(100vh - 160px);
   }
-}
-
-.map-main {
-  padding: 40px 0 90px 0;
 }
 
 .game-window {
@@ -302,6 +300,17 @@ iframe {
   background: white;
 }
 
+.map-main {
+  padding: 40px 0 90px 0;
+}
+
+.map-wrapper {
+  height: 100%;
+  width: 100%;
+  padding: 40px 0;
+  background-image: linear-gradient(to top left,$dark2, $dark, $dark2);
+}
+
 .map {
   display: flex;
   flex-flow: column;
@@ -319,7 +328,7 @@ iframe {
     .levels {
       border-radius: 20px;
       .level-body {
-        color: $white;
+        //color: $white;
         padding: 10px 20px;
         .level-actions {
           margin-top: 20px;
@@ -351,45 +360,58 @@ iframe {
 
 .accordion-button{
   text-shadow: .7px .7px 1px #0000007c;
-  background: none;
-  color: $light;
+  background: $dark2;
+  padding: 10px 24px;
   border-radius: 12px 12px 0 0;
   margin-top: 5px;
+  img {
+    
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+  }
 }
 
 .accordion-button:not(.collapsed){
-  color: $dark;
+  color: $dark !important;
 }
 
 
 
 // Level locked 
-// .level-body, .accordion-button, .accordion-button:not(.collapsed) {
-//   border: solid 2px $light;
-// }
-// .accordion-button:not(.collapsed) {
-//   background: $light;
-// }
-
-// Level todo
-.level-body, .accordion-button, .accordion-button:not(.collapsed) {
-  border: solid 2px $blue;
+.locked, .lockedBody, .locked:not(.collapsed) {
+  border: solid 2px $light2;
+  color: $light;
 }
-.accordion-button:not(.collapsed) {
+.locked:not(.collapsed) {
+  background: $light2;
+}
+
+// Level unlocked
+.unlocked, .unlockedBody, .unlocked:not(.collapsed) {
+  border: solid 2px $blue;
+  color: white;
+}
+.unlocked:not(.collapsed) {
   background: $blue;
 }
 
 // Level completed
-// .level-body, .accordion-button,.accordion-button:not(.collapsed) {
-//   border: solid 2px $green;
-// }
-// .accordion-button:not(.collapsed) {
-//   background: $green;
-// }
+.completed, .completedBody, .completed:not(.collapsed) {
+  border: solid 2px $green;
+  color: white;
+}
+.completed:not(.collapsed) {
+  background: $green;
+}
 
 
 
-.accordion-button::after {
+.unlocked::after, .completed::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgb(255, 255, 255)' stroke-width='2' viewBox='0 0 16 16'%3e%3cpolyline points='4 6 8 10 12 6'/%3e%3c/svg%3e");
+
+}
+.locked::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgb(171 178 191)' stroke-width='2' viewBox='0 0 16 16'%3e%3cpolyline points='4 6 8 10 12 6'/%3e%3c/svg%3e");
 
 }

@@ -32,8 +32,9 @@ function closeLandingHelp() {
     :message="aboutGame"
     @close="closeLandingHelp"/>
 
-
-    <LevelAccordion />
+    <div class="map-wrapper">
+      <LevelAccordion />
+    </div>
 
   </div>
 </template>

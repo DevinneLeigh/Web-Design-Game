@@ -65,7 +65,7 @@ import { worlds, playerProject } from "@/data/levels"
 import { useRoute } from "vue-router"
 import Button from './Button.vue'
 import Popup from './Popup.vue'
-import star from '../assets/styles/star.gif'
+import star from '../assets/images/star.gif'
 
 const activeTab = ref('html')
 const showPopup = ref(false)
