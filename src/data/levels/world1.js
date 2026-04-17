@@ -120,8 +120,17 @@ export const world1 = [
 
     instructions: `
         <h2>Formatting Text</h2>
+        <p>Use HTML formatting tags to style the text below</p>
+        <ul>
+        <li>Make one word <b>bold</b></li>
+        <li>Make one word <em>italic</em></li>
+        <li>Make one word <u>underlined</u></li>
+        <li>Add a <mark>highlighted</mark> word</li>
+        <li>Add either <sub>subscript</sub> or <sup>superscript</sup></li>
+        </ul>
+        <p>Below is some formatted text already so you can see what it looks like. When you're done, try to explore the other ones!</p>
     `,
-    hint: "",
+    hint: "Try using tags like <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;u&gt;</code>, <code>&lt;mark&gt;</code>, <code>&lt;sub&gt;</code>, and <code>&lt;sup&gt;</code> to format the text.",
 
     starterCode: {
       html: `<p><b>This text is bold</b></p>
@@ -138,8 +147,7 @@ export const world1 = [
     },
 
     completion: {
-      requiredHTML: ["<p>"],
-
+      requiredHTML: ["b", "em", "u", "mark", "sub", "sup"],
       requiredCSS: []
     }
   },
@@ -307,16 +315,22 @@ export const world1 = [
 
     instructions: `
         <h2>Parent and Child</h2>
+        <p>Create a parent element with a child element inside it.</p>
+        <ul>
+        <li>Add a <b>div</b> element</li>
+        <li>Inside the div, add a <b>p</b> element</li>
+        <li>Write some text inside the <b>p</b> element</li>
+        </ul>
     `,
-    hint: "",
+    hint: "Place one element inside another, like a div containing a paragraph.",
 
     starterCode: {
-      html: ``,
+      html: `<!--Add your parent/child elements here -->`,
       css: ``
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: ["div", "p"],
 
       requiredCSS: []
     }
