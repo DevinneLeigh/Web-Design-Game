@@ -13,7 +13,6 @@
           <button :class="{ active: activeTab === 'css' }" @click="activeTab = 'css'">CSS</button>
         </div>
         <div class="editor custom-border">
-
           <CodeEditor
             v-if="activeTab === 'html'"
             v-model="htmlCode"

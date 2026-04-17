@@ -41,7 +41,7 @@ import Footer from './components/Footer.vue'
 
   <Nav></Nav>
 
-  <div class="container py-2">
+  <div class="header">
     <h1 class="text-center">Web Design Game</h1>
   </div>
 
