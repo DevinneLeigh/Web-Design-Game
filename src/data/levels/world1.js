@@ -138,7 +138,7 @@ export const world1 = [
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: ["<p>"],
 
       requiredCSS: []
     }

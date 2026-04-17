@@ -46,12 +46,14 @@
     </div>
     
     <Popup
-  :open="showCompletionPopup"
-  :title="`${level.title} Complete`"
-  message="Your code met all the requirements. Good job!"
-  :image="star"
-  @close="closeCompletionPopup"
-/>
+      :open="showPopup"
+      :title="popupTitle"
+      :message="popupMessage"
+      :image="popupImage"
+      :showConfetti="popupConfetti"
+      :buttonText="popupButtonText"
+      @close="closePopup"
+    />
   </div>
 </template>
 
@@ -59,22 +61,31 @@
 import { ref, computed } from 'vue'
 import CodeEditor from './CodeEditor.vue'
 import GameInstructions from './GameInstructions.vue'
+import { worlds, playerProject } from "@/data/levels"
+import { useRoute } from "vue-router"
 import Button from './Button.vue'
 import Popup from './Popup.vue'
 import star from '../assets/styles/star.gif'
 
 const activeTab = ref('html')
-const showCompletionPopup = ref(false)
+const showPopup = ref(false)
 
 const props = defineProps({
   level: Object
 })
 
-// const htmlCode = ref(props?.level?.starterCode?.html)
-// const cssCode = ref(props?.level?.starterCode?.css)
-
+const popupTitle = ref("")
+const popupMessage = ref("")
+const popupImage = ref(null)
+const popupConfetti = ref(false)
+const popupButtonText = ref("Continue")
 const htmlKey = `html-${props.level.id}`
 const cssKey = `css-${props.level.id}`
+
+const allLevels = [
+  ...worlds.flatMap(w => w.levels),
+  ...playerProject
+]
 
 const htmlCode = ref(
   localStorage.getItem(htmlKey) || props.level.starterCode.html
@@ -83,7 +94,6 @@ const htmlCode = ref(
 const cssCode = ref(
   localStorage.getItem(cssKey) || props.level.starterCode.css
 )
-
 
 const previewDoc = computed(() => `
   <html>
@@ -95,20 +105,69 @@ const previewDoc = computed(() => `
     </body>
   </html>
 `)
+const route = useRoute()
 
+const currentHint = computed(() => {
+  const hint =allLevels.find(
+    l => String(l.id) === String(route.params.id)
+  )?.hint
+
+  if (hint != "") {
+    return "Hint: " + hint
+  }
+  return ""
+
+})
+
+function openPopup({
+  title,
+  message,
+  image = null,
+  confetti = false,
+  buttonText = "Continue"
+}) {
+  popupTitle.value = title
+  popupMessage.value = message
+  popupImage.value = image
+  popupConfetti.value = confetti
+  popupButtonText.value = buttonText
+  showPopup.value = true
+}
 
 function handleSave() {
   localStorage.setItem(htmlKey, htmlCode.value)
   localStorage.setItem(cssKey, cssCode.value)
+  openPopup({
+    title: "Code Saved",
+    message: "Your progress has been saved.",
+    confetti: false,
+    buttonText: "OK"
+  })
 }
 
 function handleCheck() {
   const isCompleteNow = isLevelComplete()
-  showCompletionPopup.value = isCompleteNow
+
+  if (isCompleteNow) {
+    openPopup({
+      title: `${props.level.title} Complete`,
+      message: "Your code met all the requirements. Good job!",
+      image: star,
+      confetti: true,
+      buttonText: "Next Level"
+    })
+  } else {
+    openPopup({
+      title: "Not Quite Yet",
+      message: `Your code is missing some requirements. Try again.<br><br>${currentHint.value}`,
+      confetti: false,
+      buttonText: "Try Again"
+    })
+  }
 }
 
-function closeCompletionPopup() {
-  showCompletionPopup.value = false
+function closePopup() {
+  showPopup.value = false
 }
 
 function isLevelComplete() {

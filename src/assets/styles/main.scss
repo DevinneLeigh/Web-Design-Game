@@ -95,7 +95,7 @@ $xxl: 1400px;
     gap: 20px;
     height: 100%;
     @include lg { // 960px
-      width: 400px;
+      width: 600px;
     }
   .instructions {
     flex: 1;
@@ -189,9 +189,9 @@ $xxl: 1400px;
   background-color: $pink;
   color: $dark;
   border: none;
-  //padding: 10px 20px;
+  padding: 10px 20px;
   border-radius: 20px;
-  //width: 150px;
+  width: 150px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
