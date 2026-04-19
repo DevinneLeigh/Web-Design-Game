@@ -55,29 +55,32 @@ export const playerProject = [
         },
 
         completion: {
-            // code validator will collect all elements with a tag filter out any that don't meet the requirement
-            // tag: element required eg. "img"
-            // class: the tag needs to have all classes separated by a space "classA ClassB"
-            // childElements: required elements found under object with their own requirements
-            // order: you need to find an element that meets the order 2 requirements after an order order 1 element
+            // code validator will collect all elements with a valid tag, and filter out any that don't meet the requirements
+            // validTags: [strings...]) elements allowed to meet requirements eg. ["h1","h2","h3"] or ["img"]
+            // nickName: string) a descriptive name meant to clarify requiremnts to user, if heading tag would work "heading" could help
+            // class: string) the tag needs to have all classes separated by a space "classA ClassB"
+            // childElements: another tag object) required elements found under object with their own requirements
+            // order: int) you need to find an element that meets the order 2 requirements after an order order 1 element
+            // count: int) there must be at least x number of valid elements on the page
 
-            // content: text needed to be found within an element
-            // contentStrictness: "loose" will make capitalization of text content not matter
+            // content: string) text needed to be found within an element
+            // contentStrictness: string) "loose" will make capitalization of text content not matter
             requiredHTML: [
                 {
-                    tag: "div",
+                    validTags: ["div"],
                     class: "jumbotron",
+                    nickName: "jumbotron container",
 
                     childElements: [
                         {
-                            tag: "h1",
+                            validTags: ["h1"],
                             order: 1,
 
                             contentStrictness: "loose",
                             content: "Welcome to My Website",
                         },
                         {
-                            tag: "p",
+                            validTags: ["p"],
                             order: 2,
 
                             contentStrictness: "loose",

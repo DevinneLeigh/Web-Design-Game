@@ -47,11 +47,12 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-import CodeEditor from './CodeEditor.vue'
-import GameInstructions from './GameInstructions.vue'
-import Button from './Button.vue'
-import Popup from './Popup.vue'
+import { ref, computed } from "vue";
+import CodeEditor from "./CodeEditor.vue";
+import GameInstructions from "./GameInstructions.vue";
+import Button from "./Button.vue";
+import Popup from "./Popup.vue";
+import { checkTag, checkOrder } from "../data/levels/code-validation";
 
 const activeTab = ref('html')
 const showCompletionPopup = ref(false)
@@ -87,19 +88,50 @@ function closeCompletionPopup() {
 }
 
 function isLevelComplete() {
-  const completion = props?.level?.completion
-  if (!completion) return false
-  
-  const htmlOk = (htmlCode.value || '').toLowerCase().includes(
-    String(completion.requiredHTML?.[0] || '').toLowerCase()
-  )
-  const cssOk = (cssCode.value || '').toLowerCase().includes(
-    String(completion.requiredCSS?.[0] || '').toLowerCase()
-  )
-  
-  return htmlOk && cssOk
+    const completion = props?.level?.completion;
+    if (!completion) return false;
+
+    const htmlOk = (htmlCode.value || "")
+        .toLowerCase()
+        .includes(String(completion.requiredHTML?.[0] || "").toLowerCase());
+    const cssOk = (cssCode.value || "")
+        .toLowerCase()
+        .includes(String(completion.requiredCSS?.[0] || "").toLowerCase());
+
+    return checkHtmlCompletion() && checkCssCompletion(); //htmlOk && cssOk
+}
+
+function checkCssCompletion() {
+    const requiredCSS = props.level.completion.requiredCSS;
+    return true;
+}
+
+function checkHtmlCompletion() {
+    const requiredTags = props.level.completion.requiredHTML;
+
+    const parser = new DOMParser();
+    const inputHtml = parser.parseFromString(htmlCode.value, "text/html").body;
+
+    let worked = true;
+    const orderedTags = [];
+
+    try {
+        requiredTags.forEach((tag) => {
+            const checkedTag = checkTag(inputHtml, tag);
+
+            if (tag.order) {
+                orderedTags.push({
+                    order: tag.order,
+                    element: checkedTag,
+                });
+            }
+        });
+        checkOrder(inputHtml, orderedTags);
+    } catch (error) {
+        window.alert(error.message);
+        worked = false;
+    }
+
+    return worked;
 }
 </script>
-
-
-

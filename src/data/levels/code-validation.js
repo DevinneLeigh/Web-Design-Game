@@ -1,24 +1,31 @@
 export function checkTag(scope, tag) {
-    const searchForTag = scope.getElementsByTagName(tag.tag);
-    let validCandidates = Array.from(searchForTag);
-
-    const errorIfNoValidTags = (message) => {
+    const errorIfMissingTags = (message, addition = true) => {
         if (validCandidates.length == 0) {
-            throw new Error(message);
+            throw new Error((addition ? "Missing " : "") + message);
+        } else if (tag.count && validCandidates.length < tag.count) {
+            throw new Error((addition ? "Need another " : "") + message);
         }
     };
 
-    errorIfNoValidTags(
-        `${tag.tag} is missing` +
-            (scope.tagName ? ` under ${scope.tagName}` : ""),
-        +(scope.classList ? ` with ${scope.classList} classes` : ""),
-    );
+    const tagName =
+        tag.nickName ? tag.nickName : `${tag.validTags}`.replace(",", " or ");
 
+    // Gather initial candidates in scope based on tag name
+    let validCandidates = [];
+    tag.validTags.forEach((validTag) => {
+        const validElements = Array.from(scope.getElementsByTagName(validTag));
+        validCandidates = validCandidates.concat(validElements);
+    });
+    // If none or not enough are found an error is thrown
+    errorIfMissingTags(tagName);
+
+    // Filter out candidates that don't fit class requirements
     if (tag.class) {
         validCandidates = classFilter(validCandidates, tag);
-
-        errorIfNoValidTags(`No ${tag.tag} with "${tag.class}" class`);
+        errorIfMissingTags(`"${tag.class}" class in ${tagName}`);
     }
+
+    // Filter out candidates that don't have required children
     if (tag.childElements) {
         let orderedTags = [];
 
@@ -35,8 +42,10 @@ export function checkTag(scope, tag) {
             let worked = true;
             tag.childElements.forEach((childTag) => {
                 try {
+                    // will throw error if child is not found
                     const childElement = checkTag(element, childTag);
 
+                    // keeps track of what elements will work i
                     if (childTag.order) {
                         orderInTag.push({
                             order: childTag.order,
@@ -52,17 +61,25 @@ export function checkTag(scope, tag) {
             return worked;
         });
 
-        errorIfNoValidTags(errorFindingChild);
+        // If no candidate has the right children throw the out error its children gave
+        errorIfMissingTags(errorFindingChild + ` under ${tagName}`, false);
 
-        // Correct Order filter
-        validCandidates = orderFilter(validCandidates, orderedTags);
+        // This filters out the candidates whose children are not in the right order
+        try {
+            validCandidates = orderFilter(validCandidates, orderedTags);
+        } catch (error) {
+            throw new Error(error.message + `\nunder ${tagName}`);
+        }
     }
+
+    // Filters out candidates that don't contain required text
     if (tag.content) {
         validCandidates = contentFilter(validCandidates, tag);
 
-        errorIfNoValidTags(`${tag.tag} is missing text "${tag.content}"`);
+        errorIfMissingTags(`text in ${tagName} "${tag.content}"`);
     }
 
+    // If all goes well we return the list of elements that meet all our requirements
     return validCandidates;
 }
 
