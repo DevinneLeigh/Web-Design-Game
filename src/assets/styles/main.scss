@@ -61,23 +61,31 @@ $xxl: 1400px;
   color: $light !important;
 }
 #app {
-  height: 100%;
-  width: 100%;
-  padding: 0 25px;
+  // height: 100%;
+  // width: 100%;
+  //padding: 0 25px;
   background: $dark;
   color: $light;
 }
 
-.level-main {
-  height: 100%;
-  width: 100%;
-  @include lg { // 960px
-    height: calc(100vh - 160px);
+.header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    margin: 0;
   }
 }
 
-.map-main {
-  padding: 40px 0 90px 0;
+.level-main {
+  height: 100vh;
+  width: 100%;
+  padding: 0 25px 120px 25px;
+  @include lg { // 960px
+    padding: 0 25px;
+    height: calc(100vh - 140px);
+  }
 }
 
 .game-window {
@@ -95,7 +103,7 @@ $xxl: 1400px;
     gap: 20px;
     height: 100%;
     @include lg { // 960px
-      width: 400px;
+      width: 600px;
     }
   .instructions {
     flex: 1;
@@ -105,6 +113,7 @@ $xxl: 1400px;
     overflow-y: auto;
     @include lg { // 960px
     flex: 0 0 40%;
+    height: 100%;
   }
   h2 {
     font-size: 24px;
@@ -116,25 +125,18 @@ $xxl: 1400px;
     }
     .editor-section {
       height: 400px;
+      width: 100%;
         @include lg { // 960px
           height: 60%;
         }
-      .editor {
-        width: 100%;
-        // height: 400px;       
-        overflow: auto;
-        @include lg { // 960px
-          // height: 100%;
-        }       
-      }
-      .save-button {
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-        @include lg { // 960px
-          justify-content: flex-end;
+        .editor {
+          width: 100%;
+          // height: 400px;       
+          overflow: auto;
+          @include lg { // 960px
+            height: 75%;
+          }       
         }
-      }
     }
 }
 
@@ -204,11 +206,16 @@ $xxl: 1400px;
   border-left: 3px solid $purple; 
 }
 
+.info-section {
+  text-align: left;
+}
+
 footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
+  font-size: 12px;
   p {
     margin: 0;
   }
@@ -257,10 +264,37 @@ footer {
 .editor {
   height: calc(100% - 91px);
 }
-
-.save-button {
-  height: 44px;
+.editor-buttons {
+  display: flex;
+  flex-flow: row;
+  justify-content: right;
+  gap: 10px;
+  margin-top: 10px;
+  .button { 
+    width: 150px;
+    padding: 5px;
+    color: $dark;
+    text-shadow: .7px .7px 1px #0000007c;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    &:hover {
+      border: solid 2px $white;
+      background: none;
+      color: $white;
+    }
+  }
+  .save{
+      background-color: $purple;
+      border: solid 2px $purple;
+  }
+  .submit{
+      background-color: $green;
+      border: solid 2px $green;
+  }
 }
+
 
 
 .cm-editor {
@@ -269,6 +303,43 @@ footer {
 
 iframe {
   background: white;
+}
+
+.instructions #linear-top {
+  border: solid #4db7ca;
+  height: 2em;
+  width: 10em;
+  margin-bottom: 1em;
+  background: linear-gradient(to bottom, #ffffff, #000000);
+}
+
+.instructions #linear-left {
+  border: solid #4db7ca;
+  height: 2em;
+  width: 10em;
+  margin-bottom: 1em;
+  background: linear-gradient(to right, #ffffff, #000000);
+}
+
+
+.instructions #radial {
+  border: solid #4db7ca;
+  height: 2em;
+  width: 10em;
+  margin-bottom: 1em;
+  background: radial-gradient( #ffffff, #1b2223);
+}
+
+.map-main {
+  padding: 40px 0 90px 0;
+  min-height: calc(100vh - 140px);
+}
+
+.map-wrapper {
+  height: 100%;
+  width: 100%;
+  padding: 40px 0;
+  background-image: linear-gradient(to top left,$dark2, $dark, $dark2);
 }
 
 .map {
@@ -288,7 +359,7 @@ iframe {
     .levels {
       border-radius: 20px;
       .level-body {
-        color: $white;
+        //color: $white;
         padding: 10px 20px;
         .level-actions {
           margin-top: 20px;
@@ -320,45 +391,58 @@ iframe {
 
 .accordion-button{
   text-shadow: .7px .7px 1px #0000007c;
-  background: none;
-  color: $light;
+  background: $dark2;
+  padding: 10px 24px;
   border-radius: 12px 12px 0 0;
   margin-top: 5px;
+  img {
+    
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+  }
 }
 
 .accordion-button:not(.collapsed){
-  color: $dark;
+  color: $dark !important;
 }
 
 
 
 // Level locked 
-// .level-body, .accordion-button, .accordion-button:not(.collapsed) {
-//   border: solid 2px $light;
-// }
-// .accordion-button:not(.collapsed) {
-//   background: $light;
-// }
-
-// Level todo
-.level-body, .accordion-button, .accordion-button:not(.collapsed) {
-  border: solid 2px $blue;
+.locked, .lockedBody, .locked:not(.collapsed) {
+  border: solid 2px $light2;
+  color: $light;
 }
-.accordion-button:not(.collapsed) {
+.locked:not(.collapsed) {
+  background: $light2;
+}
+
+// Level unlocked
+.unlocked, .unlockedBody, .unlocked:not(.collapsed) {
+  border: solid 2px $blue;
+  color: white;
+}
+.unlocked:not(.collapsed) {
   background: $blue;
 }
 
 // Level completed
-// .level-body, .accordion-button,.accordion-button:not(.collapsed) {
-//   border: solid 2px $green;
-// }
-// .accordion-button:not(.collapsed) {
-//   background: $green;
-// }
+.completed, .completedBody, .completed:not(.collapsed) {
+  border: solid 2px $green;
+  color: white;
+}
+.completed:not(.collapsed) {
+  background: $green;
+}
 
 
 
-.accordion-button::after {
+.unlocked::after, .completed::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgb(255, 255, 255)' stroke-width='2' viewBox='0 0 16 16'%3e%3cpolyline points='4 6 8 10 12 6'/%3e%3c/svg%3e");
+
+}
+.locked::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgb(171 178 191)' stroke-width='2' viewBox='0 0 16 16'%3e%3cpolyline points='4 6 8 10 12 6'/%3e%3c/svg%3e");
 
 }
@@ -370,6 +454,29 @@ iframe {
 
 .accordion-button:focus {
   box-shadow: none;
+}
+
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100000;
+
+  background: #E06C75;
+  color: #21252B;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+
+  &:hover {
+    background: #C678DD;
+    color: #ececef;
+  }
 }
 
 .landing-button {
@@ -399,4 +506,6 @@ iframe {
     color: #ececef;
   }
 }
+
+
 

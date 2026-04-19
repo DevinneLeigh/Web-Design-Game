@@ -14,6 +14,12 @@ const props = defineProps({
   language: String
 })
 
+const extraBottomSpace = EditorView.theme({
+  ".cm-content": {
+    paddingBottom: "280px"
+  }
+})
+
 const emit = defineEmits(['update:modelValue']) 
 
 const editor = ref(null)
@@ -31,6 +37,7 @@ onMounted(() => {
       basicSetup, 
       languageExtension,
       oneDark,
+      extraBottomSpace,
       EditorView.updateListener.of(update => {
         if (update.docChanged) {
           emit('update:modelValue', update.state.doc.toString())

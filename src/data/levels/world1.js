@@ -5,6 +5,7 @@ export const world1 = [
     description: "Learn how to structure text content using HTML headings and paragraphs. Headings <h1> through <h6> define the hierarchy of your page, making it easier for users and search engines to understand your content. Paragraphs <p> are used to group blocks of text into readable sections. In this level, you’ll practice organizing content clearly and building the foundation of a well-structured webpage.",
     concept: "html-headings",
     unlocked: true,
+    completed: true,
 
     instructions: `
     <h2>Adding Headings and text</h2>
@@ -55,6 +56,7 @@ export const world1 = [
     description: "Learn how to organize information using ordered <ol> and unordered <ul> lists. Lists are essential for grouping related items, such as steps, tasks, or collections of data. You will also use list items <li> to define each entry. By the end of this level, you should understand when to use numbered lists versus bullet points and how to structure them properly.",
     concept: "html-lists",
     unlocked: false,
+    completed: true,
 
     instructions: `
         <h2>Adding Lists</h2>
@@ -116,12 +118,22 @@ export const world1 = [
     title: "Formatting",
     description: "Learn how to emphasize and style text using HTML formatting tags. Elements like <strong>, <em>, <b>, and <i> help convey importance and meaning, while others like <mark>, <small>, <sub>, and <sup> provide visual variations. This level introduces both semantic and visual formatting so you can better communicate intent and improve readability.",
     concept: "html-formatting",
-    unlocked: false,
+    unlocked: true,
+    completed: false,
 
     instructions: `
         <h2>Formatting Text</h2>
+        <p>Use HTML formatting tags to style the text below</p>
+        <ul>
+        <li>Make one word <b>bold</b></li>
+        <li>Make one word <em>italic</em></li>
+        <li>Make one word <u>underlined</u></li>
+        <li>Add a <mark>highlighted</mark> word</li>
+        <li>Add either <sub>subscript</sub> or <sup>superscript</sup></li>
+        </ul>
+        <p>Below is some formatted text already so you can see what it looks like. When you're done, try to explore the other ones!</p>
     `,
-    hint: "",
+    hint: "Try using tags like <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;u&gt;</code>, <code>&lt;mark&gt;</code>, <code>&lt;sub&gt;</code>, and <code>&lt;sup&gt;</code> to format the text.",
 
     starterCode: {
       html: `<p><b>This text is bold</b></p>
@@ -138,8 +150,7 @@ export const world1 = [
     },
 
     completion: {
-      requiredHTML: [],
-
+      requiredHTML: ["b", "em", "u", "mark", "sub", "sup"],
       requiredCSS: []
     }
   },
@@ -149,6 +160,7 @@ export const world1 = [
     description: "Learn how to create interactive buttons using the <button> tag in HTML. In this level, you’ll explore different types of buttons, including submit, reset, and regular buttons, and learn how to customize their appearance and behavior.",
     concept: "html-buttons",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Adding Buttons</h2>
@@ -195,6 +207,7 @@ export const world1 = [
     description: "Learn how to group and organize content using container elements like <div>, <span>, and <section>. These elements help structure your webpage into logical parts. <div> is used for block-level grouping, <span> for inline content, and <section> for meaningful page sections. Understanding these elements is critical for layout and styling later with CSS.",
     concept: "html-div",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Adding a Div Container</h2>
@@ -234,6 +247,7 @@ export const world1 = [
     description: "Learn how to use classes and IDs to target specific elements in your HTML for styling and interactivity. Classes can be reused across multiple elements, while IDs are unique identifiers. This level will teach you how to assign and use these attributes effectively in your HTML structure.",
     concept: "html-classes-ids",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Adding Classes and IDs</h2>
@@ -258,6 +272,7 @@ export const world1 = [
     description: "Learn how to add images to your webpage using the <img> tag in HTML. In this level, you’ll explore how to include images from different sources, set alternative text for accessibility, and understand basic attributes like src and alt.",
     concept: "html-images",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Adding Images</h2>
@@ -281,6 +296,7 @@ export const world1 = [
     description: "Learn how to organize data into rows and columns using HTML tables. You’ll use elements like <table>, <tr>, <th>, and <td> to structure tabular data. This level focuses on presenting structured information clearly and understanding when tables are appropriate.",
     concept: "html-tables",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Adding Tables</h2>
@@ -304,19 +320,26 @@ export const world1 = [
     description: "Learn about the parent-child relationships in HTML elements. Understanding how elements are nested within each other is crucial for structuring your webpage and applying styles effectively. This level will help you grasp the concept of element hierarchy and how it impacts the layout and styling of your content.",
     concept: "html-parent-child",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Parent and Child</h2>
+        <p>Create a parent element with a child element inside it.</p>
+        <ul>
+        <li>Add a <b>div</b> element</li>
+        <li>Inside the div, add a <b>p</b> element</li>
+        <li>Write some text inside the <b>p</b> element</li>
+        </ul>
     `,
-    hint: "",
+    hint: "Place one element inside another, like a div containing a paragraph.",
 
     starterCode: {
-      html: ``,
+      html: `<!--Add your parent/child elements here -->`,
       css: ``
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: ["div", "p"],
 
       requiredCSS: []
     }
@@ -327,6 +350,7 @@ export const world1 = [
     description: "Learn how to create interactive forms using HTML. Forms allow users to input and submit data, making them essential for user registration, contact pages, and more. In this level, you’ll explore form elements like <input>, <textarea>, <select>, and <button>, as well as how to structure a form properly.",
     concept: "html-forms",
     unlocked: false,
+    completed: false,
 
     instructions: `
         <h2>Forms</h2>

@@ -3,40 +3,12 @@
     <div class="popupInner">
       <h1>{{ title }}</h1>
 
-      <div class="info-section">
-        <h2>What this game is</h2>
-        <p>
-          This game is a way to practice web design by fixing and improving different webpages. 
-          Each level gives you a layout that isn’t quite right, and your goal is to make it look 
-          better and function correctly using HTML and CSS. You will be provided with the instructions 
-          to learn how to do just that!
-        </p>
-      </div>
+        <div class="popupMessage" v-html="message"></div>
 
-      <div class="info-section">
-        <h2>How the game works</h2>
-        <ul>
-          <li>Each level gives you a webpage with design problems</li>
-          <li>You edit the code to fix layout and styling issues</li>
-          <li>You can preview your changes live as you work</li>
-          <li>Fix all required issues to complete the level</li>
-          <li>Levels get harder as you continue through the game</li>
-        </ul>
-      </div>
-
-      <div class="info-section">
-        <h2>What you will learn</h2>
-        <p>
-          You will learn how to structure pages with HTML, style them using CSS, and fix common 
-          layout issues. This helps build real web development skills and improves your ability 
-          to design clean, user-friendly websites.
-        </p>
-      </div>
-
-      <img :src="star" alt="Rotating star" />
+      <img v-if="image" :src="image" alt="Popup Image" />
 
       <button type="button" class="popupButton" @click="closePopup">
-        Start Game
+        {{ buttonText }}
       </button>
     </div>
   </div>
@@ -44,7 +16,12 @@
 
 <script>
 import confetti from 'canvas-confetti'
-import star from '../assets/styles/star.gif'
+import star from '../assets/images/star.gif'
+
+const myConfetti = confetti.create(null, {
+  resize: true,
+  useWorker: true
+})
 
 export default {
   name: "Popup",
@@ -53,17 +30,22 @@ export default {
         open: { type: Boolean, default: false },
         title: { type: String, default: '' },
         message: { type: String, default: '' },
-        showConfetti: { type: Boolean, default: true }
+        buttonText: { type: String, default: 'Continue' },
+        image: { type: String, default: '' },
+        showConfetti: { type: Boolean, default: false }
 },
-  data() {
-    return { star }
-  },
  watch: {
-        open(newVal) {
-                if (newVal && this.showConfetti) {
-                        confetti()
-                }
-        }
+    open(newVal) {
+      if (newVal && this.showConfetti) {
+        myConfetti({
+          particleCount: 60,
+          spread: 60,
+          startVelocity: 25,
+          ticks: 70,
+          zIndex: 99999,
+        })
+      }
+    }
 },
   methods: {
     closePopup() {
@@ -94,7 +76,7 @@ export default {
   border: 3px solid #56b6c2;
   border-radius: 20px;
   padding: 35px;
-  text-align: left;
+  text-align: center;
   color: #abb2bf;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
 
@@ -291,4 +273,6 @@ export default {
     max-width: 1300px;
   }
 }
+
+
 </style>
