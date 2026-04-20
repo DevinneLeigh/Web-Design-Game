@@ -57,21 +57,30 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import CodeEditor from "./CodeEditor.vue";
 import GameInstructions from "./GameInstructions.vue";
-import { worlds, playerProject } from "@/data/levels"
+import { useLevelStore } from '@/stores/levelStore'
 import { useRoute } from "vue-router"
 import Button from "./Button.vue";
 import Popup from "./Popup.vue";
 import { checkTag } from "../data/levels/code-validation";
 import star from '../assets/images/star.gif'
 
+const route = useRoute()
+
+const levelStore = useLevelStore()
+levelStore.load() 
+
 const activeTab = ref('html')
 const showPopup = ref(false)
 
-const props = defineProps({
-  level: Object
+
+
+const level = computed(() => {
+  return Object.values(levelStore.worlds)
+    .flat()
+    .find(l => String(l.id) === String(route.params.id))
 })
 
 const popupTitle = ref("")
@@ -79,21 +88,28 @@ const popupMessage = ref("")
 const popupImage = ref(null)
 const popupConfetti = ref(false)
 const popupButtonText = ref("Continue")
-const htmlKey = `html-${props.level.id}`
-const cssKey = `css-${props.level.id}`
+const htmlKey = computed(() => `html-${level.value?.id}`)
+const cssKey = computed(() => `css-${level.value?.id}`)
 
-const allLevels = [
-  ...worlds.flatMap(w => w.levels),
-  ...playerProject
-]
-
-const htmlCode = ref(
-  localStorage.getItem(htmlKey) || props.level.starterCode.html
+const allLevels = computed(() =>
+  Object.values(levelStore.worlds).flat()
 )
 
-const cssCode = ref(
-  localStorage.getItem(cssKey) || props.level.starterCode.css
-)
+const htmlCode = ref("")
+const cssCode = ref("")
+
+watch(level, (newLevel) => {
+  if (!newLevel) return
+
+  const htmlKey = `html-${newLevel.id}`
+  const cssKey = `css-${newLevel.id}`
+
+  htmlCode.value =
+    localStorage.getItem(htmlKey) || newLevel.starterCode.html
+
+  cssCode.value =
+    localStorage.getItem(cssKey) || newLevel.starterCode.css
+}, { immediate: true })
 
 const previewDoc = computed(() => `
   <html>
@@ -105,7 +121,7 @@ const previewDoc = computed(() => `
     </body>
   </html>
 `)
-const route = useRoute()
+
 
 const currentHint = computed(() => {
   const hint =allLevels.find(
@@ -135,6 +151,9 @@ function openPopup({
 }
 
 function handleSave() {
+  const htmlKey = `html-${level.value.id}`
+  const cssKey = `css-${level.value.id}`
+
   localStorage.setItem(htmlKey, htmlCode.value)
   localStorage.setItem(cssKey, cssCode.value)
   openPopup({
@@ -149,8 +168,10 @@ function handleCheck() {
   const isCompleteNow = isLevelComplete()
 
   if (isCompleteNow) {
+    levelStore.completeLevel(level.value.worldKey, level.value.id)
+    
     openPopup({
-      title: `${props.level.title} Complete`,
+      title: `${level.value.title} Complete`,
       message: "Your code met all the requirements. Good job!",
       image: star,
       confetti: true,
@@ -171,7 +192,7 @@ function closePopup() {
 }
 
 function isLevelComplete() {
-    const completion = props?.level?.completion;
+    const completion = level.value?.completion;
     if (!completion) return false;
 
     // const htmlOk = (htmlCode.value || "")
@@ -185,12 +206,12 @@ function isLevelComplete() {
 }
 
 function checkCssCompletion() {
-    const requiredCSS = props?.level?.completion?.requiredCSS;
+    const requiredCSS = level.value?.completion.requiredCSS;
     return true;
 }
 
 function checkHtmlCompletion() {
-    const requiredTags = props?.level?.completion?.requiredHTML;
+    const requiredTags = level.value?.completion.requiredHTML;
 
     const parser = new DOMParser();
     const inputHtml = parser.parseFromString(htmlCode.value, "text/html");

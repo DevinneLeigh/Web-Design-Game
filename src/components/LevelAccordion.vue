@@ -1,16 +1,33 @@
 
 <script setup>
 import { RouterLink } from "vue-router"
-import { worlds } from "@/data/levels"
+import { useLevelStore } from '@/stores/levelStore'
+import { computed } from 'vue'
 import completed from '../assets/images/completed.png'
 import unlocked from '../assets/images/unlocked.png'
 import locked from '../assets/images/locked.png'
+
+const levelStore = useLevelStore()
+levelStore.load()
 
 function getLevelImage(level) {
   if (level.completed) return completed
   if (level.unlocked) return unlocked
   return locked
 }
+
+const worlds = computed(() => [
+  {
+    id: 'world1',
+    name: 'World 1',
+    levels: levelStore.worlds.world1
+  },
+  {
+    id: 'world2',
+    name: 'World 2',
+    levels: levelStore.worlds.world2
+  }
+])
 
 </script>
 
