@@ -1,9 +1,9 @@
 export const playerProject = [
     {
         id: "project1",
+        defaultUnlocked: true,
         title: "Add a Heading",
         concept: "html-headings",
-        unlocked: true,
 
         instructions: `
     <h2>Instructions</h2>
@@ -85,9 +85,9 @@ export const playerProject = [
 
     {
         id: "project-2",
+        defaultUnlocked: false,
         title: "Add a Button",
         concept: "html-buttons",
-        unlocked: false,
 
         instructions: `
         world 1 - level 2
