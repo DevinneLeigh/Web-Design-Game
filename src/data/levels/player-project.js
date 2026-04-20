@@ -66,14 +66,12 @@ export const playerProject = [
                             validTags: ["h1"],
                             order: 1,
 
-                            contentStrictness: "loose",
                             content: "Welcome to My Website",
                         },
                         {
                             validTags: ["p"],
                             order: 2,
 
-                            contentStrictness: "loose",
                             content: "Learn web design by completing challenges\\.",
                             contentNickName: "Learn web design by completing challenges.",
                         },

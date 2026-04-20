@@ -1,14 +1,17 @@
 // code validator will collect all elements with a valid tag, and filter out any that don't meet the requirements
-// validTags: [strings...]) elements allowed to meet requirements eg. ["h1","h2","h3"] or ["img"]
+// validTags: [strings...]) elements allowed to meet requirements e.g. ["h1","h2","h3"] or ["img"]
 // nickName: string) a descriptive name meant to clarify requiremnts to user, if heading tag would work "heading" could help
 // class: string) the tag needs to have all classes separated by a space "classA ClassB"
 // childElements: another tag object) required elements found under object with their own requirements
 // order: int) you need to find an element that meets the order 2 requirements after an order order 1 element
 // count: int) there must be at least x number of valid elements on the page
+// uniqueCount: int) there must be at least x number of unique valid elements on the page, 
+// only really works if valid tags has multiple defined tags e.g. ["a","img","span"]
 
 // content: string) text needed to be found within an element !!uses regex, for litteral period use "//." instead of "."
+// content: bool) if true, use innerHTML instead of textContent 
 // contentNickName: string) rename the expected text found in an element for the user
-// contentStrictness: string) "loose" will make capitalization of text content not matter
+// contentIsStrict: string) true will make capitalization of content text matter
 export function checkTag(scope, tag) {
     // Body is used as a entry tag, we just don't want to say "problem under body" as it could confuse the user
     const isBodyTag = (tag.validTags[0] == "body") 
@@ -74,7 +77,7 @@ export function checkTag(scope, tag) {
             return worked;
         });
 
-        // If no candidate has the right children throw the out error its children gave
+        // If no candidate has the right children rethrow the error its children gave
         errorIfMissingTags(errorFindingChild + (!isBodyTag ? ` under ${tagName}` : ""), false);
 
         // This filters out the candidates whose children are not in the right order
@@ -88,9 +91,17 @@ export function checkTag(scope, tag) {
     // Filters out candidates that don't contain required text
     if (tag.content) {
         validCandidates = contentFilter(validCandidates, tag);
-
-        errorIfMissingTags(`text in ${tagName} "${tag.contentNickName != null ? tag.contentNickName :tag.content}"`);
+        errorIfMissingTags(`Write "${tag.contentNickName != null ? tag.contentNickName :tag.content}" in ${tagName}`, false);
     }
+
+    // Throws error if tags are not unique enough
+    if (tag.uniqueCount != null) {
+
+        const uniqueCount = uniqueTagNames(validCandidates);
+        if (uniqueCount < tag.uniqueCount) {
+            throw new Error(`Need more variety in your ${tag.nickName}s`)
+        }
+    } 
 
     // If all goes well we return the list of elements that meet all our requirements
     return validCandidates;
@@ -114,12 +125,11 @@ function contentFilter(validCandidates, tag) {
     return validCandidates.filter((element) => {
     
         let regExFlags = ""
-        if (tag.contentStrictness == "loose") {
+        if (tag.contentIsStrict == false || tag.contentIsStrict == null) {
             regExFlags += "i"
         }
-
         const validRegex = new RegExp(tag.content, regExFlags);
-        return validRegex.test(element.textContent);
+        return validRegex.test(tag.contentIncludesHTML ? element.innerHTML : element.textContent);
     });
 }
 
@@ -172,4 +182,16 @@ function listChildElements(element) {
         returnList = returnList.concat(decendents);
     });
     return returnList;
+}
+
+function uniqueTagNames(elements) {
+    const uniqueTags = []
+    elements.forEach(element => {
+        const tagName = element.tagName
+        if (!uniqueTags.includes(tagName)) {
+            uniqueTags.push(tagName);
+        }
+    });
+    return uniqueTags.length;
+
 }
