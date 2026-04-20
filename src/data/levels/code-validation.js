@@ -1,3 +1,13 @@
+// code validator will collect all elements with a valid tag, and filter out any that don't meet the requirements
+// validTags: [strings...]) elements allowed to meet requirements eg. ["h1","h2","h3"] or ["img"]
+// nickName: string) a descriptive name meant to clarify requiremnts to user, if heading tag would work "heading" could help
+// class: string) the tag needs to have all classes separated by a space "classA ClassB"
+// childElements: another tag object) required elements found under object with their own requirements
+// order: int) you need to find an element that meets the order 2 requirements after an order order 1 element
+// count: int) there must be at least x number of valid elements on the page
+
+// content: string) text needed to be found within an element
+// contentStrictness: string) "loose" will make capitalization of text content not matter
 export function checkTag(scope, tag) {
     const errorIfMissingTags = (message, addition = true) => {
         if (validCandidates.length == 0) {
