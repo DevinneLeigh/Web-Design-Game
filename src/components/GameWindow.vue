@@ -24,20 +24,28 @@
             language="css" 
           />
         </div>
-        <div class="editor-buttons">
-          <div>
-            <Button 
-              label="Save Code" 
-              buttonClass="save button" 
-              @action="handleSave" ></Button>
-          </div>
-          <div>
-            <Button 
-              label="Check Code" 
-              buttonClass="submit button" 
-              @action="handleCheck" ></Button>
-          </div>
+       <div class="editor-buttons">
+        <div>
+          <Button 
+            label="Save Code" 
+            buttonClass="save button" 
+            @action="handleSave" />
         </div>
+
+        <div>
+          <Button 
+            label="Reset Level" 
+            buttonClass="reset button" 
+            @action="handleReset" />
+        </div>
+
+        <div>
+          <Button 
+            label="Check Code" 
+            buttonClass="submit button" 
+            @action="handleCheck" />
+        </div>
+      </div>
       </div>
     </div>
     <div class="output">
@@ -51,7 +59,10 @@
       :image="popupImage"
       :showConfetti="popupConfetti"
       :buttonText="popupButtonText"
+      :secondaryButtonText="secondaryButtonText"
+      :isConfirmPopup="isConfirmPopup"
       @close="closePopup"
+      @confirm="confirmReset"
     />
   </div>
 </template>
@@ -75,6 +86,8 @@ levelStore.load()
 const activeTab = ref('html')
 const showPopup = ref(false)
 
+const isConfirmPopup = ref(false)
+const secondaryButtonText = ref("")
 
 
 const level = computed(() => {
@@ -140,13 +153,17 @@ function openPopup({
   message,
   image = null,
   confetti = false,
-  buttonText = "Continue"
+  buttonText = "Continue",
+  secondaryButton = "",
+  confirmPopup = false
 }) {
   popupTitle.value = title
   popupMessage.value = message
   popupImage.value = image
   popupConfetti.value = confetti
   popupButtonText.value = buttonText
+  secondaryButtonText.value = secondaryButton
+  isConfirmPopup.value = confirmPopup
   showPopup.value = true
 }
 
@@ -162,6 +179,36 @@ function handleSave() {
     confetti: false,
     buttonText: "OK"
   })
+}
+
+function handleReset() {
+  if (!level.value) return
+
+  openPopup({
+    title: "Reset Level?",
+    message: "Are you sure you want to reset only this level back to its starter code?",
+    confetti: false,
+    buttonText: "Confirm",
+    secondaryButton: "Back",
+    confirmPopup: true
+  })
+}
+
+function confirmReset() {
+  if (!level.value) return
+
+  const htmlKey = `html-${level.value.id}`
+  const cssKey = `css-${level.value.id}`
+
+  htmlCode.value = level.value.starterCode.html || ""
+  cssCode.value = level.value.starterCode.css || ""
+
+  localStorage.setItem(htmlKey, htmlCode.value)
+  localStorage.setItem(cssKey, cssCode.value)
+
+  showPopup.value = false
+  isConfirmPopup.value = false
+  secondaryButtonText.value = ""
 }
 
 function handleCheck() {
@@ -189,6 +236,8 @@ function handleCheck() {
 
 function closePopup() {
   showPopup.value = false
+  isConfirmPopup.value = false
+  secondaryButtonText.value = ""
 }
 
 function isLevelComplete() {

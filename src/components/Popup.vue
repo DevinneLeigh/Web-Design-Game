@@ -7,9 +7,24 @@
 
       <img v-if="image" :src="image" alt="Popup Image" />
 
-      <button type="button" class="popupButton" @click="closePopup">
-        {{ buttonText }}
-      </button>
+      <div class="popupButtons">
+        <button
+          v-if="secondaryButtonText"
+          type="button"
+          class="popupButton secondaryButton"
+          @click="closePopup"
+        >
+          {{ secondaryButtonText }}
+        </button>
+
+        <button
+          type="button"
+          class="popupButton"
+          @click="handleMainButton"
+        >
+          {{ buttonText }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -25,15 +40,17 @@ const myConfetti = confetti.create(null, {
 
 export default {
   name: "Popup",
-  emits: ['close'],
+  emits: ['close', 'confirm'],
   props: {
-        open: { type: Boolean, default: false },
-        title: { type: String, default: '' },
-        message: { type: String, default: '' },
-        buttonText: { type: String, default: 'Continue' },
-        image: { type: String, default: '' },
-        showConfetti: { type: Boolean, default: false }
-},
+    open: { type: Boolean, default: false },
+    title: { type: String, default: '' },
+    message: { type: String, default: '' },
+    buttonText: { type: String, default: 'Continue' },
+    secondaryButtonText: { type: String, default: '' },
+    image: { type: String, default: '' },
+    showConfetti: { type: Boolean, default: false },
+    isConfirmPopup: { type: Boolean, default: false }
+  },
  watch: {
     open(newVal) {
       if (newVal && this.showConfetti) {
@@ -50,6 +67,13 @@ export default {
   methods: {
     closePopup() {
       this.$emit('close')
+    },
+    handleMainButton() {
+      if (this.isConfirmPopup) {
+        this.$emit('confirm')
+      } else {
+        this.$emit('close')
+      }
     }
   }
 }
@@ -130,9 +154,17 @@ export default {
   margin-bottom: 18px;
 }
 
+.popupButtons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
 .popupButton {
-  display: block;
-  margin: 20px auto 0 auto;
+  display: inline-block;
+  margin: 0;
   padding: 12px 28px;
   background: #e06c75;
   color: #21252b;
@@ -145,6 +177,16 @@ export default {
 
   &:hover {
     background: #c678dd;
+    color: #ececef;
+  }
+}
+
+.secondaryButton {
+  background: #4b3b40;
+  color: #ececef;
+
+  &:hover {
+    background: #6b4c57;
     color: #ececef;
   }
 }
@@ -186,10 +228,15 @@ export default {
     margin-bottom: 16px;
   }
 
-  .popupButton {
-    width: 100%;
-    max-width: 220px;
-  }
+.popupButtons {
+  flex-direction: column;
+  align-items: center;
+}
+
+.popupButton {
+  width: 100%;
+  max-width: 220px;
+}
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
