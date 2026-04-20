@@ -6,9 +6,12 @@
 // order: int) you need to find an element that meets the order 2 requirements after an order order 1 element
 // count: int) there must be at least x number of valid elements on the page
 
-// content: string) text needed to be found within an element
+// content: string) text needed to be found within an element !!uses regex, for litteral period use "//." instead of "."
+// contentNickName: string) rename the expected text found in an element for the user
 // contentStrictness: string) "loose" will make capitalization of text content not matter
 export function checkTag(scope, tag) {
+    // Body is used as a entry tag, we just don't want to say "problem under body" as it could confuse the user
+    const isBodyTag = (tag.validTags[0] == "body") 
     const errorIfMissingTags = (message, addition = true) => {
         if (validCandidates.length == 0) {
             throw new Error((addition ? "Missing " : "") + message);
@@ -55,7 +58,7 @@ export function checkTag(scope, tag) {
                     // will throw error if child is not found
                     const childElement = checkTag(element, childTag);
 
-                    // keeps track of what elements will work i
+                    // keeps track of what elements will work
                     if (childTag.order) {
                         orderInTag.push({
                             order: childTag.order,
@@ -72,13 +75,13 @@ export function checkTag(scope, tag) {
         });
 
         // If no candidate has the right children throw the out error its children gave
-        errorIfMissingTags(errorFindingChild + ` under ${tagName}`, false);
+        errorIfMissingTags(errorFindingChild + (!isBodyTag ? ` under ${tagName}` : ""), false);
 
         // This filters out the candidates whose children are not in the right order
         try {
             validCandidates = orderFilter(validCandidates, orderedTags);
         } catch (error) {
-            throw new Error(error.message + `\nunder ${tagName}`);
+            throw new Error(error.message + (!isBodyTag ? `\nunder ${tagName}` : ""));
         }
     }
 
@@ -86,7 +89,7 @@ export function checkTag(scope, tag) {
     if (tag.content) {
         validCandidates = contentFilter(validCandidates, tag);
 
-        errorIfMissingTags(`text in ${tagName} "${tag.content}"`);
+        errorIfMissingTags(`text in ${tagName} "${tag.contentNickName != null ? tag.contentNickName :tag.content}"`);
     }
 
     // If all goes well we return the list of elements that meet all our requirements
@@ -109,14 +112,14 @@ function classFilter(validCandidates, tag) {
 
 function contentFilter(validCandidates, tag) {
     return validCandidates.filter((element) => {
-        let a = tag.content;
-        let b = element.textContent;
-
-        if (tag.contentStrictness && tag.contentStrictness == "loose") {
-            a = a.toLowerCase();
-            b = b.toLowerCase();
+    
+        let regExFlags = ""
+        if (tag.contentStrictness == "loose") {
+            regExFlags += "i"
         }
-        return b.includes(a);
+
+        const validRegex = new RegExp(tag.content, regExFlags);
+        return validRegex.test(element.textContent);
     });
 }
 
@@ -127,7 +130,7 @@ function orderFilter(validCandidates, orderedTags) {
     });
 }
 
-export function checkOrder(validCandidate, orderedTags) {
+function checkOrder(validCandidate, orderedTags) {
     const currentTags = orderedTags.slice(0);
     currentTags.sort((a, b) => a.order - b.order);
 
