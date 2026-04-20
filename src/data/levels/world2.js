@@ -350,13 +350,52 @@ export const world2 = [
 
     instructions: `
         <h2>Animation</h2>
-
+        <p>In ye olden days, JavaScript was used to animate HTML objects, transforming static pages into something more visually interesting. Now, most animation work can be done in CSS; an object's styles can transition between several different states over a specified amount of time, allowing it to move, change colors, and change in size.</p>
+        <p>In order to animate an element, you must first create an animation using the keyword <code>@keyframes</code>, followed by a name. Then comes the CSS block, which contains either a <code>from</code> block and <code>to</code> block...</p>
+        <pre><code>@keyframes growing-text {
+          from {font-size: 8px;}
+          to {font-size: 16px;}
+        }</code></pre>
+        <p>...or a series of percentage blocks, which change the styles at certain points in the animation's runtime.</p>
+        <pre><code>@keyframes growing-and-shrinking-text {
+          0%   {font-size: 8px;}
+          50%  {font-size: 16px;}
+          100% {font-size: 8px;}
+        }</code></pre>
+        <p>In those examples, the keyframes (the <code>from...to</code> and percentages) only changed one style, but any number of styles can be changed by each keyframe. Once you have created an animation, you can give it to an element using <code>animation-name</code> and <code>animation-duration</code>. The animation duration is in seconds. Elements with these styles will only play their animation once when the page loads, so to make them play a certain number of times, use <code>animation-iteration-count</code>.</p>
+        <pre><code>.animated-text {
+          font-family: Arial, sans-serif;
+          font-size: 8px;
+          animation-name: growing-and-shrinking-text;
+          animation-duration: 3s;
+          animation-iteration-count: infinite
+        }</code></pre>
+        <h2>Task</h2>
+        <p>Animate the divs so that they go from blue 20-pixel squares to red 40-pixel wide rectangles and back again. Add keyframes to the empty animation block named <code>crazy-box</code>. Then, give the <code>.slow-box</code> class the animation, and make it run for 5 seconds infinitely. Do the same for the <code>.fast-box</code> class, but make the duration 2 seconds.</p>
     `,
-    hint: "",
+    hint: "The keyframes should only change the width and background color. The 0% and 100% keyframes should make the blue square, and the 50% keyframe should make the red rectangle. Make sure both of the classes have the animation name, the correct durations, and an infinite iteration count.",
 
     starterCode: {
-      html: ``,
-      css: ``
+      html: `<div class="box slow-box"></div>
+      <div class="box fast-box"></div>`,
+      css: `.box {
+        height: 20px;
+        width: 20px;
+        margin: 5px;
+        background-color: blue;
+      }
+      
+      @keyframes crazy-box {
+        /*Add keyframes*/
+      }
+      
+      .slow-box {
+        /*Add crazy-box animation*/
+      }
+      
+      .fast-box {
+        /*Add crazy-box animation*/
+      }`
     },
 
     completion: {
