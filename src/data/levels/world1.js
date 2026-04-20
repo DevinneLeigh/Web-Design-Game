@@ -43,11 +43,19 @@ export const world1 = [
     },
 
     completion: {
-      requiredHTML: ["h1"],
+      requiredHTML: [
+        {
+          nickName: "heading tag",
+          validTags:["h1","h2","h3","h4","h5","h6"],
+          uniqueCount: 2
+        },
+        {
+          nickName: "paragraph tag",
+          validTags: ["p"]
+        }],
 
       requiredCSS: []
     }
-
   },
 
   {
@@ -101,14 +109,34 @@ export const world1 = [
     },
 
     completion: {
-      requiredHTML: [`<!--Today, I need to mow the lawn, wash the dishes, and walk the dog.-->
-      <p>Today's chores:</p>
-      
-      <ul>
-        <li>Mow the lawn</li>
-        <li>Wash the dishes</li>
-        <li>Walk the dog</li>
-      </ul>`],
+      requiredHTML: [{
+        validTags: ["ul"],
+        nickName: "unordered list",
+
+        childElements: [
+          {
+            nickName: "list item",
+
+            validTags: ["li"],
+            content:"^Mow the lawn",
+            contentNickName:"Mow the lawn",
+          },
+          {
+            nickName: "list item",
+           
+            validTags: ["li"],
+            content:"^Wash the dishes",
+            contentNickName:"Wash the dishes",
+          },
+          {
+            nickName: "list item",
+           
+            validTags: ["li"],
+            content:"^Walk the dog",
+            contentNickName:"Walk the dog",
+          },
+        ]
+      }],
       requiredCSS: []
     }
   },
@@ -150,7 +178,7 @@ export const world1 = [
     },
 
     completion: {
-      requiredHTML: ["b", "em", "u", "mark", "sub", "sup"],
+      requiredHTML: [{validTags: ["b", "em", "u", "mark", "sub", "sup"]}],
       requiredCSS: []
     }
   },
@@ -196,7 +224,13 @@ export const world1 = [
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: [
+        {
+          validTags: ["button"],
+          class: "btn",
+          content: "Click Me"
+        }
+      ],
 
       requiredCSS: []
     }
@@ -235,7 +269,38 @@ export const world1 = [
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: [
+        {
+          validTags: ["div"],
+          childElements: [
+            {  
+              validTags: ["section"],
+              count: 2,
+
+              childElements: [
+                {
+                  validTags : ["h1"],
+                  order: 1
+                },
+                {
+                  validTags: ["p"],
+                  order: 2,
+
+                  contentIncludesHTML: true,
+                  content: "^((<[^<]*?>)|\\s)*?<span.*>\\w+<\\/span.*>",
+                  contentNickName: "First word in span",
+
+                  childElements: [
+                    {
+                      validTags: ["span"]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
 
       requiredCSS: []
     }
@@ -339,7 +404,18 @@ export const world1 = [
     },
 
     completion: {
-      requiredHTML: ["div", "p"],
+      requiredHTML: [{
+        validTags: ["div"],
+        nickName: "parent div",
+
+        childElements: [
+          {
+            validTags: ["p"],
+            content: ".+",
+            contentNickName: "some text"
+          }
+        ]
+      }],
 
       requiredCSS: []
     }
