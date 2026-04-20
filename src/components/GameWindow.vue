@@ -64,7 +64,7 @@ import { worlds, playerProject } from "@/data/levels"
 import { useRoute } from "vue-router"
 import Button from "./Button.vue";
 import Popup from "./Popup.vue";
-import { checkTag, checkOrder } from "../data/levels/code-validation";
+import { checkTag } from "../data/levels/code-validation";
 import star from '../assets/images/star.gif'
 
 const activeTab = ref('html')
@@ -174,42 +174,30 @@ function isLevelComplete() {
     const completion = props?.level?.completion;
     if (!completion) return false;
 
-    const htmlOk = (htmlCode.value || "")
-        .toLowerCase()
-        .includes(String(completion.requiredHTML?.[0] || "").toLowerCase());
+    // const htmlOk = (htmlCode.value || "")
+    //     .toLowerCase()
+    //     .includes(String(completion.requiredHTML?.[0] || "").toLowerCase());
     const cssOk = (cssCode.value || "")
         .toLowerCase()
         .includes(String(completion.requiredCSS?.[0] || "").toLowerCase());
 
-    return checkHtmlCompletion() && checkCssCompletion(); //htmlOk && cssOk
+    return checkHtmlCompletion() && cssOk //checkCssCompletion(); //htmlOk
 }
 
 function checkCssCompletion() {
-    const requiredCSS = props.level.completion.requiredCSS;
+    const requiredCSS = props?.level?.completion?.requiredCSS;
     return true;
 }
 
 function checkHtmlCompletion() {
-    const requiredTags = props.level.completion.requiredHTML;
+    const requiredTags = props?.level?.completion?.requiredHTML;
 
     const parser = new DOMParser();
-    const inputHtml = parser.parseFromString(htmlCode.value, "text/html").body;
+    const inputHtml = parser.parseFromString(htmlCode.value, "text/html");
 
     let worked = true;
-    const orderedTags = [];
-
     try {
-        requiredTags.forEach((tag) => {
-            const checkedTag = checkTag(inputHtml, tag);
-
-            if (tag.order) {
-                orderedTags.push({
-                    order: tag.order,
-                    element: checkedTag,
-                });
-            }
-        });
-        checkOrder(inputHtml, orderedTags);
+      checkTag(inputHtml, {validTags: ["body"], childElements: requiredTags})
     } catch (error) {
         window.alert(error.message);
         worked = false;
