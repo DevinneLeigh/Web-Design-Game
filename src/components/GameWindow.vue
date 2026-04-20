@@ -136,17 +136,10 @@ const previewDoc = computed(() => `
 `)
 
 
-const currentHint = computed(() => {
-  const hint =allLevels.find(
-    l => String(l.id) === String(route.params.id)
-  )?.hint
-
-  if (hint != "") {
-    return "Hint: " + hint
-  }
-  return ""
-
-})
+let currentHint = "code validators should replace this text"
+let setHint = (newHint) => {
+  currentHint = "Hint: " + newHint 
+}
 
 function openPopup({
   title,
@@ -227,7 +220,7 @@ function handleCheck() {
   } else {
     openPopup({
       title: "Not Quite Yet",
-      message: `Your code is missing some requirements. Try again.<br><br>${currentHint.value}`,
+      message: `Your code is missing some requirements. Try again.<br><br>${currentHint}`,
       confetti: false,
       buttonText: "Try Again"
     })
@@ -269,7 +262,7 @@ function checkHtmlCompletion() {
     try {
       checkTag(inputHtml, {validTags: ["body"], childElements: requiredTags})
     } catch (error) {
-        window.alert(error.message);
+        setHint(error.message);
         worked = false;
     }
 
