@@ -131,7 +131,7 @@ const previewDoc = computed(() => `
 
 let currentHint = "code validators should replace this text"
 let setHint = (newHint) => {
-  currentHint.value = "Hint: " + newHint 
+  currentHint = "Hint: " + newHint 
 }
 
 function openPopup({
