@@ -1,6 +1,32 @@
 export const cssLevels = [
   {
-    id: "w2-l1",
+    id: "css-01",
+    defaultUnlocked: false,
+    title: "Fonts and Formatting",
+    description: "Learn how to change the font family, size, and style of text using CSS. This level introduces you to font properties like font-family, font-size, font-weight, and font-style. You’ll learn how to apply different fonts to your webpage and understand the impact of typography on design and readability.",
+    concept: "css-fonts-formatting",
+
+    instructions: `
+        <h2>Fonts</h2>
+        <p></p>
+        <h2>Text Formatting</h2>
+        <p></p>
+    `,
+    hint: "",
+
+    starterCode: {
+      html: ``,
+      css: ``
+    },
+
+    completion: {
+      requiredHTML: [],
+
+      requiredCSS: []
+    }
+  },
+  {
+    id: "css-02",
     defaultUnlocked: false,
     title: "Colors",
     description: "Learn how to apply colors to text and elements using CSS. You’ll explore named colors, hexadecimal values, and how color affects visual design. This level builds your understanding of styling basics and how to make content more engaging and visually cohesive.",
@@ -99,56 +125,7 @@ export const cssLevels = [
     }
   },
   {
-    id: "w2-l2",
-    defaultUnlocked: false,
-    title: "Fonts and Formatting",
-    description: "Learn how to change the font family, size, and style of text using CSS. This level introduces you to font properties like font-family, font-size, font-weight, and font-style. You’ll learn how to apply different fonts to your webpage and understand the impact of typography on design and readability.",
-    concept: "css-fonts-formatting",
-
-    instructions: `
-        <h2>Fonts</h2>
-        <p></p>
-        <h2>Text Formatting</h2>
-        <p></p>
-    `,
-    hint: "",
-
-    starterCode: {
-      html: ``,
-      css: ``
-    },
-
-    completion: {
-      requiredHTML: [],
-
-      requiredCSS: []
-    }
-  },
-  {
-    id: "w2-l3",
-    title: "Backgrounds",
-    description: "Learn how to add background colors, images, and gradients to elements on your webpage using CSS. This level covers properties like background-color, background-image, background-size, and background-position. You’ll explore how to create visually appealing backgrounds that enhance the overall design of your site.",
-    concept: "css-backgrounds",
-
-    instructions: `
-        <h2>Backgrounds</h2>
-        <p>See if you can add a background color to the textbox.</p>
-    `,
-    hint: "Use background-color.",
-
-    starterCode: {
-      html: `<div class ="box">Hello World!</div>`,
-      css: `.box {font-size: 32px}`
-    },
-
-    completion: {
-      requiredHTML: ["box"],
-
-      requiredCSS: ["background-color"]
-    }
-  },
-  {
-    id: "w2-l4",
+    id: "css-03",
     defaultUnlocked: false,
     title: "Padding and Margin",
     description: "Learn how to control spacing and add white space around elements on your webpage using CSS. This level teaches you the difference between padding (space inside an element) and margin (space outside an element), and how to use these properties to improve the layout and readability of your content.",
@@ -172,7 +149,78 @@ export const cssLevels = [
     }
   },
   {
-    id: "w2-l5",
+    id: "css-04",
+    title: "Backgrounds",
+    description: "Learn how to add background colors, images, and gradients to elements on your webpage using CSS. This level covers properties like background-color, background-image, background-size, and background-position. You’ll explore how to create visually appealing backgrounds that enhance the overall design of your site.",
+    concept: "css-backgrounds",
+
+    instructions: `
+        <h2>Backgrounds</h2>
+        <p>See if you can add a background color to the textbox.</p>
+    `,
+    hint: "Use background-color.",
+
+    starterCode: {
+      html: `<div class ="box">Hello World!</div>`,
+      css: `.box {font-size: 32px}`
+    },
+
+    completion: {
+      requiredHTML: ["box"],
+
+      requiredCSS: ["background-color"]
+    }
+  },
+  {
+    id: "css-05",
+    defaultUnlocked: false,
+    title: "Flexbox Layout",
+    description: "Learn how to create flexible and responsive layouts using CSS Flexbox. You’ll control alignment, spacing, and distribution of elements within a container. Flexbox makes it easier to design complex layouts that adapt to different screen sizes.",
+    concept: "css-flexbox",
+
+    instructions: `
+        <h2>Flexbox</h2>
+
+    `,
+    hint: "",
+
+    starterCode: {
+      html: ``,
+      css: ``
+    },
+
+    completion: {
+      requiredHTML: [],
+
+      requiredCSS: []
+    }
+  },
+  {
+    id: "css-06",
+    defaultUnlocked: false,
+    title: "Grid Layout",
+    description: "Learn how to create complex and responsive grid-based layouts using CSS Grid. This level introduces you to the grid container and grid item properties, allowing you to define rows, columns, and areas for precise control over your webpage's structure. CSS Grid is a powerful tool for building modern web designs that adapt seamlessly to different screen sizes.",
+    concept: "css-grid",
+
+    instructions: `
+        <h2>Grid Layout</h2>
+
+    `,
+    hint: "",
+
+    starterCode: {
+      html: ``,
+      css: ``
+    },
+
+    completion: {
+      requiredHTML: [],
+
+      requiredCSS: []
+    }
+  },
+  {
+    id: "css-07",
     defaultUnlocked: false,
     title: "Borders and Rounded Corners",
     description: "Learn how to add borders and rounded corners to elements on your webpage using CSS. This level covers properties like border-width, border-style, border-color, and border-radius. You’ll explore how to create visually appealing borders and soften the edges of elements with rounded corners to enhance the overall design of your site.",
@@ -200,7 +248,32 @@ export const cssLevels = [
     }
   },
   {
-    id: "w2-l6",
+    id: "css-08",
+    defaultUnlocked: false,
+    title: "Text and Box Shadow",
+    description: "Learn how to add depth and dimension to your webpage using CSS shadows. This level covers text-shadow for adding shadows to text, and box-shadow for creating shadows around elements. You’ll explore how to customize the color, size, and position of shadows to enhance the visual appeal of your design.",
+    concept: "css-shadows",
+
+    instructions: `
+        <h2>Text Shadow</h2>
+        <p></p>
+        <h2>Box Shadow</h2>
+    `,
+    hint: "",
+
+    starterCode: {
+      html: ``,
+      css: ``
+    },
+
+    completion: {
+      requiredHTML: [],
+
+      requiredCSS: []
+    }
+  },
+  {
+    id: "css-09",
     defaultUnlocked: false,
     title: "Gradients",
     description: "Learn how to create smooth transitions between colors using CSS gradients. This level introduces you to linear and radial gradients, and how to customize them with different color stops and angles. Gradients can add depth and visual interest to your designs, making them a powerful tool for enhancing the aesthetics of your webpage.",
@@ -269,80 +342,7 @@ export const cssLevels = [
     }
   },
   {
-    id: "w2-l7",
-    defaultUnlocked: false,
-    title: "Text and Box Shadow",
-    description: "Learn how to add depth and dimension to your webpage using CSS shadows. This level covers text-shadow for adding shadows to text, and box-shadow for creating shadows around elements. You’ll explore how to customize the color, size, and position of shadows to enhance the visual appeal of your design.",
-    concept: "css-shadows",
-
-    instructions: `
-        <h2>Text Shadow</h2>
-        <p></p>
-        <h2>Box Shadow</h2>
-    `,
-    hint: "",
-
-    starterCode: {
-      html: ``,
-      css: ``
-    },
-
-    completion: {
-      requiredHTML: [],
-
-      requiredCSS: []
-    }
-  },
-  {
-    id: "w2-l8",
-    defaultUnlocked: false,
-    title: "Flexbox Layout",
-    description: "Learn how to create flexible and responsive layouts using CSS Flexbox. You’ll control alignment, spacing, and distribution of elements within a container. Flexbox makes it easier to design complex layouts that adapt to different screen sizes.",
-    concept: "css-flexbox",
-
-    instructions: `
-        <h2>Flexbox</h2>
-
-    `,
-    hint: "",
-
-    starterCode: {
-      html: ``,
-      css: ``
-    },
-
-    completion: {
-      requiredHTML: [],
-
-      requiredCSS: []
-    }
-  },
-  {
-    id: "w2-l9",
-    defaultUnlocked: false,
-    title: "Grid Layout",
-    description: "Learn how to create complex and responsive grid-based layouts using CSS Grid. This level introduces you to the grid container and grid item properties, allowing you to define rows, columns, and areas for precise control over your webpage's structure. CSS Grid is a powerful tool for building modern web designs that adapt seamlessly to different screen sizes.",
-    concept: "css-grid",
-
-    instructions: `
-        <h2>Grid Layout</h2>
-
-    `,
-    hint: "",
-
-    starterCode: {
-      html: ``,
-      css: ``
-    },
-
-    completion: {
-      requiredHTML: [],
-
-      requiredCSS: []
-    }
-  },
-  {
-    id: "w2-l10",
+    id: "css-10",
     defaultUnlocked: false,
     title: "Animation",
     description: "Learn how to create animations using CSS. This level covers keyframe animations, allowing you to define the stages of an animation and control its timing and behavior. You’ll explore how to animate properties like position, color, and size to bring your designs to life and create engaging user experiences.",

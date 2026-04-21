@@ -1,7 +1,7 @@
 <script setup>
-import { ref } from "vue"
+import { ref, computed } from "vue"
 import { useRoute } from "vue-router"
-import { worlds, playerProject } from "@/data/levels"
+import { useLevelStore } from '@/stores/levelStore'
 import Popup from "@/components/Popup.vue"
 import GameWindow from "@/components/GameWindow.vue"
 
@@ -15,11 +15,11 @@ function closeHintPopup() {
   showHintPopup.value = false
 }
 
-const allLevels = [
-  ...worlds.flatMap(w => w.levels),
-  ...playerProject
-]
-const level = allLevels.find(l => l.id === route.params.id)
+const levelStore = useLevelStore()
+
+const level = computed(() =>
+  levelStore.findLevelById(route.params.id)
+)
 
 
 </script>
@@ -41,7 +41,7 @@ const level = allLevels.find(l => l.id === route.params.id)
     <Popup
     :open="showHintPopup"
     title="Hint"
-    :message="allLevels.find(l => String(l.id) === String(route.params.id))?.hint || 'No hint available'"
+    :message="level?.hint || 'No hint available'"
     buttonText="Close"
     :showConfetti="false"
     @close="closeHintPopup"

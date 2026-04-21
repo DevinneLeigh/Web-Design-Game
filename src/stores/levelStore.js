@@ -53,21 +53,6 @@ export const useLevelStore = defineStore('levels', {
         }
     },
 
-    // completeLevel(categoryKey, levelId) {
-    //     const levels = this.levels[categoryKey]
-    //     const index = levels.findIndex(l => l.id === levelId)
-    //     if (index === -1) return
-
-    //     levels[index].completed = true
-
-    //     const next = levels[index + 1]
-    //     if (next) next.unlocked = true
-
-    //     this.applyUnlockRules(categoryKey, levelId)
-
-    //     this.save()
-    // },
-
     applyUnlockRules() {
         const rules = levelProgression.unlocks
         if (!rules) return

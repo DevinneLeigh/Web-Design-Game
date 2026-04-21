@@ -89,12 +89,9 @@ const showPopup = ref(false)
 const isConfirmPopup = ref(false)
 const secondaryButtonText = ref("")
 
-
-const level = computed(() => {
-  return Object.values(levelStore.worlds)
-    .flat()
-    .find(l => String(l.id) === String(route.params.id))
-})
+const level = computed(() =>
+  levelStore.findLevelById(route.params.id)
+)
 
 const popupTitle = ref("")
 const popupMessage = ref("")
@@ -103,10 +100,6 @@ const popupConfetti = ref(false)
 const popupButtonText = ref("Continue")
 const htmlKey = computed(() => `html-${level.value?.id}`)
 const cssKey = computed(() => `css-${level.value?.id}`)
-
-const allLevels = computed(() =>
-  Object.values(levelStore.worlds).flat()
-)
 
 const htmlCode = ref("")
 const cssCode = ref("")
@@ -138,7 +131,7 @@ const previewDoc = computed(() => `
 
 let currentHint = "code validators should replace this text"
 let setHint = (newHint) => {
-  currentHint = "Hint: " + newHint 
+  currentHint.value = "Hint: " + newHint 
 }
 
 function openPopup({
@@ -237,9 +230,6 @@ function isLevelComplete() {
     const completion = level.value?.completion;
     if (!completion) return false;
 
-    // const htmlOk = (htmlCode.value || "")
-    //     .toLowerCase()
-    //     .includes(String(completion.requiredHTML?.[0] || "").toLowerCase());
     const cssOk = (cssCode.value || "")
         .toLowerCase()
         .includes(String(completion.requiredCSS?.[0] || "").toLowerCase());
