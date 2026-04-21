@@ -1,4 +1,4 @@
-export const world1 = [
+export const htmlLevels = [
   {
     id: "w1-l1",
     defaultUnlocked: true,

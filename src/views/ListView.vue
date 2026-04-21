@@ -17,7 +17,7 @@ function closeLandingHelp() {
 </script>
 
 <template>
-  <div class="map-main">
+  <div class="list-main">
     <button
     v-if="!showLandingHelp"
     class="landing-button"
@@ -25,14 +25,14 @@ function closeLandingHelp() {
       ?
     </button>
 
-  <Popup
-    :open="showLandingHelp"
-    :showConfetti="false"
-    title="Welcome to the Web Design Game"
-    :message="aboutGame"
-    @close="closeLandingHelp"/>
+    <Popup
+      :open="showLandingHelp"
+      :showConfetti="false"
+      title="Welcome to the Web Design Game"
+      :message="aboutGame"
+      @close="closeLandingHelp"/>
 
-    <div class="map-wrapper">
+    <div class="list-wrapper">
       <LevelAccordion />
     </div>
 

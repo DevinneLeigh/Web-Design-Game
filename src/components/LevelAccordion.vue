@@ -16,66 +16,66 @@ function getLevelImage(level) {
   return locked
 }
 
-const worlds = computed(() => [
+const levels = computed(() => [
   {
-    id: 'world1',
-    name: 'World 1',
-    levels: levelStore.worlds.world1
+    id: 'html-levels',
+    name: 'HTML Levels',
+    levels: levelStore.categories.htmlLevels
   },
   {
-    id: 'world2',
-    name: 'World 2',
-    levels: levelStore.worlds.world2
+    id: 'css-levels',
+    name: 'CSS Levels',
+    levels: levelStore.categories.cssLevels
   }
 ])
 
 </script>
 
 <template>
-  <div class="map">
+  <div class="lists">
     <div
-      v-for="world in worlds"
-      :key="world.id"
-      class="world"     
+      v-for="level in levels"
+      :key="level.id"
+      class="list"     
     >
-      <h2>{{ world.name }}</h2>
+      <h2>{{ level.name }}</h2>
 
-      <div class="levels accordion" :id="`level-accordion-${world.id}`">
+      <div class="levels accordion" :id="`level-accordion-${level.id}`">
           <div
-          v-for="level in world.levels"
-          :key="level.id"
+          v-for="subLevel in level.levels"
+          :key="subLevel.id"
         >
         <h2 class="accordion-header">
           <button 
           class="accordion-button collapsed"
           :class="{ 
-            completed: level.completed,
-            unlocked: !level.completed && level.unlocked, 
-            locked: !level.completed && !level.unlocked 
+            completed: subLevel.completed,
+            unlocked: !subLevel.completed && subLevel.unlocked, 
+            locked: !subLevel.completed && !subLevel.unlocked 
           }" 
           type="button" data-bs-toggle="collapse"   
-          :data-bs-target="`#collapse-${level.id}`"
-          :aria-controls="`collapse-${level.id}`">
-            <img :src="getLevelImage(level)"/>
-            {{ level.title }}
+          :data-bs-target="`#collapse-${subLevel.id}`"
+          :aria-controls="`collapse-${subLevel.id}`">
+            <img :src="getLevelImage(subLevel)"/>
+            {{ subLevel.title }}
           </button>
         </h2>
         <div
-          :id="`collapse-${level.id}`"
+          :id="`collapse-${subLevel.id}`"
           class="accordion-collapse collapse"
-          :data-bs-parent="`#level-accordion-${world.id}`"
+          :data-bs-parent="`#level-accordion-${level.id}`"
         >
           <div
           :class="{ 
-            completedBody: level.completed,
-            unlockedBody: !level.completed && level.unlocked, 
-            lockedBody: !level.completed && !level.unlocked,  }"
+            completedBody: subLevel.completed,
+            unlockedBody: !subLevel.completed && subLevel.unlocked, 
+            lockedBody: !subLevel.completed && !subLevel.unlocked,  }"
           class="accordion-body level-body" >
-            {{ level.description }}
-            <div v-if="level.unlocked || level.completed" class="level-actions">
-                <RouterLink :to="`/level/${level.id}`">
+            {{ subLevel.description }}
+            <div v-if="subLevel.unlocked || subLevel.completed" class="level-actions">
+                <RouterLink :to="`/level/${subLevel.id}`">
                 <button class="level-node">
-                    {{ level.completed ? "Replay" : "Start" }}
+                    {{ subLevel.completed ? "Replay" : "Start" }}
                 </button>
                 </RouterLink>
             </div>

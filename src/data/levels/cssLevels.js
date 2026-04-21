@@ -1,4 +1,4 @@
-export const world2 = [
+export const cssLevels = [
   {
     id: "w2-l1",
     defaultUnlocked: false,

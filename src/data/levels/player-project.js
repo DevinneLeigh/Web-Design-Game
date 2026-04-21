@@ -1,9 +1,7 @@
 export const playerProject = [
     {
         id: "project1",
-        defaultUnlocked: true,
-        title: "Add a Heading",
-        concept: "html-headings",
+        title: "1st Boss",
 
         instructions: `
     <h2>Instructions</h2>
@@ -81,28 +79,130 @@ export const playerProject = [
 
             requiredCSS: [],
         },
+        
     },
-
     {
-        id: "project-2",
-        defaultUnlocked: false,
-        title: "Add a Button",
-        concept: "html-buttons",
+        id: "project2",
+        title: "2nd Boss",
 
-        instructions: `
-        world 1 - level 2
-    `,
-        hint: "Use <h1>...</h1> inside the body.",
+        instructions: ``,
+        hint: "",
 
         starterCode: {
-            html: `<h1>My Page</h1>`,
+            html: `<div></div>`,
             css: ``,
         },
 
         completion: {
-            requiredHTML: ["h1"],
+            requiredHTML: [
+                {
+                    validTags: ["div"],
+                    class: "",
+                    nickName: "",
+
+                    childElements: [
+                        {
+                            validTags: ["h1"],
+                            order: 1,
+
+                            content: "",
+                        },
+                        {
+                            validTags: ["p"],
+                            order: 2,
+
+                            content: "",
+                            contentNickName: "",
+                        },
+                    ],
+                },
+            ],
 
             requiredCSS: [],
         },
+        
     },
+    {
+        id: "project3",
+        title: "3rd Boss",
+
+        instructions: ``,
+        hint: "",
+
+        starterCode: {
+            html: `<div></div>`,
+            css: ``,
+        },
+
+        completion: {
+            requiredHTML: [
+                {
+                    validTags: ["div"],
+                    class: "",
+                    nickName: "",
+
+                    childElements: [
+                        {
+                            validTags: ["h1"],
+                            order: 1,
+
+                            content: "",
+                        },
+                        {
+                            validTags: ["p"],
+                            order: 2,
+
+                            content: "",
+                            contentNickName: "",
+                        },
+                    ],
+                },
+            ],
+
+            requiredCSS: [],
+        },
+        
+    },
+    {
+        id: "project4",
+        title: "4th Boss",
+
+        instructions: ``,
+        hint: "",
+
+        starterCode: {
+            html: `<div></div>`,
+            css: ``,
+        },
+
+        completion: {
+            requiredHTML: [
+                {
+                    validTags: ["div"],
+                    class: "",
+                    nickName: "",
+
+                    childElements: [
+                        {
+                            validTags: ["h1"],
+                            order: 1,
+
+                            content: "",
+                        },
+                        {
+                            validTags: ["p"],
+                            order: 2,
+
+                            content: "",
+                            contentNickName: "",
+                        },
+                    ],
+                },
+            ],
+
+            requiredCSS: [],
+        },
+        
+    },
+
 ];

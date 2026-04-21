@@ -1,12 +1,12 @@
 import { createRouter, createWebHashHistory } from "vue-router"
-import MapView from "@/views/MapView.vue";
+import ListView from "@/views/ListView.vue";
 import LevelView from "@/views/LevelView.vue";
 
 const routes = [
   {
     path: "/",
-    name: "Map",
-    component: MapView
+    name: "List",
+    component: ListView
   },
   {
     path: "/level/:id",

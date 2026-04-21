@@ -330,19 +330,19 @@ iframe {
   background: radial-gradient( #ffffff, #1b2223);
 }
 
-.map-main {
+.list-main {
   padding: 40px 0 90px 0;
   min-height: calc(100vh - 140px);
 }
 
-.map-wrapper {
+.lists-wrapper {
   height: 100%;
   width: 100%;
   padding: 40px 0;
   background-image: linear-gradient(to top left,$dark2, $dark, $dark2);
 }
 
-.map {
+.lists {
   display: flex;
   flex-flow: column;
   gap: 20px;
@@ -351,7 +351,7 @@ iframe {
   @include md { // 768px
     flex-flow: row;
   }
-  .world {
+  .list {
     width: 100%;
     @include md { // 768px
       width: 50%;
