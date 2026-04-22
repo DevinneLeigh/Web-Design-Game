@@ -420,12 +420,46 @@ export const htmlLevels = [
 
     instructions: `
         <h2>Adding Images</h2>
+        <p>
+          The <code>&lt;img&gt;</code> tag is used to embed images on your webpage.
+        </p>
+        <p>
+          The <code>src</code> attribute is what tells the HTML where your image is located in the form of a URL. This can be an absolute or relative URL.
+        </p>
+        <p>
+          An absolute URL links to an image hosted on an external site:
+        </p>
+        <code>
+          &lt;img src="https://example.com/images/example-image.jpg"&gt;
+        </code>
+        <p>
+          A relative URL links to an image hosted on your site. Unlike an absolute URL, it doesn't include the domain name:
+        </p>
+        <code>
+          &lt;img src="images/my-image.jpg"&gt;
+        </code>
+        <p>
+          Any image you add should include alt text, using the <code>alt</code> attribute. Alt text is used by screen readers to describe images to visually impaired users. It's also what's displayed if for some reason your image doesn't load. Try to keep your alt text descriptive but brief.
+        </p>
+        <code>
+          &lt;img src="images/my-image.jpg" alt="Example Alt Text"&gt;
+        </code>
+
+        <h2>Challenge</h2>
+        <p>
+          Add the src and alt attributes to the img tag provided.
+        </p>
+        <p>For the src, use the url: <code>https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg</code></p>
+        
+        <p>For the alt text use the following, without quotes: "A red apple on its side in front of a white background"</p>
     `,
     hint: "",
 
     starterCode: {
-      html: ``,
-      css: ``
+      html: `<img>`,
+      css: `img {
+      width: 300px;
+    }`
     },
 
     completion: {
