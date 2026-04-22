@@ -1,7 +1,7 @@
 <template> 
   <div v-if="open" class="popup">
     <div class="popupInner">
-      <h1>{{ title }}</h1>
+      <h1 class="popup-title">{{ title }}</h1>
 
         <div class="popupMessage" v-html="message"></div>
 

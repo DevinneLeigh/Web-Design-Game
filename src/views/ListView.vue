@@ -28,7 +28,7 @@ function closeLandingHelp() {
     <Popup
       :open="showLandingHelp"
       :showConfetti="false"
-      title="Welcome to the Web Design Game"
+      title="WELCOME TO THE WEB DESIGN GAME"
       :message="aboutGame"
       @close="closeLandingHelp"/>
 

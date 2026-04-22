@@ -8,7 +8,7 @@ import Footer from './components/Footer.vue'
   <Nav></Nav>
 
   <div class="header">
-    <h1 class="text-center">Web Design Game</h1>
+    <h1 class="text-center">WEB DESIGN GAME</h1>
   </div>
 
   <div id="main">

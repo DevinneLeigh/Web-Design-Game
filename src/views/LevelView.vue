@@ -40,7 +40,7 @@ const level = computed(() =>
     </button>
     <Popup
     :open="showHintPopup"
-    title="Hint"
+    title="HINT"
     :message="level?.hint || 'No hint available'"
     buttonText="Close"
     :showConfetti="false"
