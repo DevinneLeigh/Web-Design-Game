@@ -1,16 +1,15 @@
 @import "bootstrap/scss/bootstrap";
 
 
-$dark: #21252B;
-$dark2: #282C34;
+$dark: #1A181B;
+$dark2: #272429;
 $light: #ABB2BF;
 $light2: #7D8799;
-$pink: #E06C75;
-$blue: #56B6C2;
-$blue2: #15373B;
-$purple: #C678DD;
-$green: #98C379;
 $white: #ececef;
+$primary: #2CDA9D;
+$primary-dark: #3E8989;
+$secondary: #564D65;
+$tertiary: #05F140;
 
 $xs:  400px;
 $sm:  576px;
@@ -190,7 +189,7 @@ body {
 
 .output {
   background-color: $dark;
-  border: solid 4px $blue;
+  border: solid 4px $primary;
   border-radius: 14px;
   width: 100%;
   height: 400px;      
@@ -207,8 +206,8 @@ body {
 }
 
 .custom-border {
-  border-left: solid 4px $blue;
-  border-top: solid 4px $blue;
+  border-left: solid 4px $primary;
+  border-top: solid 4px $primary;
   border-top-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
@@ -220,36 +219,37 @@ body {
   button {
     background: none;
     color: $light;
-    border: solid 3px $blue;
+    border: solid 3px $primary;
     border-bottom: none;
     border-radius: 12px 12px 0 0;
     padding: 5px 10px;
   }
   button.active {
-    background-color: $blue;
+    background-color: $primary;
     color: $dark;
   }
 }
 
 
 .custom-button {
-  background-color: $pink;
+  background-color: $tertiary;
   color: $dark;
-  border: none;
-  padding: 10px 20px;
+  border: solid 2px $tertiary;
+  padding: 8px 18px;
   border-radius: 20px;
   width: 150px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
   &:hover {
-    background-color: darken($pink, 8%);
+    color: $tertiary;
+    background-color: #00000000;
   }
 }
 
 
 .editor .cm-cursor {
-  border-left: 3px solid $purple; 
+  border-left: 3px solid $tertiary; 
 }
 
 .info-section {
@@ -266,7 +266,7 @@ footer {
     margin: 0;
   }
   a {
-    color: $blue;
+    color: $primary;
     text-decoration: none;
   }
 }
@@ -332,12 +332,12 @@ footer {
     }
   }
   .save{
-      background-color: $purple;
-      border: solid 2px $purple;
+      background-color: $primary-dark;
+      border: solid 2px $primary-dark;
   }
   .submit{
-      background-color: $green;
-      border: solid 2px $green;
+      background-color: $tertiary;
+      border: solid 2px $tertiary;
   }
 }
 
@@ -381,7 +381,7 @@ iframe {
   min-height: calc(100vh - 140px);
 }
 
-.lists-wrapper {
+.list-wrapper {
   height: 100%;
   width: 100%;
   padding: 40px 0;
@@ -414,16 +414,16 @@ iframe {
           justify-content: center;
           button{
             text-shadow: .7px .7px 1px #0000007c;
-            border: solid 2px $purple;
+            border: solid 2px $primary-dark;
             border-radius: 20px;
-            background: $purple;
+            background: $primary-dark;
             padding: 5px 30px;
-            color: $dark;
+            color: $white;
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s ease;
             &:hover {
-              border: solid 2px $white;
+              border: solid 2px $primary-dark;
               background: none;
               color: $white;
             }
@@ -436,6 +436,8 @@ iframe {
 
 
 .accordion-button{
+  border: solid 2px $secondary;
+  color: $white;
   text-shadow: .7px .7px 1px #0000007c;
   background: $dark2;
   padding: 10px 24px;
@@ -450,51 +452,37 @@ iframe {
 }
 
 .accordion-button:not(.collapsed){
-  color: $dark !important;
+  background: $secondary;
+  color: $white !important;
+}
+.accordion-body {
+  color: $white !important;
+  border: solid 2px $secondary;
 }
 
 
 
 // Level locked 
-.locked, .lockedBody, .locked:not(.collapsed) {
-  border: solid 2px $light2;
-  color: $light;
+.locked, .lockedBody {
+  // border: solid 2px $secondary;
+  color: $light2 !important;
 }
 .locked:not(.collapsed) {
-  background: $light2;
-}
-
-// Level unlocked
-.unlocked, .unlockedBody, .unlocked:not(.collapsed) {
-  border: solid 2px $blue;
-  color: white;
-}
-.unlocked:not(.collapsed) {
-  background: $blue;
-}
-
-// Level completed
-.completed, .completedBody, .completed:not(.collapsed) {
-  border: solid 2px $green;
-  color: white;
-}
-.completed:not(.collapsed) {
-  background: $green;
+  color: $light !important;
 }
 
 
 
-.unlocked::after, .completed::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgb(255, 255, 255)' stroke-width='2' viewBox='0 0 16 16'%3e%3cpolyline points='4 6 8 10 12 6'/%3e%3c/svg%3e");
+.unlocked::after, .unlocked:not(.collapsed)::after, .completed::after, .completed:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgb(236 236 239)' stroke-width='2' viewBox='0 0 16 16'%3e%3cpolyline points='4 6 8 10 12 6'/%3e%3c/svg%3e");
 
 }
 .locked::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgb(171 178 191)' stroke-width='2' viewBox='0 0 16 16'%3e%3cpolyline points='4 6 8 10 12 6'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgb(125 135 153)' stroke-width='2' viewBox='0 0 16 16'%3e%3cpolyline points='4 6 8 10 12 6'/%3e%3c/svg%3e");
 
 }
-/* Accordion open arrow color */
-.accordion-button:not(.collapsed)::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgb(33 37 43)' stroke-width='2' viewBox='0 0 16 16'%3e%3cpolyline points='4 6 8 10 12 6'/%3e%3c/svg%3e");
+.locked:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgb(171 178 191)' stroke-width='2' viewBox='0 0 16 16'%3e%3cpolyline points='4 6 8 10 12 6'/%3e%3c/svg%3e");
 
 }
 
