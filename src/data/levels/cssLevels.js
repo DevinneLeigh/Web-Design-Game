@@ -304,7 +304,7 @@ export const cssLevels = [
         <p>2. Create a linear gradient that transitions from blue on the left to green on the right.</p>
         <p>3. Create a radial gradient that transitions from white in the center to purple at the edges.</p>
     `,
-    hint: "",
+    hint: "Add code after the <b>background:</b> property. Look at the examples above as a guide. Make sure there are no spelling errors!",
 
     starterCode: {
       html: `<p><b>Linear Gradient top to bottom</b></p>
