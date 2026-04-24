@@ -376,6 +376,42 @@ iframe {
   background: radial-gradient( #ffffff, #1b2223);
 }
 
+.instructions #text-shadow {
+  font-size: 22px;
+  color: $white;
+  text-shadow: 4px 4px 0 rgb(0, 123, 255);
+}
+
+.instructions #glow-text {
+  font-size: 22px;
+  color: $white;
+  text-shadow: 0 0 7px rgb(158, 158, 255);
+}
+
+.instructions #shadow-text {
+  font-size: 22px;
+  color: rgb(93, 91, 101);
+  text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
+
+.instructions #box-shadow {
+  font-size: 22px;
+  color: $white;
+  box-shadow: 6px 6px 0 rgb(0, 123, 255);
+}
+
+.instructions #glow-box {
+  font-size: 22px;
+  color: $white;
+  box-shadow: 0 0 7px rgb(158, 158, 255);
+}
+
+.instructions #shadow-box {
+  font-size: 22px;
+  color: rgb(93, 91, 101);
+  box-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
+
 .list-main {
   padding: 40px 0 90px 0;
   min-height: calc(100vh - 140px);
