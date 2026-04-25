@@ -437,17 +437,18 @@ iframe {
 }
 
 .lists {
+  height: 100%;
   display: flex;
   flex-flow: column;
   gap: 20px;
   max-width: 1000px;
-  margin: auto;
+  margin: 0 auto;
   @include md { // 768px
     flex-flow: row;
   }
   .list {
     width: 100%;
-    margin: auto;
+    margin: 0 auto;
     @include md { // 768px
       width: 50%;
     }
