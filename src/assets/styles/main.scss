@@ -334,6 +334,7 @@ footer {
   .save{
       background-color: $primary-dark;
       border: solid 2px $primary-dark;
+      color: $white;
   }
   .submit{
       background-color: $tertiary;
@@ -531,10 +532,9 @@ iframe {
   top: 20px;
   left: 20px;
   z-index: 100000;
-
-  background: #E06C75;
-  color: #21252B;
-  border: none;
+  border: solid 2px $primary-dark;
+  background: $primary-dark;
+  color: $white;
   border-radius: 20px;
   padding: 8px 16px;
   font-size: 14px;
@@ -544,8 +544,7 @@ iframe {
   transition: 0.2s ease;
 
   &:hover {
-    background: #C678DD;
-    color: #ececef;
+    background: #ffffff00;
   }
 }
 
@@ -555,8 +554,8 @@ iframe {
   right: 20px;
   z-index: 100000;
 
-  background: #56B6C2;
-  color: #21252B;
+  background: $primary;
+  color: $dark;
   border: none;
   border-radius: 50%;
   width: 45px;
@@ -572,8 +571,8 @@ iframe {
   transition: 0.2s ease;
 
   &:hover {
-    background: #C678DD;
-    color: #ececef;
+    background: $primary-dark;
+    color: $white;
   }
 }
 
@@ -584,6 +583,7 @@ iframe {
 .popup-title {
   text-align: center;
   font-family: 'DeepShadow', sans-serif;
+  text-transform: uppercase;
 
   font-size: 1.6rem;
   letter-spacing: 2px;
