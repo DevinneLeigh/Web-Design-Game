@@ -344,6 +344,47 @@ export const htmlLevels = [
 
     instructions: `
         <h2>Forms</h2>
+        <p>Goal: Create a simple contact form</p>
+
+        <p>For this we will be making a simple contact form, one of the most common uses for the tag. </p>
+        <p>First we make a &lt;form&gt; tag, &lt;form action="" method="post"&gt; &lt;/form&gt; and put everthing inside of it</p>
+        <p>You can label your form items, &lt;label for="fname"&gt;First Name: &lt;/label&gt;</p>
+        <p>next add the input, &lt;input type="text" id="fname" name="fname" value=""&gt;&lt;br&gt; adding the &lt;br&gt; will create a line break for the next item</p>
+        <p>add a few more labels and inputs, </p>
+        <p>&lt;label for="lname"&gt;Last Name: &lt;/label&gt;</p>
+        <p>&lt;input type="text" id="lname" name="lname" value=""&gt;&lt;br&gt;</p>
+        
+        <p>Using the number type only allows numbers in the input box</p>
+        <p>&lt;label for="phonenumber"&gt;Phone Number: &lt;/label&gt;</p>
+        <p>&lt;input type="number" id="phonenumber" name="phonenumber" value=""&gt;&lt;br&gt;</p>
+        
+        <p>Using radials allows for selecting from a set of options</p>
+        <p>&lt;label for="country"&gt;Country: &lt;/label&gt;&lt;br&gt;</p>
+        <p>&lt;input type="radio" id="country1" name="country" value="USA"&gt;</p>
+        <p>&lt;label for="country1"&gt;USA&lt;/label&gt;&lt;br&gt;</p>
+        <p>&lt;input type="radio" id="country2" name="country" value="Canada"&gt;</p>
+        <p>&lt;label for="country2"&gt;Canada&lt;/label&gt;&lt;br&gt;</p>
+        <p>&lt;input type="radio" id="country3" name="country" value="Mexico"&gt;</p>
+        <p>&lt;label for="country3"&gt;Mexico&lt;/label&gt;&lt;br&gt;</p>
+        <p>&lt;input type="radio" id="country4" name="country" value="Other"&gt;</p>
+        <p>&lt;label for="country4"&gt;Other&lt;/label&gt;&lt;br&gt;</p>
+
+        <p>Another tag that allows for a selection of options is the &lt;selection&gt; tag</p>
+        <p>&lt;label for="reason"&gt;Select how you found us: &lt;/label&gt;</p>
+        <p>&lt;select id="reason" name="reason"&gt;</p>
+          <p>&Tab;&lt;option value="referal"&gt;From a friend&lt;/option&gt;</p>
+          <p>&Tab;&lt;option value="youtube"&gt;Youtube&lt;/option&gt;</p>
+          <p>&Tab;&lt;option value="internet"&gt;The internet&lt;/option&gt;</p>
+          <p>&Tab;&lt;option value="work"&gt;From work&lt;/option&gt;</p>
+          <p>&Tab;&lt;option value="other"&gt;Other&lt;/option&gt;</p>
+        <p>&lt;/select&gt;</p>
+
+
+        <p>And finally you add a submit button</p>
+        <p>&lt;input type="submit" value="submit"&gt;</p>
+        
+        <p>you have successfully created a basic contact form</p>
+        <p>Currently the form will clear itself when submitted as there is no action for the form to take</p>
     `,
     hint: "",
 
