@@ -87,7 +87,7 @@ $xxl: 1400px;
   font-style: italic;
 }
 
-h1, h3, h4, h5, h6 {
+h1, h4, h5, h6 {
   font-family: 'DeepShadow', sans-serif;
   letter-spacing: 3px;
   line-height: 1.8;
@@ -100,7 +100,9 @@ h1, h3, h4, h5, h6 {
 .text-white {
   color: $light !important;
 }
-
+#main {
+  background-image: linear-gradient(to top left,$dark2, $dark, $dark2);
+}
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -119,6 +121,7 @@ body {
   align-items: center;
   justify-content: center;
   h1 {
+    font-size: 1.7rem;
     margin: 0;
   }
 }
@@ -421,23 +424,49 @@ iframe {
 .list-wrapper {
   height: 100%;
   width: 100%;
-  padding: 40px 0;
-  background-image: linear-gradient(to top left,$dark2, $dark, $dark2);
+  padding: 0 10px;
+  @include xs { //400
+    padding: 0 24px;
+  }
+  @include sm { //576
+    padding: 0 80px;
+  }
+  @include md { // 768px
+    padding: 0 20px;
+  }
 }
 
 .lists {
   display: flex;
   flex-flow: column;
   gap: 20px;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
   @include md { // 768px
     flex-flow: row;
   }
   .list {
     width: 100%;
+    margin: auto;
     @include md { // 768px
       width: 50%;
+    }
+    .level-type-heading {
+      width: 60%;
+      margin: 0 auto 20px auto;
+      transform: skewX(-25deg);
+      background: $primary-dark;
+      padding: 14px;
+      border-radius: 18px 0 18px 0;
+    }
+    h2 {
+      transform: skewX(25deg);
+      font-size: 1.3em;
+      font-weight: bold;
+      letter-spacing: 4px;
+      text-align: center;
+      color: $white;
+      margin: 0;
     }
     .levels {
       border-radius: 20px;

@@ -38,14 +38,16 @@ const levels = computed(() => [
       :key="level.id"
       class="list"     
     >
-      <h2>{{ level.name }}</h2>
+      <div class="level-type-heading">
+        <h2>{{ level.name }}</h2>
+      </div>
 
       <div class="levels accordion" :id="`level-accordion-${level.id}`">
           <div
           v-for="subLevel in level.levels"
           :key="subLevel.id"
         >
-        <h2 class="accordion-header">
+        <h3 class="accordion-header">
           <button 
           class="accordion-button collapsed"
           :class="{ 
@@ -59,7 +61,7 @@ const levels = computed(() => [
             <img :src="getLevelImage(subLevel)"/>
             {{ subLevel.title }}
           </button>
-        </h2>
+        </h3>
         <div
           :id="`collapse-${subLevel.id}`"
           class="accordion-collapse collapse"
@@ -85,7 +87,7 @@ const levels = computed(() => [
       </div>
     </div>
   </div>
-    <RouterLink to="/level/project1">
+    <!-- <RouterLink to="/level/project1">
     <button class="custom-button">Go to Project</button>
-  </RouterLink>
+  </RouterLink> -->
 </template>
