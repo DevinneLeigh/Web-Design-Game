@@ -386,7 +386,7 @@ export const htmlLevels = [
         <p>you have successfully created a basic contact form</p>
         <p>Currently the form will clear itself when submitted as there is no action for the form to take</p>
     `,
-    hint: "",
+    hint: "You should have 9 labels, 8 inputs, 5 options within a select, and a submit button as an input tag",
 
     starterCode: {
       html: ``,
@@ -394,7 +394,33 @@ export const htmlLevels = [
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: [{
+        validTags: ["form"],
+        childElements: [
+          {
+            nickName: "label",
+            validTags: ["label"],
+            count: 9
+          },
+                    {
+            nickName: "input",
+            validTags: ["input"],
+            count: 9
+          },
+          {
+            nickName: "select",
+            validTags: ["select"],
+            childElements: [
+              {
+                nickName: "option",
+                validTags: ["option"],
+                count: 5
+              }
+            ]
+          },
+                    
+        ]
+      }],
 
       requiredCSS: []
     }
