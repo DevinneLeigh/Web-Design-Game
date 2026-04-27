@@ -121,15 +121,27 @@ body {
   align-items: center;
   justify-content: center;
   h1 {
-    font-size: 1.7rem;
+    font-size: 1rem;
     margin: 0;
+    @include xs { // 400px
+      font-size: 1.2rem;
+    }
+    @include sm { // 576px
+      font-size: 1.4rem;
+    }
+    @include md { // 768px
+      font-size: 1.6rem;
+    }
+    @include lg { // 960px
+      font-size: 1.7rem;
+    }
   }
 }
 
 .level-main {
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  padding: 10px 20px 140px 20px;
+  padding: 10px 20px 120px 20px;
   @include lg { // 960px
     padding: 10px 25px 30px 25px;
     height: calc(100vh - 140px);
@@ -153,35 +165,34 @@ body {
     @include lg { // 960px
       width: 600px;
     }
-  .instructions {
+  .instructions-wrapper {
     flex: 1;
     height: 200px;
     background-color: $dark2;
     padding: 10px 0 0 10px;
     overflow-y: auto;
     @include lg { // 960px
-    flex: 0 0 40%;
-    height: 100%;
-  }
-  h2 {
-    font-size: 24px;
-  }
-  p, li{
-    margin-right: 20px;
-  }
+      height: 40%;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    p, li{
+      margin-right: 20px;
+    }
 }
     }
     .editor-section {
-      height: 400px;
+      height: 100%;
       width: 100%;
         @include lg { // 960px
           height: 60%;
         }
         .editor {
-          width: 100%;
-          // height: 400px;       
-          overflow: auto;
+          background: $dark2;
+          width: 100%;     
           @include lg { // 960px
+            overflow: auto;
             height: 75%;
           }       
         }
@@ -195,13 +206,14 @@ body {
   border: solid 4px $primary;
   border-radius: 14px;
   width: 100%;
-  height: 400px;      
-  overflow: auto;
+  height: 600px;      
   @include lg { // 960px
+    overflow: auto;
     width: calc(100% - 400px);
     height: 100%;
   } 
   .preview {
+    border-radius: 11px;
     width: 100%;
     height: 100%;
     border: none;
@@ -310,13 +322,11 @@ footer {
 
 }
 
-.editor {
-  height: calc(100% - 91px);
-}
 .editor-buttons {
   display: flex;
   flex-flow: row;
-  justify-content: right;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
   margin-top: 10px;
   .button { 
@@ -348,7 +358,18 @@ footer {
 
 
 .cm-editor {
+  background: $dark2;
   height: 100%;
+  margin: 10px;
+}
+
+.cm-gutters {
+  background: $dark2 !important;
+}
+
+.cm-line.cm-activeLine, .cm-gutterElement.cm-activeLineGutter {
+  background: $primary-dark !important;
+  color: $white;
 }
 
 iframe {
@@ -559,50 +580,62 @@ iframe {
 
 .back-button {
   position: fixed;
-  top: 20px;
+  bottom: 100px;
   left: 20px;
   z-index: 100000;
   border: solid 2px $primary-dark;
   background: $primary-dark;
   color: $white;
   border-radius: 20px;
-  padding: 8px 16px;
-  font-size: 14px;
+  height: 30px;
+  padding: 0 10px;
+  font-size: 12px;
   font-weight: bold;
   cursor: pointer;
-
   transition: 0.2s ease;
-
   &:hover {
     background: #ffffff00;
+  }
+  @include sm { // 960px
+    top: 20px;
+  }
+  @include md { // 960px
+    font-size: 14px;
+    height: 40px;
+    padding: 0 16px;
   }
 }
 
 .landing-button {
   position: fixed;
-  top: 20px;
+  bottom: 100px;
   right: 20px;
   z-index: 100000;
-
   background: $primary;
   color: $dark;
   border: none;
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   transition: 0.2s ease;
 
   &:hover {
     background: $primary-dark;
     color: $white;
+  }
+  @include sm { // 960px
+    top: 20px;
+  }
+  @include md { // 960px
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
   }
 }
 

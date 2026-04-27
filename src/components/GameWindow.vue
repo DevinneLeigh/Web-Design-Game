@@ -4,7 +4,7 @@
   </div>
   <div class="game-window" v-else>
     <div class="left-side">
-      <div class="instructions custom-border">
+      <div class="instructions-wrapper custom-border">
         <GameInstructions :instructions="level.instructions" />
       </div>
       <div class="editor-section">

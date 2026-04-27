@@ -5,7 +5,6 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="instructions" v-html="instructions">
-    
-  </div>
+    <div class="instructions" v-html="instructions">
+    </div>
 </template>
