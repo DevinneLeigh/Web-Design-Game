@@ -105,10 +105,15 @@ export default {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
 
   h1 {
+    font-family: 'DeepShadow', sans-serif;
     text-align: center;
-    margin-bottom: 20px;
     color: #ececef;
-    font-size: 2.2rem;
+
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    line-height: 2;
+    margin-bottom: 20px;
+    word-break: break-word;
   }
 
   h2 {
@@ -185,12 +190,19 @@ export default {
     margin-top: 10px;
 
     h1 {
-      font-size: 1.9rem;
-      line-height: 1.2;
+      font-family: 'DeepShadow', sans-serif;
+
+      font-size: 1.1rem;
+      letter-spacing: 3px;
+      line-height: 2.2;
+
+      margin-bottom: 20px;
+      word-break: break-word;
+      text-align: center;
     }
 
     h2 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     img {
@@ -198,6 +210,12 @@ export default {
       margin: 20px auto 10px auto;
     }
   }
+
+  .popupButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
   .intro {
     font-size: 1rem;
@@ -214,7 +232,7 @@ export default {
   align-items: center;
 }
 
-}
+
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .popup {
