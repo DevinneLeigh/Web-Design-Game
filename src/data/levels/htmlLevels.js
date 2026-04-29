@@ -414,7 +414,7 @@ th {
         <p>Another tag that allows for a selection of options is the &lt;selection&gt; tag</p>
         <p>&lt;label for="reason"&gt;Select how you found us: &lt;/label&gt;</p>
         <p>&lt;select id="reason" name="reason"&gt;</p>
-          <p>&Tab;&lt;option value="referal"&gt;From a friend&lt;/option&gt;</p>
+          <p>&Tab;&lt;option value="referral"&gt;From a friend&lt;/option&gt;</p>
           <p>&Tab;&lt;option value="youtube"&gt;Youtube&lt;/option&gt;</p>
           <p>&Tab;&lt;option value="internet"&gt;The internet&lt;/option&gt;</p>
           <p>&Tab;&lt;option value="work"&gt;From work&lt;/option&gt;</p>
