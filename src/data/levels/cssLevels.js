@@ -300,20 +300,65 @@ export const cssLevels = [
 
     instructions: `
         <h2>Text Shadow</h2>
-        <p></p>
+        <p>Through CSS you can add shadows to text using the <b>text-shadow</b> property. There are a few different values you can adjust to change up the look of the effect. </p>
+        <br>
+        <p>The first two values are the horizontal and vertical offsets, which determine how far the shadow is from the text. The third value is the blur radius, which determines how blurry the shadow is. The last value is the color of the shadow.</p>
+        <p id="text-shadow"><b>Double Text</b></p>
+        <p>   #text {<br>
+	                text-shadow: 2px 2px 0 blue;<br>
+              }</p>
+        <p id="glow-text"><b>Glowing Text</b></p>
+        <p>   #text {<br>
+	                text-shadow: 0 0 7px white;<br>
+              }</p>
+        <p id="shadow-text"><b>Shadow Text</b></p>
+        <p>   #text {<br>
+	                text-shadow: 2px 2px 7px black;<br>
+              }</p>
+        
         <h2>Box Shadow</h2>
+        <p>Box shadows are added using the <b>box-shadow</b> property. The values are the same as text-shadow, but they apply to the whole box element instead of just the text.</p>
+        <p id="box-shadow"><b>Double Box</b></p>
+        <p>   #box {<br>
+	                box-shadow: 2px 2px 0 blue;<br>
+              }</p>
+        <p id="glow-box"><b>Glowing Box</b></p>
+        <p>   #box {<br>
+	                box-shadow: 0 0 7px white;<br>
+              }</p>
+        <p id="shadow-box"><b>Shadow Box</b></p>
+        <p>   #box {<br>
+	                box-shadow: 2px 2px 7px black;<br>
+              }</p>
+        <h2>Task</h2>
+        <p>Use the given code to create some shadows!</p>
+        <p>1. Create a text shadow that has no horizontal or vertical offset, a blur radius of 10px, and a red color.</p>
+        <p>2. Create a box shadow that has a horizontal and vertical offset of 2px, a blur radius of 10px, and a black color.</p>
     `,
-    hint: "",
+    hint: "Add code after the <b>shadow:</b> property. Look at the examples above as a guide. Make sure there are no spelling errors!",
 
     starterCode: {
-      html: ``,
-      css: ``
+      html: `<p id="text-glow">Add a glow to this text!</p>
+
+<p id="box-shadow">Add a shadow to this box!</p>`
+      ,
+      css: `#text-glow {
+  font-size: 32px;
+  text-shadow: ;
+}
+  #box-shadow {
+  font-size: 32px;
+  height: 3em;
+  width: 12em;
+  background-color: lightblue;
+  box-shadow: ;
+}`
     },
 
     completion: {
       requiredHTML: [],
 
-      requiredCSS: []
+      requiredCSS: ["text-shadow", "box-shadow"]
     }
   },
   {
@@ -348,7 +393,7 @@ export const cssLevels = [
         <p>2. Create a linear gradient that transitions from blue on the left to green on the right.</p>
         <p>3. Create a radial gradient that transitions from white in the center to purple at the edges.</p>
     `,
-    hint: "",
+    hint: "Add code after the <b>background:</b> property. Look at the examples above as a guide. Make sure there are no spelling errors!",
 
     starterCode: {
       html: `<p><b>Linear Gradient top to bottom</b></p>
@@ -380,7 +425,7 @@ export const cssLevels = [
     },
 
     completion: {
-      requiredHTML: ["gradient1", "gradient2", "gradient3"],
+      requiredHTML: [],
 
       requiredCSS: ["linear-gradient", "radial-gradient"]
     }

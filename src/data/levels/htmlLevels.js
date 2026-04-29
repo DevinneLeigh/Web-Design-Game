@@ -257,9 +257,57 @@ export const htmlLevels = [
     concept: "html-classes-ids",
 
     instructions: `
-        <h2>Adding Classes and IDs</h2>
+        <h2>Adding Classes</h2>
+  <p>
+    The <code>class</code> attribute is used to apply classes to one or more HTML elements. Those classes can then be targeted by CSS or JavaScript to manipulate them.
+  </p>
+  <p>
+    To give an element a class, add the class attribute followed by the name you want the class to have:
+  </p>
+  <code>
+    &lt;h1 class="example-class"&gt;&lt;/h1&gt;
+  </code>
+  <p>
+    To target a class in CSS, use a period ".", then the name of the class:
+  </p>
+  <code>
+    .example-class {
+      color: white;
+    }
+  </code>
+  <p>
+    Applying styles to a class instead of an element directly makes it easier to style the same elements differently in different parts of your webpage.
+  </p>
+  <h2>Adding IDs</h2>
+  <p>
+    Like classes, IDs are an attribute that can be applied to HTML elements and then targeted with CSS or JavaScript. Each ID is unique, and can't be applied to more than one element in the same document.
+  </p>
+  <p>
+    To give an element an ID, add the ID attribute followed by the name you want the ID to have.
+  </p>
+  <code>
+    &lt;h1 id="example-id"&gt;&lt;/h1&gt;
+  </code>
+  <p>
+    To target an ID in CSS, use a hastag "#", then the name of the ID:
+  </p>
+  <code>
+    #example-id {
+      color: white;
+    }
+  </code>
+  <p>
+    If you put the name of an ID in an <code>&lt;a&gt;</code> tag's href attribute, clicking the link will send you to the part of the page where the ID is located:
+  </p>
+  <code>
+    &lt;a href="#example-id"&gt;&lt;/a&gt;
+  </code>
+  <h2>Challenge</h2>
+  <p>
+    Fix the syntax errors in the provided HTML code.
+  </p>
     `,
-    hint: "",
+    hint: "Multiple elements can have an ID, but each ID must be unique",
 
     starterCode: {
       html: ``,
@@ -321,12 +369,51 @@ export const htmlLevels = [
 
     instructions: `
         <h2>Adding Tables</h2>
+        <p>This activity will help you learn how to build a simple table using HTML and style it with basic CSS.</p>
+
+        <p>You will create your own table from scratch using the correct HTML tags.</p>
+
+        <p>Start by adding a &lt;table&gt; element inside the body of your HTML file.</p>
+
+        <p>Inside the table, create a row using the &lt;tr&gt; tag. This will be your header row.</p>
+
+        <p>In that row, add three header cells using the &lt;th&gt; tag. Label them Name, Age, and Favorite Color.</p>
+
+        <p>Next, create a second row using another &lt;tr&gt; tag.</p>
+
+        <p>Inside this row, add three data cells using the &lt;td&gt; tag.</p>
+
+        <p>In the first box, type your name. In the second box, type your age. In the third box, type your favorite color.</p>
+
+        <p>After your table is complete, open your CSS file and style your table by adding borders, padding, and a background color for the header.</p>
+
+        <p>If you finish early, try adding another row for a friend or family member.</p>
     `,
     hint: "",
 
     starterCode: {
-      html: ``,
-      css: ``
+      html: `
+
+  <h1>My First Table</h1>
+
+  <table>
+    <!-- Add your table rows and cells here -->
+  </table>
+`,
+      css: `table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}`
     },
 
     completion: {
@@ -344,8 +431,49 @@ export const htmlLevels = [
 
     instructions: `
         <h2>Forms</h2>
+        <p>Goal: Create a simple contact form</p>
+
+        <p>For this we will be making a simple contact form, one of the most common uses for the tag. </p>
+        <p>First we make a &lt;form&gt; tag, &lt;form action="" method="post"&gt; &lt;/form&gt; and put everything inside of it</p>
+        <p>You can label your form items, &lt;label for="fname"&gt;First Name: &lt;/label&gt;</p>
+        <p>next add the input, &lt;input type="text" id="fname" name="fname" value=""&gt;&lt;br&gt; adding the &lt;br&gt; will create a line break for the next item</p>
+        <p>add a few more labels and inputs, </p>
+        <p>&lt;label for="lname"&gt;Last Name: &lt;/label&gt;</p>
+        <p>&lt;input type="text" id="lname" name="lname" value=""&gt;&lt;br&gt;</p>
+        
+        <p>Using the number type only allows numbers in the input box</p>
+        <p>&lt;label for="phonenumber"&gt;Phone Number: &lt;/label&gt;</p>
+        <p>&lt;input type="number" id="phonenumber" name="phonenumber" value=""&gt;&lt;br&gt;</p>
+        
+        <p>Using radials allows for selecting from a set of options</p>
+        <p>&lt;label for="country"&gt;Country: &lt;/label&gt;&lt;br&gt;</p>
+        <p>&lt;input type="radio" id="country1" name="country" value="USA"&gt;</p>
+        <p>&lt;label for="country1"&gt;USA&lt;/label&gt;&lt;br&gt;</p>
+        <p>&lt;input type="radio" id="country2" name="country" value="Canada"&gt;</p>
+        <p>&lt;label for="country2"&gt;Canada&lt;/label&gt;&lt;br&gt;</p>
+        <p>&lt;input type="radio" id="country3" name="country" value="Mexico"&gt;</p>
+        <p>&lt;label for="country3"&gt;Mexico&lt;/label&gt;&lt;br&gt;</p>
+        <p>&lt;input type="radio" id="country4" name="country" value="Other"&gt;</p>
+        <p>&lt;label for="country4"&gt;Other&lt;/label&gt;&lt;br&gt;</p>
+
+        <p>Another tag that allows for a selection of options is the &lt;selection&gt; tag</p>
+        <p>&lt;label for="reason"&gt;Select how you found us: &lt;/label&gt;</p>
+        <p>&lt;select id="reason" name="reason"&gt;</p>
+          <p>&Tab;&lt;option value="referral"&gt;From a friend&lt;/option&gt;</p>
+          <p>&Tab;&lt;option value="youtube"&gt;Youtube&lt;/option&gt;</p>
+          <p>&Tab;&lt;option value="internet"&gt;The internet&lt;/option&gt;</p>
+          <p>&Tab;&lt;option value="work"&gt;From work&lt;/option&gt;</p>
+          <p>&Tab;&lt;option value="other"&gt;Other&lt;/option&gt;</p>
+        <p>&lt;/select&gt;</p>
+
+
+        <p>And finally you add a submit button</p>
+        <p>&lt;input type="submit" value="submit"&gt;</p>
+        
+        <p>you have successfully created a basic contact form</p>
+        <p>Currently the form will clear itself when submitted as there is no action for the form to take</p>
     `,
-    hint: "",
+    hint: "You should have 9 labels, 8 inputs, 5 options within a select, and a submit button as an input tag",
 
     starterCode: {
       html: ``,
@@ -353,7 +481,33 @@ export const htmlLevels = [
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: [{
+        validTags: ["form"],
+        childElements: [
+          {
+            nickName: "label",
+            validTags: ["label"],
+            count: 9
+          },
+                    {
+            nickName: "input",
+            validTags: ["input"],
+            count: 9
+          },
+          {
+            nickName: "select",
+            validTags: ["select"],
+            childElements: [
+              {
+                nickName: "option",
+                validTags: ["option"],
+                count: 5
+              }
+            ]
+          },
+                    
+        ]
+      }],
 
       requiredCSS: []
     }

@@ -11,7 +11,7 @@
         <button
           v-if="secondaryButtonText"
           type="button"
-          class="popupButton secondaryButton"
+          class="custom-button secondaryButton"
           @click="closePopup"
         >
           {{ secondaryButtonText }}
@@ -19,7 +19,7 @@
 
         <button
           type="button"
-          class="popupButton"
+          class="custom-button"
           @click="handleMainButton"
         >
           {{ buttonText }}
@@ -97,7 +97,7 @@ export default {
 .popupInner {
   width: min(92%, 1400px);
   background: #282c34;
-  border: 3px solid #56b6c2;
+  border: 3px solid #2CDA9D;
   border-radius: 20px;
   padding: 35px;
   text-align: center;
@@ -105,14 +105,19 @@ export default {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
 
   h1 {
+    font-family: 'DeepShadow', sans-serif;
     text-align: center;
-    margin-bottom: 20px;
     color: #ececef;
-    font-size: 2.2rem;
+
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    line-height: 2;
+    margin-bottom: 20px;
+    word-break: break-word;
   }
 
   h2 {
-    color: #56b6c2;
+    color: #2CDA9D;
     margin-bottom: 10px;
     font-size: 1.25rem;
   }
@@ -148,7 +153,7 @@ export default {
 
 .info-section {
   background: #21252b;
-  border: 2px solid #56b6c2;
+  border: 2px solid #2CDA9D;
   border-radius: 14px;
   padding: 18px 20px;
   margin-bottom: 18px;
@@ -160,25 +165,6 @@ export default {
   gap: 12px;
   margin-top: 20px;
   flex-wrap: wrap;
-}
-
-.popupButton {
-  display: inline-block;
-  margin: 0;
-  padding: 12px 28px;
-  background: #e06c75;
-  color: #21252b;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: 0.2s ease;
-
-  &:hover {
-    background: #c678dd;
-    color: #ececef;
-  }
 }
 
 .secondaryButton {
@@ -204,12 +190,19 @@ export default {
     margin-top: 10px;
 
     h1 {
-      font-size: 1.9rem;
-      line-height: 1.2;
+      font-family: 'DeepShadow', sans-serif;
+
+      font-size: 1.1rem;
+      letter-spacing: 3px;
+      line-height: 2.2;
+
+      margin-bottom: 20px;
+      word-break: break-word;
+      text-align: center;
     }
 
     h2 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     img {
@@ -217,6 +210,12 @@ export default {
       margin: 20px auto 10px auto;
     }
   }
+
+  .popupButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
   .intro {
     font-size: 1rem;
@@ -233,11 +232,7 @@ export default {
   align-items: center;
 }
 
-.popupButton {
-  width: 100%;
-  max-width: 220px;
-}
-}
+
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .popup {
@@ -304,12 +299,6 @@ export default {
   .popupInner img {
     width: min(8vw, 110px);
     margin: 14px auto 8px auto;
-  }
-
-  .popupButton {
-    margin-top: 12px;
-    padding: 0.9rem 2rem;
-    font-size: 1rem;
   }
 }
 
