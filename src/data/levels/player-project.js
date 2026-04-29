@@ -77,7 +77,22 @@ export const playerProject = [
                 },
             ],
 
-            requiredCSS: [],
+            requiredCSS: [{
+                    selector: ".jumbotron",
+
+                    properties: [{
+                        property: "padding",
+                        value: "10",
+                        unit: "px",
+                        operator: ">=",
+                            
+                    },{
+                        property: "background-color"
+                    },{
+                        property: "text-align",
+                        value: "center",
+                    }]
+                }],
         },
         
     },
