@@ -119,9 +119,53 @@ export const cssLevels = [
   `
     },
     completion: {
-      requiredHTML: [],
+      requiredHTML: [
+        {
+          validTags: ["*"],
+          nickName: "gray element",
+          class: "gray"
+        },
+        {
+          validTags: ["*"],
+          nickName: "slateblue element",
+          class: "slateblue"
+        },
+        {
+          validTags: ["*"],
+          nickName: "violet element",
+          class: "violet"
+        }
+      ],
 
-      requiredCSS: []
+      requiredCSS: [
+        {
+          selector:".gray",
+
+          properties: [
+            { property:"color",
+              value: "gray"
+            }
+          ]
+        },
+        {
+          selector:".slateblue",
+          
+          properties: [
+            { property:"color",
+              value: "slateblue"
+            }
+          ]
+        },
+        {
+          selector:".violet",
+          
+          properties: [
+            { property:"color",
+              value: "violet"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -444,9 +488,86 @@ export const cssLevels = [
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: [
+        {
+          validTags: ["div"],
+          class: "box slow-box",
+          nickName: "slow-box div"
+        },
+        {
+          validTags: ["div"],
+          class: "box fast-box",
+          nickName: "fast-box div"
+        }
+      ],
 
-      requiredCSS: []
+      requiredCSS: [
+        {
+          selector: "@keyframes crazy-box",
+
+           childRuleSets: [
+            {
+              selector: "50%",
+              properties: [
+                {
+                  property: "background-color",
+                  value: "red"
+                },
+                {
+                  property: "width",
+                  value: 40,
+                  unit: "px"
+                }
+              ]
+            }
+          ],
+        },
+        {
+          selector: ".slow-box",
+
+          properties: [
+            {
+              property: "animation-name",
+              value: "crazy-box",
+              useFinalValue: true,
+            },
+            {
+              property: "animation-iteration-count",
+              value: "infinite",
+              useFinalValue: true,
+            },
+            {
+              property: "animation-duration",
+              value: 5,
+              unit: "s",
+              useFinalValue: true,
+            }
+          ]
+        },
+        {
+          selector: ".fast-box",
+
+          properties: [
+            {
+              property: "animation-name",
+              value: "crazy-box",
+              useFinalValue: true,
+
+            },
+            {
+              useFinalValue: true,
+              property: "animation-iteration-count",
+              value: "infinite"
+            },
+            {
+              useFinalValue: true,
+              property: "animation-duration",
+              value: 2,
+              unit: "s"
+            }
+          ]
+        }
+      ]
     }
   },
   
