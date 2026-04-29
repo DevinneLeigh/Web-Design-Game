@@ -369,7 +369,7 @@ export const htmlLevels = [
 
     instructions: `
         <h2>Adding Tables</h2>
-        <p>This activity will help you learn how to build a simple table using HTML and style it with basic CSS.</p>
+        <p>This activity will help you learn how to build a simple table using HTML and style it with basic CSS</p>
 
         <p>You will create your own table from scratch using the correct HTML tags.</p>
 
