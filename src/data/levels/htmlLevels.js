@@ -389,7 +389,7 @@ th {
         <p>Goal: Create a simple contact form</p>
 
         <p>For this we will be making a simple contact form, one of the most common uses for the tag. </p>
-        <p>First we make a &lt;form&gt; tag, &lt;form action="" method="post"&gt; &lt;/form&gt; and put everthing inside of it</p>
+        <p>First we make a &lt;form&gt; tag, &lt;form action="" method="post"&gt; &lt;/form&gt; and put everything inside of it</p>
         <p>You can label your form items, &lt;label for="fname"&gt;First Name: &lt;/label&gt;</p>
         <p>next add the input, &lt;input type="text" id="fname" name="fname" value=""&gt;&lt;br&gt; adding the &lt;br&gt; will create a line break for the next item</p>
         <p>add a few more labels and inputs, </p>
