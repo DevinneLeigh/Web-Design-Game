@@ -257,9 +257,57 @@ export const htmlLevels = [
     concept: "html-classes-ids",
 
     instructions: `
-        <h2>Adding Classes and IDs</h2>
+        <h2>Adding Classes</h2>
+  <p>
+    The <code>class</code> attribute is used to apply classes to one or more HTML elements. Those classes can then be targeted by CSS or JavaScript to manipulate them.
+  </p>
+  <p>
+    To give an element a class, add the class attribute followed by the name you want the class to have:
+  </p>
+  <code>
+    &lt;h1 class="example-class"&gt;&lt;/h1&gt;
+  </code>
+  <p>
+    To target a class in CSS, use a period ".", then the name of the class:
+  </p>
+  <code>
+    .example-class {
+      color: white;
+    }
+  </code>
+  <p>
+    Applying styles to a class instead of an element directly makes it easier to style the same elements differently in different parts of your webpage.
+  </p>
+  <h2>Adding IDs</h2>
+  <p>
+    Like classes, IDs are an attribute that can be applied to HTML elements and then targeted with CSS or JavaScript. Each ID is unique, and can't be applied to more than one element in the same document.
+  </p>
+  <p>
+    To give an element an ID, add the ID attribute followed by the name you want the ID to have.
+  </p>
+  <code>
+    &lt;h1 id="example-id"&gt;&lt;/h1&gt;
+  </code>
+  <p>
+    To target an ID in CSS, use a hastag "#", then the name of the ID:
+  </p>
+  <code>
+    #example-id {
+      color: white;
+    }
+  </code>
+  <p>
+    If you put the name of an ID in an <code>&lt;a&gt;</code> tag's href attribute, clicking the link will send you to the part of the page where the ID is located:
+  </p>
+  <code>
+    &lt;a href="#example-id"&gt;&lt;/a&gt;
+  </code>
+  <h2>Challenge</h2>
+  <p>
+    Fix the syntax errors in the provided HTML code.
+  </p>
     `,
-    hint: "",
+    hint: "Multiple elements can have an ID, but each ID must be unique",
 
     starterCode: {
       html: ``,
