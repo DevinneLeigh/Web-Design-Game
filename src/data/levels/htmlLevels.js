@@ -321,12 +321,54 @@ export const htmlLevels = [
 
     instructions: `
         <h2>Adding Tables</h2>
+        <p>This activity will help you learn how to build a simple table using HTML and style it with basic CSS.</p>
+
+        <p>Tables are used to organize information into rows and columns, like a spreadsheet. You will create a table with a header row and some data.</p>
+
+        <p>To start, use the &lt;table&gt; tag to create the table. Inside the table, use &lt;tr&gt; to create a row.</p>
+
+        <p>Inside each row, use &lt;th&gt; for header cells (these are usually bold) and &lt;td&gt; for regular data cells.</p>
+
+        <p>For example, a header row might include columns like Name, Age, and Favorite Language.</p>
+
+        <p>After creating your table structure, you can use CSS to make it look better. You can add borders, spacing, and background colors.</p>
+
+        <p>Use the "border" property to add lines around your table, and "padding" to create space inside each cell.</p>
+
+        <p>Try editing the example code by adding more rows or changing the text inside the table.</p>
     `,
     hint: "",
 
     starterCode: {
-      html: ``,
-      css: ``
+      html: `<h1>My First Table</h1>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Favorite Language</th>
+    </tr>
+    <tr>
+      <td>Example Name</td>
+      <td>00</td>
+      <td>Example Language</td>
+    </tr>
+  </table>
+`,
+      css: `table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}`
     },
 
     completion: {
