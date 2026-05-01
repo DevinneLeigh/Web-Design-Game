@@ -437,6 +437,32 @@ iframe {
   box-shadow: 2px 2px 4px rgb(0, 0, 0);
 }
 
+.instructions .example-grid {
+  border: solid #4db7ca;
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  grid-template-rows: repeat(3, 1fr);
+  height: 9em;
+  width: 14em;
+  text-align: center;
+  padding: 0;
+  gap: 2px;
+  background-color: #4db7ca;
+}
+
+.instructions-wrapper .instructions .example-grid p {
+  margin: 0;
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $dark2;
+}
+
+.instructions .whisper {
+  color: $secondary;
+}
+
 .list-main {
   padding: 40px 0 90px 0;
   min-height: calc(100vh - 140px);

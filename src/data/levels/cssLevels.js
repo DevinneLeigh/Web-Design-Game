@@ -248,19 +248,104 @@ export const cssLevels = [
 
     instructions: `
         <h2>Grid Layout</h2>
-
+        <p>Css grid is a layout system tool, to help create a complex and responsive webpage. You build a grid container and can define rows, columns, and specific areas for your page. Then, you can place your elements in the grid and control their size and position.</p>
+        <br>
+        <p>This is a simple example of a grid layout:</p> 
+           <div class="example-grid">
+             <p>top left</p>
+             <p>top right</p>
+             <p>middle left</p>
+             <p>middle right</p>
+             <p>bottom left</p>
+             <p>bottom right</p>
+           </div>
+           <br>
+          <p>.example-grid{<br>
+          display: grid;                     <span class="whisper">turns the div into a grid container</span><br>
+          grid-template-columns: 1fr 1fr;   <span class="whisper">2 columns</span><br>
+          grid-template-rows: 1fr 1fr 1fr;  <span class="whisper">3 rows</span><br>
+          border: solid blue;               <span class="whisper">edges of the grid</span><br>
+          text-align: center;}              <span class="whisper">centers the text</span></p>
+          <br>
+          <p>.example-grid p{<br>
+          border: solid blue;               <span class="whisper">edges of the cells</span><br>
+          box-sizing: border-box;           <span class="whisper">border is included in the size of the cell</span><br>
+          margin: 0;                 <span class="whisper">helps with spacing between cells</span><br>     
+          width: 100%;               <br>
+          height: 100%;              <br>
+          }</p>
+          <p>This is a super simplified version, but you can create various grids in complex ways!</p>
+          <h2>Task</h2>
+          <p>Use the given code to create a grid layout!</p>
+          <p>1. Create a grid container with 3 rows and 3 columns.</p>
+          <p>2. Add a solid red border around each cell in the grid.</p>
+          <p>3. Center the text in each cell!</p>
     `,
-    hint: "",
+    hint: "Study the example code very carefully. Don't forget that extra row! Make sure to add the border and text-align properties to make it look like the example.",
 
     starterCode: {
-      html: ``,
-      css: ``
+      html: `<div class="grid">
+  <p>top left</p>
+  <p>top middle</p>
+  <p>top right</p>
+  <p>middle left</p>
+  <p>middle middle</p>
+  <p>middle right</p>
+  <p>bottom left</p>
+  <p>bottom middle</p>
+  <p>bottom right</p>
+</div>`,
+      css: `.grid{
+  display: grid;
+  grid-template-columns: ;
+  grid-template-rows: ;
+  border: ;
+  height: 300px;
+  width: 600px;
+  text-align: ;
+}
+  
+.grid p{
+  border: ;
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}`
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: [
+        {
+          validTags: ["div"],
+          class: "grid",
+          nickName: "grid container"
+        }
+      ],
 
-      requiredCSS: []
+      requiredCSS: [
+        {
+          selector: ".grid",
+          properties: [
+            { property: "grid-template-columns"},
+            { property: "grid-template-rows" },
+            { property: "border", value: "solid red" },
+            { property: "height", value: 300, unit: "px" },
+            { property: "width", value: 600, unit: "px" },
+            { property: "text-align", value: "center" }
+          ]
+        },
+        {
+          selector: ".grid p",
+          properties: [
+            { property: "border", value: "solid red" },
+            { property: "box-sizing", value: "border-box" },
+            { property: "margin", value: 0, unit: "" },
+            { property: "width", value: 100, unit: "%" },
+            { property: "height", value: 100, unit: "%" }
+          ]
+        }
+      ]
     }
   },
   {
