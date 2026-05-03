@@ -143,7 +143,7 @@ export const cssLevels = [
 
           properties: [
             { property:"color",
-              value: "gray"
+              value: [[{value:"gray"}]]
             }
           ]
         },
@@ -152,7 +152,7 @@ export const cssLevels = [
           
           properties: [
             { property:"color",
-              value: "slateblue"
+              value: [[{value:"slateblue"}]]
             }
           ]
         },
@@ -161,7 +161,7 @@ export const cssLevels = [
           
           properties: [
             { property:"color",
-              value: "violet"
+              value: [[{value:"violet"}]]
             }
           ]
         }
@@ -327,22 +327,34 @@ export const cssLevels = [
         {
           selector: ".grid",
           properties: [
-            { property: "grid-template-columns"},
-            { property: "grid-template-rows" },
-            { property: "border", value: "solid red" },
-            { property: "height", value: 300, unit: "px" },
-            { property: "width", value: 600, unit: "px" },
-            { property: "text-align", value: "center" }
+            { property: "grid-template-columns",
+              value: [[
+                {value:1, unit:"fr"},
+                {value:1, unit:"fr"},
+                {value:1, unit:"fr"}
+              ]]
+            },
+            { property: "grid-template-rows", 
+              value: [[
+                {value:1, unit:"fr"},
+                {value:1, unit:"fr"},
+                {value:1, unit:"fr"}
+              ]]
+            },
+            { property: "border", value: [[{value:"solid"}, {value: "red"}]] },
+            { property: "height", value: [[{value:300, unit: "px"}]] },
+            { property: "width", value: [[{value:600, unit: "px"}]] },
+            { property: "text-align", value: [[{value:"center"}]] }
           ]
         },
         {
           selector: ".grid p",
           properties: [
-            { property: "border", value: "solid red" },
-            { property: "box-sizing", value: "border-box" },
-            { property: "margin", value: 0, unit: "" },
-            { property: "width", value: 100, unit: "%" },
-            { property: "height", value: 100, unit: "%" }
+            { property: "border", value: [[{value:"solid"}, {value: "red"}]] },
+            { property: "box-sizing", value: [[{value:"border-box"}]] },
+            { property: "margin", value: [[{value:0}]] },
+            { property: "width", value: [[{value:100, unit: "%"}]] },
+            { property: "height", value: [[{value:100, unit: "%"}]] }
           ]
         }
       ]
@@ -512,7 +524,57 @@ export const cssLevels = [
     completion: {
       requiredHTML: [],
 
-      requiredCSS: ["linear-gradient", "radial-gradient"]
+      requiredCSS: [
+        {
+          selector: "#gradient1",
+
+          properties:
+          [{
+              property: "background-image",
+              useFinalValue: true,
+            
+              value: [[{
+              functionName: "linear-gradient",
+              value: [
+                [{value: "red"}],
+                [{value:  "yellow"}],],
+              }]]
+            
+          },]
+        },{
+          selector: "#gradient2",
+
+          properties:
+          [{
+              property: "background-image",
+              useFinalValue: true,
+            
+              value: [[{
+              functionName: "linear-gradient",
+              value: [
+                [{value: "to"}, {value: "right"}],
+                [{value: "blue"}],
+                [{value:  "green"}],],
+              }]]
+            
+          },]
+        },{
+          selector: "#gradient3",
+
+          properties:
+          [{
+              property: "background-image",
+              useFinalValue: true,
+            
+              value: [[{
+              functionName: "radial-gradient",
+              value: [
+                [{value: "white"}],
+                [{value:  "purple"}],],
+              }]]
+          },]
+        }
+      ]
     }
   },
   {
@@ -588,6 +650,15 @@ export const cssLevels = [
 
       requiredCSS: [
         {
+          selector: ".box",
+          properties: [
+            {
+              property: "width", 
+              value: [[{value:20, unit:"px"}]]
+            }
+          ]
+        },
+        {
           selector: "@keyframes crazy-box",
 
            childRuleSets: [
@@ -596,12 +667,11 @@ export const cssLevels = [
               properties: [
                 {
                   property: "background-color",
-                  value: "red"
+                  value: [[{value:"red"}]]
                 },
                 {
                   property: "width",
-                  value: 40,
-                  unit: "px"
+                  value: [[{value:40, unit: "px"}]],
                 }
               ]
             }
@@ -613,18 +683,17 @@ export const cssLevels = [
           properties: [
             {
               property: "animation-name",
-              value: "crazy-box",
+              value: [[{value:"crazy-box"}]],
               useFinalValue: true,
             },
             {
               property: "animation-iteration-count",
-              value: "infinite",
+              value: [[{value:"infinite"}]],
               useFinalValue: true,
             },
             {
               property: "animation-duration",
-              value: 5,
-              unit: "s",
+              value: [[{value:5, unit:"s"}]],
               useFinalValue: true,
             }
           ]
@@ -635,20 +704,19 @@ export const cssLevels = [
           properties: [
             {
               property: "animation-name",
-              value: "crazy-box",
               useFinalValue: true,
+              value: [[{value:"crazy-box"}]],
 
             },
             {
-              useFinalValue: true,
               property: "animation-iteration-count",
-              value: "infinite"
+              useFinalValue: true,
+              value: [[{value:"infinite"}]]
             },
             {
-              useFinalValue: true,
               property: "animation-duration",
-              value: 2,
-              unit: "s"
+              useFinalValue: true,
+              value: [[{value:2, unit:"s"}]],
             }
           ]
         }
