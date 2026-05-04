@@ -66,29 +66,44 @@ export const htmlLevels = [
 
     instructions: `
         <h2>Formatting Text</h2>
-        <p>Use HTML formatting tags to style the text below</p>
-        <ul>
-        <li>Make one word <b>bold</b></li>
-        <li>Make one word <em>italic</em></li>
-        <li>Make one word <u>underlined</u></li>
-        <li>Add a <mark>highlighted</mark> word</li>
-        <li>Add either <sub>subscript</sub> or <sup>superscript</sup></li>
-        </ul>
-        <p>Below is some formatted text already so you can see what it looks like. When you're done, try to explore the other ones!</p>
+  <p>To format text in HTML, you wrap words with tags.</p>
+
+  <p><strong>Bold:</strong> Use <code>&lt;b&gt;</code></p>
+  <pre>&lt;b&gt;This text is bold&lt;/b&gt;</pre>
+
+  <p><strong>Italic:</strong> Use <code>&lt;em&gt;</code></p>
+  <pre>&lt;em&gt;This text is italic&lt;/em&gt;</pre>
+
+  <p><strong>Underline:</strong> Use <code>&lt;u&gt;</code></p>
+  <pre>&lt;u&gt;This text is underlined&lt;/u&gt;</pre>
+
+  <p><strong>Highlight:</strong> Use <code>&lt;mark&gt;</code></p>
+  <pre>&lt;mark&gt;This text is highlighted&lt;/mark&gt;</pre>
+
+  <p><strong>Subscript:</strong> Use <code>&lt;sub&gt;</code></p>
+  <pre>H&lt;sub&gt;2&lt;/sub&gt;O</pre>
+
+  <p><strong>Superscript:</strong> Use <code>&lt;sup&gt;</code></p>
+  <pre>x&lt;sup&gt;2&lt;/sup&gt;</pre>
+
+  <p>Now try it yourself:</p>
+  <ul>
+    <li>Make the first sentence bold</li>
+    <li>Make the second sentence italic</li>
+    <li>Underline the third sentence</li>
+    <li>Add a highlighted word to any sentence</li>
+    <li>Add either subscript or superscript anywhere</li>
+  </ul>
     `,
     hint: "Try using tags like <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;u&gt;</code>, <code>&lt;mark&gt;</code>, <code>&lt;sub&gt;</code>, and <code>&lt;sup&gt;</code> to format the text.",
 
     starterCode: {
-      html: `<p><b>This text is bold</b></p>
-<p><i>This text is italic</i></p>
-<p>This is<sub> subscript</sub></p>
-<p>This is <sup>superscript</sup></p>
-<p>This is <u>underlined</u></p>
-<p>This is <del>deleted</del> text</p>
-<p>This is <mark>highlighted</mark> text</p>
-<p>This is <small>small</small> text</p>
-<p>This is <strong>important</strong> text</p>
-<p>This is <em>emphasized</em> text</p>`,
+      html: `
+      <p>Make this sentence bold</p>
+      <p>Make this one italic</p>
+      <p>And this one underlined</p>
+      <p>Add a highlighted word here</p>
+      <p>Add subscript or superscript here</p>`,
       css: ``
     },
 
@@ -369,7 +384,7 @@ export const htmlLevels = [
 
     instructions: `
         <h2>Adding Tables</h2>
-        <p>This activity will help you learn how to build a simple table using HTML and style it with basic CSS.</p>
+        <p>This activity will help you learn how to build a simple table using HTML and style it with basic CSS</p>
 
         <p>You will create your own table from scratch using the correct HTML tags.</p>
 

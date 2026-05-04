@@ -76,6 +76,7 @@ import { useRoute } from "vue-router"
 import Button from "./Button.vue";
 import Popup from "./Popup.vue";
 import { checkTag } from "../data/levels/code-validation";
+import { checkCss as checkCSS } from "../data/levels/css-validation";
 import star from '../assets/images/star.gif'
 
 const route = useRoute()
@@ -230,17 +231,24 @@ function isLevelComplete() {
     const completion = level.value?.completion;
     if (!completion) return false;
 
-    const cssOk = (cssCode.value || "")
-        .toLowerCase()
-        .includes(String(completion.requiredCSS?.[0] || "").toLowerCase());
-
-    return checkHtmlCompletion() && cssOk //checkCssCompletion(); //htmlOk
+    return checkHtmlCompletion() && checkCssCompletion(); 
 }
 
 function checkCssCompletion() {
     const requiredCSS = level.value?.completion.requiredCSS;
-    return true;
+
+    let worked = true;
+    try {
+      checkCSS(cssCode.value, requiredCSS);
+    }
+    catch (error) {
+      setHint(error.message)
+      worked = false;  
+    }
+    
+    return worked;
 }
+
 
 function checkHtmlCompletion() {
     const requiredTags = level.value?.completion.requiredHTML;
