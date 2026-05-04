@@ -304,7 +304,7 @@ export const htmlLevels = [
     &lt;h1 id="example-id"&gt;&lt;/h1&gt;
   </code>
   <p>
-    To target an ID in CSS, use a hastag "#", then the name of the ID:
+    To target an ID in CSS, use a hashtag "#", then the name of the ID:
   </p>
   <code>
     #example-id {
