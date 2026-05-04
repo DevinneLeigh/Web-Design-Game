@@ -161,7 +161,7 @@ function handleSave() {
   localStorage.setItem(htmlKey, htmlCode.value)
   localStorage.setItem(cssKey, cssCode.value)
   openPopup({
-    title: "Code Saved",
+    title: "CODE SAVED",
     message: "Your progress has been saved.",
     confetti: false,
     buttonText: "OK"
@@ -172,7 +172,7 @@ function handleReset() {
   if (!level.value) return
 
   openPopup({
-    title: "Reset Level?",
+    title: "RESET LEVEL?",
     message: "Are you sure you want to reset only this level back to its starter code?",
     confetti: false,
     buttonText: "Confirm",
@@ -205,7 +205,7 @@ function handleCheck() {
     levelStore.completeLevel(level.value.worldKey, level.value.id)
     
     openPopup({
-      title: `${level.value.title} Complete`,
+      title: `${level.value.title} COMPLETE`,
       message: "Your code met all the requirements. Good job!",
       image: star,
       confetti: true,
@@ -213,7 +213,7 @@ function handleCheck() {
     })
   } else {
     openPopup({
-      title: "Not Quite Yet",
+      title: "NOT QUITE YET",
       message: `Your code is missing some requirements. Try again.<br><br>${currentHint}`,
       confetti: false,
       buttonText: "Try Again"
