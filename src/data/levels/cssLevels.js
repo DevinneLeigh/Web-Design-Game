@@ -177,7 +177,7 @@ export const cssLevels = [
 
     instructions: `
         <h2>Padding and Margin</h2>
-        <p>Now, let's try adding some padding and margin around the box to create space.</p>
+        <p>Now, let's try adding some padding and margin around the box to create space. Try using 20px for both properties to see the difference.</p>
     `,
     hint: "Padding creates space inside the element, while margin creates space outside the element.",
 
@@ -200,7 +200,7 @@ export const cssLevels = [
 
     instructions: `
         <h2>Backgrounds</h2>
-        <p>See if you can add a background color to the textbox.</p>
+        <p>See if you can add a background color to the textbox! Remember to target the correct element.</p>
     `,
     hint: "Use background-color.",
 
