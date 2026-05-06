@@ -378,6 +378,58 @@ export const htmlLevels = [
   {
     id: "html-07",
     defaultUnlocked: false,
+    title: "Buttons",
+    description: "Learn how to create interactive buttons using the <button> tag in HTML. In this level, you’ll explore different types of buttons, including submit, reset, and regular buttons, and learn how to customize their appearance and behavior.",
+    concept: "html-buttons",
+
+    instructions: `
+        <h2>Adding Buttons</h2>
+        <p>Goal: Create a simple styled button</p>
+
+        <p>HTML Tasks:</p>
+        <p>1. Add a &lt;button&gt; element</p>
+        <p>2. Give it the class "btn"</p>
+        <p>3. Set the text to: Click Me</p>
+
+        <p>CSS Tasks:</p>
+
+        <p>4. Create a .btn class</p>
+
+        <p>5. Add these styles:</p>
+        <p>background-color: blue;</p>
+        <p>color: white;</p>
+        <p>padding: 10px;</p>
+        <p>border: none;</p>
+    `,
+    hint: "You should see a blue button with white text that says (Click Me)",
+
+    starterCode: {
+      html: `<head>
+      <h1>Adding Buttons</h1>
+      </head>
+      <body>
+
+      <!-- Add your button Here -->
+
+      </body>`,
+      css: `/* Add your .btn class below */`
+    },
+
+    completion: {
+      requiredHTML: [
+        {
+          validTags: ["button"],
+          class: "btn",
+          content: "Click Me"
+        }
+      ],
+
+      requiredCSS: []
+    }
+  },
+  {
+    id: "html-08",
+    defaultUnlocked: false,
     title: "Tables",
     description: "Learn how to organize data into rows and columns using HTML tables. You’ll use elements like <table>, <tr>, <th>, and <td> to structure tabular data. This level focuses on presenting structured information clearly and understanding when tables are appropriate.",
     concept: "html-tables",
@@ -438,7 +490,7 @@ th {
     }
   },
   {
-    id: "html-08",
+    id: "html-09",
     defaultUnlocked: false,
     title: "Forms",
     description: "Learn how to create interactive forms using HTML. Forms allow users to input and submit data, making them essential for user registration, contact pages, and more. In this level, you’ll explore form elements like <input>, <textarea>, <select>, and <button>, as well as how to structure a form properly.",
@@ -526,60 +578,7 @@ th {
 
       requiredCSS: []
     }
-  },
-  {
-    id: "html-09",
-    defaultUnlocked: false,
-    title: "Buttons",
-    description: "Learn how to create interactive buttons using the <button> tag in HTML. In this level, you’ll explore different types of buttons, including submit, reset, and regular buttons, and learn how to customize their appearance and behavior.",
-    concept: "html-buttons",
-
-    instructions: `
-        <h2>Adding Buttons</h2>
-        <p>Goal: Create a simple styled button</p>
-
-        <p>HTML Tasks:</p>
-        <p>1. Add a &lt;button&gt; element</p>
-        <p>2. Give it the class "btn"</p>
-        <p>3. Set the text to: Click Me</p>
-
-        <p>CSS Tasks:</p>
-
-        <p>4. Create a .btn class</p>
-
-        <p>5. Add these styles:</p>
-        <p>background-color: blue;</p>
-        <p>color: white;</p>
-        <p>padding: 10px;</p>
-        <p>border: none;</p>
-    `,
-    hint: "You should see a blue button with white text that says (Click Me)",
-
-    starterCode: {
-      html: `<head>
-      <h1>Adding Buttons</h1>
-      </head>
-      <body>
-
-      <!-- Add your button Here -->
-
-      </body>`,
-      css: `/* Add your .btn class below */`
-    },
-
-    completion: {
-      requiredHTML: [
-        {
-          validTags: ["button"],
-          class: "btn",
-          content: "Click Me"
-        }
-      ],
-
-      requiredCSS: []
-    }
-  },
-  
+  }, 
   {
     id: "html-10",
     defaultUnlocked: false,
