@@ -30,7 +30,7 @@ export const cssLevels = [
 
         <p>Finally, use the "font-weight" property to make your heading bold.</p>
     `,
-    hint: "",
+    hint: "Your goal: Is to style your webpage text using CSS. Add a heading and paragraph, then change the font, text size, color, alignment, and font weight to complete the level.",
 
     starterCode: {
       html: `<h1>My Heading</h1>
