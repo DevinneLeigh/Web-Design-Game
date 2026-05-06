@@ -73,6 +73,7 @@ import CodeEditor from "./CodeEditor.vue";
 import GameInstructions from "./GameInstructions.vue";
 import { useLevelStore } from '@/stores/levelStore'
 import { useRoute } from "vue-router"
+import { useRouter } from "vue-router"
 import Button from "./Button.vue";
 import Popup from "./Popup.vue";
 import { checkTag } from "../data/levels/code-validation";
@@ -80,6 +81,7 @@ import { checkCss as checkCSS } from "../data/levels/css-validation";
 import star from '../assets/images/star.gif'
 
 const route = useRoute()
+const router = useRouter()
 
 const levelStore = useLevelStore()
 levelStore.load() 
@@ -94,6 +96,15 @@ const level = computed(() =>
   levelStore.findLevelById(route.params.id)
 )
 
+const allLevels = computed(() =>
+  Object.values(levelStore.categories).flat()
+)
+
+const nextLevel = computed(() => {
+  const index = allLevels.value.findIndex(l => l.id === level.value?.id)
+  return allLevels.value[index + 1] || null
+})
+
 const popupTitle = ref("")
 const popupMessage = ref("")
 const popupImage = ref(null)
@@ -104,6 +115,7 @@ const cssKey = computed(() => `css-${level.value?.id}`)
 
 const htmlCode = ref("")
 const cssCode = ref("")
+
 
 watch(level, (newLevel) => {
   if (!newLevel) return
@@ -202,7 +214,7 @@ function handleCheck() {
   const isCompleteNow = isLevelComplete()
 
   if (isCompleteNow) {
-    levelStore.completeLevel(level.value.worldKey, level.value.id)
+    levelStore.completeLevel(level.value.categoryKey, level.value.id)
     
     openPopup({
       title: `${level.value.title} COMPLETE`,
@@ -223,6 +235,10 @@ function handleCheck() {
 
 function closePopup() {
   showPopup.value = false
+  if (popupButtonText.value === "Next Level" && nextLevel.value) {
+    router.push(`/level/${nextLevel.value.id}`)
+  }
+
   isConfirmPopup.value = false
   secondaryButtonText.value = ""
 }
