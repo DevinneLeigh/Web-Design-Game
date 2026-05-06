@@ -8,21 +8,59 @@ export const cssLevels = [
 
     instructions: `
         <h2>Fonts</h2>
-        <p></p>
+        <p>&</p>
         <h2>Text Formatting</h2>
-        <p></p>
+        <p>This activity will help you learn how to style text using CSS.</p>
+
+        <p>In this level, you will change the font, size, color, and alignment of text on your webpage.</p>
+
+        <p>Start by creating one &lt;h1&gt; heading and one &lt;p&gt; paragraph in your HTML file.</p>
+
+        <p>Next, open your CSS file. You will write your styling code in the CSS file.</p>
+
+        <p>First, use the "font-family" property to change the font of your heading or paragraph.</p>
+
+        <p>Then, use the "font-size" property to make your heading larger than your paragraph text.</p>
+
+        <p>The size adjustment for fonts will use a set of integers followed by :px <p>
+
+        <p>Next, use the "color" property to change the color of your heading text.</p>
+
+        <p>Use the "text-align" property to center your heading on the page.</p>
+
+        <p>Finally, use the "font-weight" property to make your heading bold.</p>
     `,
     hint: "",
 
     starterCode: {
-      html: ``,
-      css: ``
+      html: `<h1>My Heading</h1>
+
+  <p>
+    This is a paragraph for practicing fonts and text formatting with CSS.
+  </p>`,
+      css: `
+/* Style your heading below */
+h1 {
+
+}
+
+/* Style your paragraph below */
+p {
+
+}`
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: [
+    "<h1>",
+    "<p>"],
 
-      requiredCSS: []
+      requiredCSS: [
+    "font-family",
+    "font-size",
+    "color",
+    "text-align",
+    "font-weight"]
     }
   },
   {
