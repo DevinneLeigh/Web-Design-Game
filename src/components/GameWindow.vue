@@ -72,6 +72,7 @@ import { ref, computed, watch } from "vue";
 import CodeEditor from "./CodeEditor.vue";
 import GameInstructions from "./GameInstructions.vue";
 import { useLevelStore } from '@/stores/levelStore'
+import { levelProgression } from '@/stores/levelProgression'
 import { useRoute } from "vue-router"
 import { useRouter } from "vue-router"
 import Button from "./Button.vue";
@@ -101,8 +102,15 @@ const allLevels = computed(() =>
 )
 
 const nextLevel = computed(() => {
-  const index = allLevels.value.findIndex(l => l.id === level.value?.id)
-  return allLevels.value[index + 1] || null
+  if (!level.value) return null
+
+  const rule = levelProgression.unlocks.find(r =>
+    r.requires.includes(level.value.id)
+  )
+
+  if (!rule) return null
+
+  return levelStore.findLevelById(rule.unlocks[0]) || null
 })
 
 const popupTitle = ref("")

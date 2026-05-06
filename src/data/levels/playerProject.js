@@ -1,6 +1,7 @@
 export const playerProject = [
     {
         id: "project1",
+        defaultUnlocked: false,
         title: "1st Boss",
 
         instructions: `
@@ -98,6 +99,7 @@ export const playerProject = [
     },
     {
         id: "project2",
+        defaultUnlocked: false,
         title: "2nd Boss",
 
         instructions: ``,
@@ -139,6 +141,7 @@ export const playerProject = [
     },
     {
         id: "project3",
+        defaultUnlocked: false,
         title: "3rd Boss",
 
         instructions: ``,
@@ -180,6 +183,7 @@ export const playerProject = [
     },
     {
         id: "project4",
+        defaultUnlocked: false,
         title: "4th Boss",
 
         instructions: ``,

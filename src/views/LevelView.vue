@@ -1,11 +1,13 @@
 <script setup>
 import { ref, computed } from "vue"
 import { useRoute } from "vue-router"
+import { useRouter } from "vue-router"
 import { useLevelStore } from '@/stores/levelStore'
 import Popup from "@/components/Popup.vue"
 import GameWindow from "@/components/GameWindow.vue"
 
 const route = useRoute()
+const router = useRouter()
 
 const showHintPopup = ref(false)
 function openHintPopup() {
@@ -29,7 +31,7 @@ const level = computed(() =>
     <button
     v-if="!showLandingHelp && $route.path !== '/'"
     class="back-button"
-    @click="$router.back()">
+    @click="$router.push('/')">
       ← Back
     </button>
     <button

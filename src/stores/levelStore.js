@@ -2,7 +2,7 @@
 import { defineStore } from 'pinia'
 import { htmlLevels as htmlLevelsData } from '@/data/levels/htmlLevels'
 import { cssLevels as cssLevelsData } from '@/data/levels/cssLevels'
-import { playerProject as playerProjectData } from '@/data/levels/player-project'
+import { playerProject as playerProjectData } from '@/data/levels/playerProject'
 import { levelProgression } from '@/stores/levelProgression'
 
 function initializeCategory(category, categoryKey) {
@@ -65,8 +65,13 @@ export const useLevelStore = defineStore('levels', {
             if (!allMet) continue
 
             for (const unlockId of rule.unlocks) {
-            const level = this.findLevelById(unlockId)
-            if (level) level.unlocked = true
+              const level = this.findLevelById(unlockId)
+              if (!level) {
+                console.warn("Level not found:", unlockId)
+              }
+              else {
+                level.unlocked = true
+              }
             }
         }
     },
