@@ -221,25 +221,85 @@ export const cssLevels = [
     title: "Flexbox Layout",
     description: "Learn how to create flexible and responsive layouts using CSS Flexbox. You’ll control alignment, spacing, and distribution of elements within a container. Flexbox makes it easier to design complex layouts that adapt to different screen sizes.",
     concept: "css-flexbox",
-
+  
     instructions: `
-        <h2>Flexbox</h2>
-
+      <h2>Flexbox Layout</h2>
+  
+      <p>Flexbox is a CSS layout system that helps you align and organize elements inside a container.</p>
+  
+      <h3>Key Property</h3>
+      <p><b>display: flex</b> turns an element into a flex container.</p>
+  
+      <h3>Alignment Properties</h3>
+  
+      <p><b>flex-direction</b> → controls layout direction (row or column)</p>
+      <p><b>justify-content</b> → controls horizontal alignment</p>
+      <p><b>align-items</b> → controls vertical alignment</p>
+  
+      <h3>Task</h3>
+      <p>1. Turn the container into a flex container</p>
+      <p>2. Keep items in a row</p>
+      <p>3. Center items horizontally</p>
+      <p>4. Center items vertically</p>
     `,
-    hint: "",
-
+  
+    hint: `
+  Use display: flex on the container.
+  
+  Then:
+  - justify-content: center (horizontal alignment)
+  - align-items: center (vertical alignment)
+  
+  Make sure you're styling the .container class.
+    `,
+  
     starterCode: {
-      html: ``,
-      css: ``
+      html: `
+  <div class="container">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+      `,
+      css: `
+  .container {
+    height: 300px;
+    border: 2px solid #ccc;
+  }
+  
+  .box {
+    width: 60px;
+    height: 60px;
+    background: #333;
+    color: white;
+  }
+      `
     },
-
+  
     completion: {
-      requiredHTML: [],
-
-      requiredCSS: []
+      requiredHTML: [
+        {
+          validTags: ["div"],
+          class: "container",
+          nickName: "container div"
+        }
+      ],
+  
+      requiredCSS: [
+        {
+          selector: ".container",
+          properties: [
+            { property: "display", value: [[{ value: "flex" }]] },
+            { property: "flex-direction", value: [[{ value: "row" }]] },
+            { property: "justify-content", value: [[{ value: "center" }]] },
+            { property: "align-items", value: [[{ value: "center" }]] }
+          ]
+        }
+      ]
     }
   },
-  {
+
+ {
     id: "css-06",
     defaultUnlocked: false,
     title: "Grid Layout",

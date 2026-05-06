@@ -97,127 +97,291 @@ export const playerProject = [
         
     },
     {
+
         id: "project2",
+
         title: "2nd Boss",
 
-        instructions: ``,
-        hint: "",
+        instructions: `
+
+<h2>Structure Your Homepage Layout</h2>
+
+<p>Organize your homepage using layout and structure techniques.</p>
+
+<ul>
+
+  <li>Divs, spans, sections</li>
+
+  <li>Classes and IDs</li>
+
+  <li>Parent and child structure</li>
+
+  <li>Padding and margin</li>
+
+  <li>Background styling</li>
+
+</ul>
+
+<ol>
+
+  <li>Create a container</li>
+
+  <li>Add child elements</li>
+
+  <li>Apply spacing and background</li>
+
+</ol>
+
+`,
+
+        hint: "Use a container, then space it with padding and margin.",
 
         starterCode: {
+
             html: `<div></div>`,
+
             css: ``,
+
         },
 
         completion: {
+
             requiredHTML: [
+
                 {
-                    validTags: ["div"],
-                    class: "",
-                    nickName: "",
+
+                    validTags: ["div", "section"],
+
+                    nickName: "structured layout",
 
                     childElements: [
-                        {
-                            validTags: ["h1"],
-                            order: 1,
 
-                            content: "",
-                        },
-                        {
-                            validTags: ["p"],
-                            order: 2,
+                        { validTags: ["h1"], order: 1 },
 
-                            content: "",
-                            contentNickName: "",
-                        },
+                        { validTags: ["p"], order: 2 },
+
                     ],
+
                 },
+
             ],
 
-            requiredCSS: [],
+            requiredCSS: [
+
+                {
+
+                    selector: ".container",
+
+                    properties: [
+
+                        { property: "padding" },
+
+                        { property: "margin" },
+
+                        { property: "background-color" },
+
+                    ],
+
+                },
+
+            ],
+
         },
-        
+
     },
+
     {
+
         id: "project3",
+
         title: "3rd Boss",
 
-        instructions: ``,
-        hint: "",
+        instructions: `
+
+<h2>Build Your Interactive Homepage</h2>
+
+<p>Add interactive components to your layout.</p>
+
+<ul>
+
+  <li>Buttons</li>
+
+  <li>Tables</li>
+
+  <li>Forms</li>
+
+  <li>Flexbox or Grid</li>
+
+</ul>
+
+<ol>
+
+  <li>Create layout (flex or grid)</li>
+
+  <li>Add form</li>
+
+  <li>Add table</li>
+
+  <li>Add button</li>
+
+</ol>
+
+`,
+
+        hint: "Use flex or grid, then add form, table, and button.",
 
         starterCode: {
+
             html: `<div></div>`,
+
             css: ``,
+
         },
 
         completion: {
+
             requiredHTML: [
+
                 {
-                    validTags: ["div"],
-                    class: "",
-                    nickName: "",
+
+                    validTags: ["div", "section"],
+
+                    nickName: "interactive layout",
 
                     childElements: [
-                        {
-                            validTags: ["h1"],
-                            order: 1,
 
-                            content: "",
-                        },
-                        {
-                            validTags: ["p"],
-                            order: 2,
+                        { validTags: ["form"], order: 1 },
 
-                            content: "",
-                            contentNickName: "",
-                        },
+                        { validTags: ["table"], order: 2 },
+
+                        { validTags: ["button"], order: 3 },
+
                     ],
+
                 },
+
             ],
 
-            requiredCSS: [],
+            requiredCSS: [
+
+                {
+
+                    selector: ".container",
+
+                    properties: [
+
+                        {
+
+                            property: "display",
+
+                            value: ["flex", "grid"],
+
+                        },
+
+                    ],
+
+                },
+
+            ],
+
         },
-        
+
     },
+
     {
+
         id: "project4",
+
         title: "4th Boss",
 
-        instructions: ``,
-        hint: "",
+        instructions: `
+
+<h2>Homepage Enhancement Challenge</h2>
+
+<p>Enhance your homepage with visuals and motion.</p>
+
+<ul>
+
+  <li>Images</li>
+
+  <li>Rounded corners</li>
+
+  <li>Shadows</li>
+
+  <li>Gradients</li>
+
+  <li>Animation</li>
+
+</ul>
+
+<ol>
+
+  <li>Add an image</li>
+
+  <li>Add border-radius</li>
+
+  <li>Add shadow</li>
+
+  <li>Add gradient</li>
+
+  <li>Add animation</li>
+
+</ol>
+
+`,
+
+        hint: "Add image → style → then animate.",
 
         starterCode: {
+
             html: `<div></div>`,
+
             css: ``,
+
         },
 
         completion: {
+
             requiredHTML: [
+
                 {
-                    validTags: ["div"],
-                    class: "",
-                    nickName: "",
 
-                    childElements: [
-                        {
-                            validTags: ["h1"],
-                            order: 1,
+                    validTags: ["img", "div", "section"],
 
-                            content: "",
-                        },
-                        {
-                            validTags: ["p"],
-                            order: 2,
+                    nickName: "visual layout",
 
-                            content: "",
-                            contentNickName: "",
-                        },
-                    ],
                 },
+
             ],
 
-            requiredCSS: [],
+            requiredCSS: [
+
+                {
+
+                    selector: "div",
+
+                    properties: [
+
+                        { property: "border-radius" },
+
+                        { property: "box-shadow" },
+
+                    ],
+
+                },
+
+                {
+
+                    selector: "*",
+
+                    properties: [{ property: "animation" }],
+
+                },
+
+            ],
+
         },
-        
+
     },
 
 ];
