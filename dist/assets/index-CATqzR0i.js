@@ -380,9 +380,9 @@ th {
     `,hint:"",starterCode:{html:"<img>",css:`img {
       width: 300px;
     }`},completion:{requiredHTML:[],requiredCSS:[]}}],cssLevels=[{id:"css-01",defaultUnlocked:!1,title:"Fonts and Formatting",description:"Learn how to change the font family, size, and style of text using CSS. This level introduces you to font properties like font-family, font-size, font-weight, and font-style. You’ll learn how to apply different fonts to your webpage and understand the impact of typography on design and readability.",concept:"css-fonts-formatting",instructions:`
-        <h2>Fonts</h2>
-        <p>&</p>
-        <h2>Text Formatting</h2>
+        <h2>Fonts & Formatting</h2>
+        
+
         <p>This activity will help you learn how to style text using CSS.</p>
 
         <p>In this level, you will change the font, size, color, and alignment of text on your webpage.</p>
@@ -391,16 +391,20 @@ th {
 
         <p>Next, open your CSS file. You will write your styling code in the CSS file.</p>
 
+        <p>1).<p>
         <p>First, use the "font-family" property to change the font of your heading or paragraph.</p>
 
-        <p>Then, use the "font-size" property to make your heading larger than your paragraph text.</p>
-
+        <p>2).<p>
+        <p>Use the "font-size" property to make your heading larger than your paragraph text.</p>
         <p>The size adjustment for fonts will use a set of integers followed by :px <p>
 
+        <p>3).<p>
         <p>Next, use the "color" property to change the color of your heading text.</p>
 
+        <p>4).<p>
         <p>Use the "text-align" property to center your heading on the page.</p>
-
+        
+        <p>5).<p>
         <p>Finally, use the "font-weight" property to make your heading bold.</p>
     `,hint:"Your goal: Is to style your webpage text using CSS. Add a heading and paragraph, then change the font, text size, color, alignment, and font weight to complete the level.",starterCode:{html:`<h1>My Heading</h1>
 
