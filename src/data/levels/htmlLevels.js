@@ -194,75 +194,127 @@ export const htmlLevels = [
       requiredCSS: []
     }
   },
-  {
-    id: "html-04",
-    defaultUnlocked: false,
-    title: "Divs, Spans, and Sections",
-    description: "Learn how to group and organize content using container elements like <div>, <span>, and <section>. These elements help structure your webpage into logical parts. <div> is used for block-level grouping, <span> for inline content, and <section> for meaningful page sections. Understanding these elements is critical for layout and styling later with CSS.",
-    concept: "html-div",
+ {
+  id: "html-04",
+  defaultUnlocked: false,
+  title: "Divs, Spans, and Sections",
+  description: "Learn how to group and organize content using container elements like <div>, <span>, and <section>. These elements help structure your webpage into logical parts. <div> is used for block-level grouping, <span> is used for styling small pieces of inline text, and <section> is used for meaningful page sections.",
+  concept: "html-div",
 
-    instructions: `
-        <h2>Adding a Div Container</h2>
-        <p>The <code>&lt;div&gt;</code> tag is a block level element used for grouping other elements together. By applying CSS styles to your divs, you can easily control the layout of your webpage.</p>
+  instructions: `
+    <h2>Divs, Spans, and Sections</h2>
 
-        <h2>Adding a Span Tag</h2>
-        <p>The <code>&lt;span&gt;</code> tag is an inline element used to modify part of a webpage. It doesn't do anything on its own, but can be modified easily  with CSS or JavaScript.</p>
-        <p>For example, if you wanted to change the color of one word, you could put it in a span tag and then style it:</p>
-        <code>
-          &lt;p&gt;My favorite color is &lt;span style="color:green"&gt;green&lt;/span&gt;.&lt;/p&gt;
-        </code>
-        <p>My favorite color is <span style="color: green;">Green</span>.</p>
+    <p>
+      HTML elements can be used to organize a webpage into smaller parts.
+      Three common elements for grouping content are <code>&lt;div&gt;</code>,
+      <code>&lt;span&gt;</code>, and <code>&lt;section&gt;</code>.
+    </p>
 
-        <h2>Adding a Section Tag</h2>
-        <p>The <code>&lt;section&gt;</code> tag is used to group together related content within a larger webpage. Sections should include a heading tag.</p>
+    <h2>The Div Tag</h2>
+    <p>
+      A <code>&lt;div&gt;</code> is a block-level container. This means it usually starts on a new line
+      and takes up the full width available. Divs are useful when you want to group several elements
+      together so they can be styled as one area.
+    </p>
 
-        <h2>Challenge</h2>
-        <p>Create a div. Within your div, add two sections containing a h2 and a p tag. Using the span tag, make the first word in each p tag 30px large.</p>
-    `,
-    hint: "To style all spans at once, apply your styling to the span tag itself in your CSS.",
+    <pre>&lt;div&gt;
+  &lt;h2&gt;About Me&lt;/h2&gt;
+  &lt;p&gt;I like building websites.&lt;/p&gt;
+&lt;/div&gt;</pre>
 
-    starterCode: {
-      html: ``,
-      css: ``
-    },
+    <h2>The Span Tag</h2>
+    <p>
+      A <code>&lt;span&gt;</code> is an inline container. This means it stays inside the line of text.
+      Spans are useful when you only want to style one word or small part of a sentence.
+    </p>
 
-    completion: {
-      requiredHTML: [
-        {
-          validTags: ["div"],
-          childElements: [
-            {  
-              validTags: ["section"],
-              count: 2,
+    <pre>&lt;p&gt;My favorite color is &lt;span&gt;green&lt;/span&gt;.&lt;/p&gt;</pre>
 
-              childElements: [
-                {
-                  validTags : ["h1"],
-                  order: 1
-                },
-                {
-                  validTags: ["p"],
-                  order: 2,
+    <h2>The Section Tag</h2>
+    <p>
+      A <code>&lt;section&gt;</code> is used for a meaningful group of related content.
+      Sections are often used for parts of a page like an introduction, about section,
+      contact section, or project section.
+    </p>
 
-                  contentIncludesHTML: true,
-                  content: "^((<[^<]*?>)|\\s)*?<span.*>\\w+<\\/span.*>",
-                  contentNickName: "First word in span",
+    <pre>&lt;section&gt;
+  &lt;h1&gt;My Hobbies&lt;/h1&gt;
+  &lt;p&gt;&lt;span&gt;Coding&lt;/span&gt; is one of my hobbies.&lt;/p&gt;
+&lt;/section&gt;</pre>
 
-                  childElements: [
-                    {
-                      validTags: ["span"]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
+    <h2>Challenge</h2>
+    <p>
+      Create one <code>&lt;div&gt;</code>. Inside the div, create two <code>&lt;section&gt;</code> elements.
+      Each section needs one <code>&lt;h1&gt;</code> and one <code>&lt;p&gt;</code>.
+      Inside each paragraph, wrap the first word in a <code>&lt;span&gt;</code>.
+    </p>
 
-      requiredCSS: []
-    }
+    <h2>Requirements</h2>
+    <ul>
+      <li>Add one <code>&lt;div&gt;</code></li>
+      <li>Add two <code>&lt;section&gt;</code> elements inside the div</li>
+      <li>Each section must have one <code>&lt;h1&gt;</code></li>
+      <li>Each section must have one <code>&lt;p&gt;</code></li>
+      <li>The first word inside each paragraph must be inside a <code>&lt;span&gt;</code></li>
+    </ul>
+  `,
+
+  hint: "Make sure each section has an h1 first, then a paragraph. Inside each paragraph, put the first word inside a span tag.",
+
+  starterCode: {
+    html: `<div>
+  <section>
+    <!-- Add an h1 here -->
+    <!-- Add a paragraph here and wrap the first word in a span -->
+  </section>
+
+  <section>
+    <!-- Add an h1 here -->
+    <!-- Add a paragraph here and wrap the first word in a span -->
+  </section>
+</div>`,
+    css: `span {
+  font-size: 30px;
+}`
   },
+
+  completion: {
+    requiredHTML: [
+      {
+        validTags: ["div"],
+        childElements: [
+          {
+            validTags: ["section"],
+            count: 2,
+
+            childElements: [
+              {
+                validTags: ["h1"],
+                order: 1
+              },
+              {
+                validTags: ["p"],
+                order: 2,
+
+                contentIncludesHTML: true,
+                content: "^((<[^<]*?>)|\\s)*?<span.*>\\w+<\\/span.*>",
+                contentNickName: "First word in span",
+
+                childElements: [
+                  {
+                    validTags: ["span"]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+
+    requiredCSS: []
+  }
+},
 
         {
     id: "html-05",
