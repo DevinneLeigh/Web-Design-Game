@@ -8,92 +8,132 @@ export const playerProject = [
     <h2>Instructions</h2>
 
     <p>
-      Create a <strong>jumbotron hero section</strong> that highlights a main message on the page.
+        Create an example web page that covers the following concepts:
+        <ul>
+            <li>HTML Heading and Paragraphs</li>
+            <li>HTML Formatting</li>
+            <li>HTML Lists</li>
+            <li>CSS Fonts and Formatting</li>
+            <li>CSS Colors</li>
+        </ul>
     </p>
 
     <p><strong>Follow these steps:</strong></p>
 
     <ol>
-      <li>
-        In the HTML editor, create a container element with the class
-        <code>jumbotron</code>.
-      </li>
+      <li> 
+        Add a <code>h1</code> heading with the text <strong>"Welcome to My Website"</strong>, put it in between the <code>body</code> tags. 
+      </li><br>
 
       <li>
-        Inside this container, add an <code>h1</code> heading with the text
-        <strong>"Welcome to My Website"</strong>.
-      </li>
+        Add CSS to the heading. Make sure the heading is centered. Add colors and formatting to the heading using CSS. You can choose any colors and formatting you like. 
+      </li><br>
 
       <li>
-        Below the heading, add a paragraph <code>(p)</code> with the text
-        <strong>"Learn web design by completing challenges."</strong>.
-      </li>
+        Below the heading, add a <code>h2</code> with the text
+        <strong>"Learning web design by completing challenges."</strong> Underline and center this text.  
+      </li><br>
+
+      <li>
+        Add a list of things you have already learned or want to learn about web design. Use either an ordered list <code>(ol)</code> or unordered list <code>(ul)</code>.
+      </li><br>
+
+      <li>
+        Add a <code>p</code> element, and write something about why you are interested in learning web design. Center the text and add color!</li>
     </ol>
 
-    <p><strong>Now style the section using CSS:</strong></p>
-
-    <ul>
-      <li>Select the <code>.jumbotron</code> class.</li>
-      <li>Add <code>padding</code> so there is space inside the container.</li>
-      <li>Give the section a <code>background-color</code> so it stands out.</li>
-      <li>Use <code>text-align</code> to center the content.</li>
-      <li>Increase the font size of the heading.</li>
-    </ul>
-
     <p>
-      When finished, the page should display a large centered hero section with
-      a heading and supporting text.
+      When finished, the page should display a heading, text, and a list, all styled with CSS. Be creative and have fun designing your web page!
     </p>
 
     `,
-        hint: "Use <h1>...</h1> inside the body.",
+        hint: "Feel stuck? Refer to the previous <em><b>HTML-1, HTML-2, HTML-3, CSS-1, CSS-2</b></em> levels for help!",
 
         starterCode: {
-            html: `<div></div>`,
+            html: `<div>
+<body>
+</body>
+</div>`,
             css: ``,
         },
 
         completion: {
             requiredHTML: [
                 {
-                    validTags: ["div"],
-                    class: "jumbotron",
-                    nickName: "jumbotron container",
-
+                    validTags: ["h1"],
+                    nickName: "main heading",
+                    content: "Welcome to My Website",
+                    contentNickName: "Header text",
+                },
+                {
+                    validTags: ["h2"],
+                    nickName: "subheading",
+                    content: "Learning web design by completing challenges\\.",
+                    contentNickName: "Subheading text",
+                },
+                {
+                    validTags: ["u"],
+                    nickName: "underlined text",
+                    content: "Learning web design by completing challenges\\.",
+                    contentNickName: "Underlined text",
+                },
+                {
+                    validTags: ["ol", "ul"],
+                    nickName: "ordered or unordered list",
                     childElements: [
                         {
-                            validTags: ["h1"],
-                            order: 1,
-
-                            content: "Welcome to My Website",
-                        },
-                        {
-                            validTags: ["p"],
-                            order: 2,
-
-                            content: "Learn web design by completing challenges\\.",
-                            contentNickName: "Learn web design by completing challenges.",
+                            validTags: ["li"],
+                            nickName: "list item",
+                            count: 2,
                         },
                     ],
                 },
+                {
+                    validTags: ["p"],
+                    nickName: "paragraph",
+                    content: ".+",
+                    contentNickName: "a paragraph about why you are interested in web design",
+                },
             ],
 
-            requiredCSS: [{
-                    selector: ".jumbotron",
+            requiredCSS: [
+                {
+                    selector: "h1",
+                    properties: [
+                        {
+                            property: "text-align",
+                            value: [[{ value: "center" }]],
+                        },
+                        {
+                            property: "color",
+                        },
+                        {
+                            property: "font-size",
+                        },
+                    ],
 
-                    properties: [{
-                        property: "padding",
-                        value: "10",
-                        unit: "px",
-                        operator: ">=",
-                            
-                    },{
-                        property: "background-color"
-                    },{
-                        property: "text-align",
-                        value: "center",
-                    }]
-                }],
+                    selector: "h2",
+                    properties: [
+                        {
+                            property: "text-align",
+                            value: [[{ value: "center" }]],
+                            property:"text-decoration",
+                            value: [[{ value: "underline" }]],
+                        },
+                    ],
+
+                    selector: "p",
+                    properties: [
+                        {
+                            property: "text-align",
+                            value: [[{ value: "center" }]],
+                        },
+                        {
+                            property: "color",
+                        },
+                    ]
+                },
+            ],
         },
         
     },
