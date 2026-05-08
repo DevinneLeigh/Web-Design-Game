@@ -202,79 +202,115 @@ export const htmlLevels = [
   concept: "html-div",
 
   instructions: `
-    <h2>Divs, Spans, and Sections</h2>
+  <h2>Divs, Spans, and Sections</h2>
 
-    <p>
-      HTML elements can be used to organize a webpage into smaller parts.
-      Three common elements for grouping content are <code>&lt;div&gt;</code>,
-      <code>&lt;span&gt;</code>, and <code>&lt;section&gt;</code>.
-    </p>
+  <p>
+    HTML elements can be used to organize a webpage into smaller parts.
+    Three common elements for grouping content are
+    <code>&lt;div&gt;</code>,
+    <code>&lt;span&gt;</code>,
+    and <code>&lt;section&gt;</code>.
+  </p>
 
-    <h2>The Div Tag</h2>
-    <p>
-      A <code>&lt;div&gt;</code> is a block-level container. This means it usually starts on a new line
-      and takes up the full width available. Divs are useful when you want to group several elements
-      together so they can be styled as one area.
-    </p>
+  <h2>The Div Tag</h2>
 
-    <pre>&lt;div&gt;
-  &lt;h2&gt;About Me&lt;/h2&gt;
-  &lt;p&gt;I like building websites.&lt;/p&gt;
-&lt;/div&gt;</pre>
+  <p>
+    A <code>&lt;div&gt;</code> is a block-level container used to group
+    larger sections of content together.
+  </p>
 
-    <h2>The Span Tag</h2>
-    <p>
-      A <code>&lt;span&gt;</code> is an inline container. This means it stays inside the line of text.
-      Spans are useful when you only want to style one word or small part of a sentence.
-    </p>
+  <pre>
+&lt;div&gt;
+  &lt;p&gt;Grouped content&lt;/p&gt;
+&lt;/div&gt;
+  </pre>
 
-    <pre>&lt;p&gt;My favorite color is &lt;span&gt;green&lt;/span&gt;.&lt;/p&gt;</pre>
+  <h2>The Span Tag</h2>
 
-    <h2>The Section Tag</h2>
-    <p>
-      A <code>&lt;section&gt;</code> is used for a meaningful group of related content.
-      Sections are often used for parts of a page like an introduction, about section,
-      contact section, or project section.
-    </p>
+  <p>
+    A <code>&lt;span&gt;</code> is an inline element used to style or
+    modify small parts of text inside another element.
+  </p>
 
-    <pre>&lt;section&gt;
-  &lt;h1&gt;My Hobbies&lt;/h1&gt;
-  &lt;p&gt;&lt;span&gt;Coding&lt;/span&gt; is one of my hobbies.&lt;/p&gt;
-&lt;/section&gt;</pre>
+  <pre>
+&lt;p&gt;My favorite color is &lt;span&gt;green&lt;/span&gt;.&lt;/p&gt;
+  </pre>
 
-    <h2>Challenge</h2>
-    <p>
-      Create one <code>&lt;div&gt;</code>. Inside the div, create two <code>&lt;section&gt;</code> elements.
-      Each section needs one <code>&lt;h1&gt;</code> and one <code>&lt;p&gt;</code>.
-      Inside each paragraph, wrap the first word in a <code>&lt;span&gt;</code>.
-    </p>
+  <p>
+    Example:
+  </p>
 
-    <h2>Requirements</h2>
-    <ul>
-      <li>Add one <code>&lt;div&gt;</code></li>
-      <li>Add two <code>&lt;section&gt;</code> elements inside the div</li>
-      <li>Each section must have one <code>&lt;h1&gt;</code></li>
-      <li>Each section must have one <code>&lt;p&gt;</code></li>
-      <li>The first word inside each paragraph must be inside a <code>&lt;span&gt;</code></li>
-    </ul>
-  `,
+  <p>
+    My favorite color is
+    <span style="color: green;">green</span>.
+  </p>
 
-  hint: "Make sure each section has an h1 first, then a paragraph. Inside each paragraph, put the first word inside a span tag.",
+  <h2>The Section Tag</h2>
+
+  <p>
+    A <code>&lt;section&gt;</code> groups related content together.
+    Sections usually contain a heading and text.
+  </p>
+
+  <pre>
+&lt;section&gt;
+  &lt;h1&gt;About Me&lt;/h1&gt;
+  &lt;p&gt;I enjoy coding.&lt;/p&gt;
+&lt;/section&gt;
+  </pre>
+
+  <h2>Challenge</h2>
+
+  <p>
+    Create ONE <code>&lt;div&gt;</code>.
+  </p>
+
+  <p>
+    Inside the div, create TWO <code>&lt;section&gt;</code> elements.
+  </p>
+
+  <p>
+    Inside EACH section:
+  </p>
+
+  <ul>
+    <li>Add one <code>&lt;h1&gt;</code></li>
+    <li>Add one <code>&lt;p&gt;</code></li>
+    <li>Wrap the FIRST word inside the paragraph in a <code>&lt;span&gt;</code></li>
+  </ul>
+
+  <p>
+    Example:
+  </p>
+
+  <pre>
+&lt;p&gt;&lt;span&gt;Coding&lt;/span&gt; is fun.&lt;/p&gt;
+  </pre>
+
+  <p>
+    Notice how the first word in the paragraph is green because of the CSS style applied to the <code>&lt;span&gt;</code> element.
+  </p>
+`,
+
+  hint: "Each section needs BOTH an h1 and a paragraph. The first word inside each paragraph should be wrapped in a span tag.",
 
   starterCode: {
     html: `<div>
   <section>
     <!-- Add an h1 here -->
-    <!-- Add a paragraph here and wrap the first word in a span -->
+    <!-- Add a paragraph here and 
+    wrap the first word in a span -->
   </section>
 
   <section>
     <!-- Add an h1 here -->
-    <!-- Add a paragraph here and wrap the first word in a span -->
+    <!-- Add a paragraph here and 
+    wrap the first word in a span -->
   </section>
 </div>`,
     css: `span {
-  font-size: 30px;
+  text-decoration: underline;
+  color: green;
 }`
   },
 
