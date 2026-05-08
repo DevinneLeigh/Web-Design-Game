@@ -1,7 +1,7 @@
 import { htmlLevels } from "./htmlLevels"
 import { cssLevels } from "./cssLevels"
 
-import { playerProject } from "./player-project"
+import { playerProject } from "./playerProject"
 
 export { playerProject }
 
