@@ -8,7 +8,12 @@ import Footer from './components/Footer.vue'
   <Nav></Nav>
 
   <div class="header">
-    <h1 class="text-center">WEB DESIGN GAME</h1>
+    <div class="logo">
+      <img src ="./assets/images/game-logo.svg">
+    </div>
+    <div class="title">
+      <h1 class="text-center">WEB DESIGN GAME</h1>
+    </div>
   </div>
 
   <div id="main">

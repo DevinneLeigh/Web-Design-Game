@@ -120,20 +120,28 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  h1 {
-    font-size: 1rem;
-    margin: 0;
-    @include xs { // 400px
-      font-size: 1.2rem;
+  gap: 10px;
+  .logo {
+    img {
+      height: 60px;
     }
-    @include sm { // 576px
-      font-size: 1.4rem;
-    }
-    @include md { // 768px
-      font-size: 1.6rem;
-    }
-    @include lg { // 960px
-      font-size: 1.7rem;
+  }
+  .title {
+    h1 {
+      font-size: 1rem;
+      margin: 0;
+      @include xs { // 400px
+        font-size: 1.2rem;
+      }
+      @include sm { // 576px
+        font-size: 1.4rem;
+      }
+      @include md { // 768px
+        font-size: 1.6rem;
+      }
+      @include lg { // 960px
+        font-size: 1.7rem;
+      }
     }
   }
 }
@@ -604,7 +612,7 @@ iframe {
   box-shadow: none;
 }
 
-.back-button {
+.back-button, .project-button {
   position: fixed;
   bottom: 100px;
   left: 20px;
@@ -622,10 +630,8 @@ iframe {
   &:hover {
     background: #ffffff00;
   }
-  @include sm { // 960px
-    top: 20px;
-  }
   @include md { // 960px
+    top: 20px;
     font-size: 14px;
     height: 40px;
     padding: 0 16px;
@@ -655,10 +661,8 @@ iframe {
     background: $primary-dark;
     color: $white;
   }
-  @include sm { // 960px
-    top: 20px;
-  }
   @include md { // 960px
+    top: 20px;
     width: 45px;
     height: 45px;
     font-size: 20px;

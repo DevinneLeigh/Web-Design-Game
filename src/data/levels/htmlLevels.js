@@ -194,75 +194,163 @@ export const htmlLevels = [
       requiredCSS: []
     }
   },
-  {
-    id: "html-04",
-    defaultUnlocked: false,
-    title: "Divs, Spans, and Sections",
-    description: "Learn how to group and organize content using container elements like <div>, <span>, and <section>. These elements help structure your webpage into logical parts. <div> is used for block-level grouping, <span> for inline content, and <section> for meaningful page sections. Understanding these elements is critical for layout and styling later with CSS.",
-    concept: "html-div",
+ {
+  id: "html-04",
+  defaultUnlocked: false,
+  title: "Divs, Spans, and Sections",
+  description: "Learn how to group and organize content using container elements like <div>, <span>, and <section>. These elements help structure your webpage into logical parts. <div> is used for block-level grouping, <span> is used for styling small pieces of inline text, and <section> is used for meaningful page sections.",
+  concept: "html-div",
 
-    instructions: `
-        <h2>Adding a Div Container</h2>
-        <p>The <code>&lt;div&gt;</code> tag is a block level element used for grouping other elements together. By applying CSS styles to your divs, you can easily control the layout of your webpage.</p>
+  instructions: `
+  <h2>Divs, Spans, and Sections</h2>
 
-        <h2>Adding a Span Tag</h2>
-        <p>The <code>&lt;span&gt;</code> tag is an inline element used to modify part of a webpage. It doesn't do anything on its own, but can be modified easily  with CSS or JavaScript.</p>
-        <p>For example, if you wanted to change the color of one word, you could put it in a span tag and then style it:</p>
-        <code>
-          &lt;p&gt;My favorite color is &lt;span style="color:green"&gt;green&lt;/span&gt;.&lt;/p&gt;
-        </code>
-        <p>My favorite color is <span style="color: green;">Green</span>.</p>
+  <p>
+    HTML elements can be used to organize a webpage into smaller parts.
+    Three common elements for grouping content are
+    <code>&lt;div&gt;</code>,
+    <code>&lt;span&gt;</code>,
+    and <code>&lt;section&gt;</code>.
+  </p>
 
-        <h2>Adding a Section Tag</h2>
-        <p>The <code>&lt;section&gt;</code> tag is used to group together related content within a larger webpage. Sections should include a heading tag.</p>
+  <h2>The Div Tag</h2>
 
-        <h2>Challenge</h2>
-        <p>Create a div. Within your div, add two sections containing a h2 and a p tag. Using the span tag, make the first word in each p tag 30px large.</p>
-    `,
-    hint: "To style all spans at once, apply your styling to the span tag itself in your CSS.",
+  <p>
+    A <code>&lt;div&gt;</code> is a block-level container used to group
+    larger sections of content together.
+  </p>
 
-    starterCode: {
-      html: ``,
-      css: ``
-    },
+  <pre>
+&lt;div&gt;
+  &lt;p&gt;Grouped content&lt;/p&gt;
+&lt;/div&gt;
+  </pre>
 
-    completion: {
-      requiredHTML: [
-        {
-          validTags: ["div"],
-          childElements: [
-            {  
-              validTags: ["section"],
-              count: 2,
+  <h2>The Span Tag</h2>
 
-              childElements: [
-                {
-                  validTags : ["h1"],
-                  order: 1
-                },
-                {
-                  validTags: ["p"],
-                  order: 2,
+  <p>
+    A <code>&lt;span&gt;</code> is an inline element used to style or
+    modify small parts of text inside another element.
+  </p>
 
-                  contentIncludesHTML: true,
-                  content: "^((<[^<]*?>)|\\s)*?<span.*>\\w+<\\/span.*>",
-                  contentNickName: "First word in span",
+  <pre>
+&lt;p&gt;My favorite color is &lt;span&gt;green&lt;/span&gt;.&lt;/p&gt;
+  </pre>
 
-                  childElements: [
-                    {
-                      validTags: ["span"]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
+  <p>
+    Example:
+  </p>
 
-      requiredCSS: []
-    }
+  <p>
+    My favorite color is
+    <span style="color: green;">green</span>.
+  </p>
+
+  <h2>The Section Tag</h2>
+
+  <p>
+    A <code>&lt;section&gt;</code> groups related content together.
+    Sections usually contain a heading and text.
+  </p>
+
+  <pre>
+&lt;section&gt;
+  &lt;h1&gt;About Me&lt;/h1&gt;
+  &lt;p&gt;I enjoy coding.&lt;/p&gt;
+&lt;/section&gt;
+  </pre>
+
+  <h2>Challenge</h2>
+
+  <p>
+    Create ONE <code>&lt;div&gt;</code>.
+  </p>
+
+  <p>
+    Inside the div, create TWO <code>&lt;section&gt;</code> elements.
+  </p>
+
+  <p>
+    Inside EACH section:
+  </p>
+
+  <ul>
+    <li>Add one <code>&lt;h1&gt;</code></li>
+    <li>Add one <code>&lt;p&gt;</code></li>
+    <li>Wrap the FIRST word inside the paragraph in a <code>&lt;span&gt;</code></li>
+  </ul>
+
+  <p>
+    Example:
+  </p>
+
+  <pre>
+&lt;p&gt;&lt;span&gt;Coding&lt;/span&gt; is fun.&lt;/p&gt;
+  </pre>
+
+  <p>
+    Notice how the first word in the paragraph is green because of the CSS style applied to the <code>&lt;span&gt;</code> element.
+  </p>
+`,
+
+  hint: "Each section needs BOTH an h1 and a paragraph. The first word inside each paragraph should be wrapped in a span tag.",
+
+  starterCode: {
+    html: `<div>
+  <section>
+    <!-- Add an h1 here -->
+    <!-- Add a paragraph here and 
+    wrap the first word in a span -->
+  </section>
+
+  <section>
+    <!-- Add an h1 here -->
+    <!-- Add a paragraph here and 
+    wrap the first word in a span -->
+  </section>
+</div>`,
+    css: `span {
+  text-decoration: underline;
+  color: green;
+}`
   },
+
+  completion: {
+    requiredHTML: [
+      {
+        validTags: ["div"],
+        childElements: [
+          {
+            validTags: ["section"],
+            count: 2,
+
+            childElements: [
+              {
+                validTags: ["h1"],
+                order: 1
+              },
+              {
+                validTags: ["p"],
+                order: 2,
+
+                contentIncludesHTML: true,
+                content: "^((<[^<]*?>)|\\s)*?<span.*>\\w+<\\/span.*>",
+                contentNickName: "First word in span",
+
+                childElements: [
+                  {
+                    validTags: ["span"]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+
+    requiredCSS: []
+  }
+},
 
         {
     id: "html-05",
@@ -378,6 +466,58 @@ export const htmlLevels = [
   {
     id: "html-07",
     defaultUnlocked: false,
+    title: "Buttons",
+    description: "Learn how to create interactive buttons using the <button> tag in HTML. In this level, you’ll explore different types of buttons, including submit, reset, and regular buttons, and learn how to customize their appearance and behavior.",
+    concept: "html-buttons",
+
+    instructions: `
+        <h2>Adding Buttons</h2>
+        <p>Goal: Create a simple styled button</p>
+
+        <p>HTML Tasks:</p>
+        <p>1. Add a &lt;button&gt; element</p>
+        <p>2. Give it the class "btn"</p>
+        <p>3. Set the text to: Click Me</p>
+
+        <p>CSS Tasks:</p>
+
+        <p>4. Create a .btn class</p>
+
+        <p>5. Add these styles:</p>
+        <p>background-color: blue;</p>
+        <p>color: white;</p>
+        <p>padding: 10px;</p>
+        <p>border: none;</p>
+    `,
+    hint: "You should see a blue button with white text that says (Click Me)",
+
+    starterCode: {
+      html: `<head>
+      <h1>Adding Buttons</h1>
+      </head>
+      <body>
+
+      <!-- Add your button Here -->
+
+      </body>`,
+      css: `/* Add your .btn class below */`
+    },
+
+    completion: {
+      requiredHTML: [
+        {
+          validTags: ["button"],
+          class: "btn",
+          content: "Click Me"
+        }
+      ],
+
+      requiredCSS: []
+    }
+  },
+  {
+    id: "html-08",
+    defaultUnlocked: false,
     title: "Tables",
     description: "Learn how to organize data into rows and columns using HTML tables. You’ll use elements like <table>, <tr>, <th>, and <td> to structure tabular data. This level focuses on presenting structured information clearly and understanding when tables are appropriate.",
     concept: "html-tables",
@@ -438,7 +578,7 @@ th {
     }
   },
   {
-    id: "html-08",
+    id: "html-09",
     defaultUnlocked: false,
     title: "Forms",
     description: "Learn how to create interactive forms using HTML. Forms allow users to input and submit data, making them essential for user registration, contact pages, and more. In this level, you’ll explore form elements like <input>, <textarea>, <select>, and <button>, as well as how to structure a form properly.",
@@ -526,60 +666,7 @@ th {
 
       requiredCSS: []
     }
-  },
-  {
-    id: "html-09",
-    defaultUnlocked: false,
-    title: "Buttons",
-    description: "Learn how to create interactive buttons using the <button> tag in HTML. In this level, you’ll explore different types of buttons, including submit, reset, and regular buttons, and learn how to customize their appearance and behavior.",
-    concept: "html-buttons",
-
-    instructions: `
-        <h2>Adding Buttons</h2>
-        <p>Goal: Create a simple styled button</p>
-
-        <p>HTML Tasks:</p>
-        <p>1. Add a &lt;button&gt; element</p>
-        <p>2. Give it the class "btn"</p>
-        <p>3. Set the text to: Click Me</p>
-
-        <p>CSS Tasks:</p>
-
-        <p>4. Create a .btn class</p>
-
-        <p>5. Add these styles:</p>
-        <p>background-color: blue;</p>
-        <p>color: white;</p>
-        <p>padding: 10px;</p>
-        <p>border: none;</p>
-    `,
-    hint: "You should see a blue button with white text that says (Click Me)",
-
-    starterCode: {
-      html: `<head>
-      <h1>Adding Buttons</h1>
-      </head>
-      <body>
-
-      <!-- Add your button Here -->
-
-      </body>`,
-      css: `/* Add your .btn class below */`
-    },
-
-    completion: {
-      requiredHTML: [
-        {
-          validTags: ["button"],
-          class: "btn",
-          content: "Click Me"
-        }
-      ],
-
-      requiredCSS: []
-    }
-  },
-  
+  }, 
   {
     id: "html-10",
     defaultUnlocked: false,
