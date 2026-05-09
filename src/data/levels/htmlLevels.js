@@ -413,12 +413,23 @@ export const htmlLevels = [
     hint: "Multiple elements can have an ID, but each ID must be unique",
 
     starterCode: {
-      html: ``,
+      html: `<h1 class"title">Welcome</h1>
+      <p id"main-text">Lorem ipsum dolor sit amet</p>`,
       css: ``
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: [
+        {
+          validTags: ["h1"],
+          class: "title",
+          content: "Welcome"
+        },
+        {
+          validTags: ["p"],
+          content: "Lorem ipsum dolor sit amet"
+        }
+      ],
 
       requiredCSS: []
     }
@@ -703,7 +714,7 @@ th {
 
         <h2>Challenge</h2>
         <p>
-          Add the src and alt attributes to the img tag provided.
+          Add create an img tag with the following attributes:
         </p>
         <p>For the src, use the url: <code>https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg</code></p>
         
@@ -712,14 +723,18 @@ th {
     hint: "",
 
     starterCode: {
-      html: `<img>`,
+      html: ``,
       css: `img {
       width: 300px;
     }`
     },
 
     completion: {
-      requiredHTML: [],
+      requiredHTML: [
+        {
+          validTags: ["img"]
+        }
+      ],
 
       requiredCSS: []
     }
