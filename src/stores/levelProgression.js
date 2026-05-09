@@ -58,6 +58,7 @@ export const levelProgression = {
             requires: ["html-07"],
             unlocks: ["html-08"]
         },
+        
         {
             requires: ["html-08"],
             unlocks: ["html-09"]
