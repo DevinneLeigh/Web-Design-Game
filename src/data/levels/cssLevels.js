@@ -29,7 +29,7 @@ export const cssLevels = [
         
         <p>5).Finally, use the "font-weight" property to make your heading bold.</p>
     `,
-    hint: "Your goal: Is to style your webpage text using CSS. Add a heading and paragraph, then change the font, text size, color, alignment, and font weight to complete the level.",
+    hint: "Your goal: Uusing CSS. Add a heading and paragraph, then change the font, text size, color, alignment, and font weight to complete the level.",
 
     starterCode: {
       html: `<h1>My Heading</h1>
@@ -503,7 +503,7 @@ p {
         <h2>Rounded Corners</h2>
         <p>Now, make the corners rounded.</p>
     `,
-    hint: "Use border and border-radius.",
+    hint: "Your goal: Add a border around the box and round the corners using border and border-radius.",
 
     starterCode: {
       html: `<div class="box">Hello World!</div>`,
@@ -513,9 +513,26 @@ p {
     },
 
     completion: {
-      requiredHTML: ["box"],
+      requiredHTML: [
+    {
+      validTags: ["div"],
+      class: "box"
+    }
+  ],
+      requiredCSS: [
+    {
+      selector: ".box",
 
-      requiredCSS: ["border", "border-radius"]
+      properties: [
+        {
+          property: "border"
+        },
+        {
+          property: "border-radius"
+        }
+      ]
+    }
+  ]
     }
   },
   {

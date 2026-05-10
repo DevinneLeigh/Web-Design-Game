@@ -489,7 +489,7 @@ th {
         <p>4). Use the "text-align" property to center your heading on the page.</p>
         
         <p>5).Finally, use the "font-weight" property to make your heading bold.</p>
-    `,hint:"Your goal: Is to style your webpage text using CSS. Add a heading and paragraph, then change the font, text size, color, alignment, and font weight to complete the level.",starterCode:{html:`<h1>My Heading</h1>
+    `,hint:"Your goal: Uusing CSS. Add a heading and paragraph, then change the font, text size, color, alignment, and font weight to complete the level.",starterCode:{html:`<h1>My Heading</h1>
 
   <p>
     This is a paragraph for practicing fonts and text formatting with CSS.
@@ -697,9 +697,9 @@ p {
         <p>Try adding a border to the box.</p>
         <h2>Rounded Corners</h2>
         <p>Now, make the corners rounded.</p>
-    `,hint:"Use border and border-radius.",starterCode:{html:'<div class="box">Hello World!</div>',css:`.box {
+    `,hint:"Your goal: Add a border around the box and round the corners using border and border-radius.",starterCode:{html:'<div class="box">Hello World!</div>',css:`.box {
   background-color: lightblue;
-  padding: 20px;`},completion:{requiredHTML:["box"],requiredCSS:["border","border-radius"]}},{id:"css-08",defaultUnlocked:!1,title:"Text and Box Shadow",description:"Learn how to add depth and dimension to your webpage using CSS shadows. This level covers text-shadow for adding shadows to text, and box-shadow for creating shadows around elements. You’ll explore how to customize the color, size, and position of shadows to enhance the visual appeal of your design.",concept:"css-shadows",instructions:`
+  padding: 20px;`},completion:{requiredHTML:[{validTags:["div"],class:"box"}],requiredCSS:[{selector:".box",properties:[{property:"border"},{property:"border-radius"}]}]}},{id:"css-08",defaultUnlocked:!1,title:"Text and Box Shadow",description:"Learn how to add depth and dimension to your webpage using CSS shadows. This level covers text-shadow for adding shadows to text, and box-shadow for creating shadows around elements. You’ll explore how to customize the color, size, and position of shadows to enhance the visual appeal of your design.",concept:"css-shadows",instructions:`
         <h2>Text Shadow</h2>
         <p>Through CSS you can add shadows to text using the <b>text-shadow</b> property. There are a few different values you can adjust to change up the look of the effect. </p>
         <br>
