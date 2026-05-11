@@ -590,7 +590,7 @@ th {
   },
   {
     id: "html-09",
-    defaultUnlocked: false,
+    defaultUnlocked: true,
     title: "Forms",
     description: "Learn how to create interactive forms using HTML. Forms allow users to input and submit data, making them essential for user registration, contact pages, and more. In this level, you’ll explore form elements like <input>, <textarea>, <select>, and <button>, as well as how to structure a form properly.",
     concept: "html-forms",
@@ -630,7 +630,7 @@ th {
           <p>&Tab;&lt;option value="internet"&gt;The internet&lt;/option&gt;</p>
           <p>&Tab;&lt;option value="work"&gt;From work&lt;/option&gt;</p>
           <p>&Tab;&lt;option value="other"&gt;Other&lt;/option&gt;</p>
-        <p>&lt;/select&gt;</p>
+        <p>&lt;/select&gt;&lt;br&gt;</p>
 
 
         <p>And finally you add a submit button</p>
@@ -658,7 +658,7 @@ th {
                     {
             nickName: "input",
             validTags: ["input"],
-            count: 9
+            count: 8
           },
           {
             nickName: "select",
