@@ -264,27 +264,100 @@ p {
   },
   {
     id: "css-04",
+    defaultUnlocked: false,
     title: "Backgrounds",
     description: "Learn how to add background colors, images, and gradients to elements on your webpage using CSS. This level covers properties like background-color, background-image, background-size, and background-position. You’ll explore how to create visually appealing backgrounds that enhance the overall design of your site.",
     concept: "css-backgrounds",
 
     instructions: `
-        <h2>Backgrounds</h2>
-        <p>See if you can add a background color to the textbox! Remember to target the correct element.</p>
-    `,
-    hint: "Use background-color.",
+    <h2>CSS Backgrounds</h2>
 
-    starterCode: {
-      html: `<div class ="box">Hello World!</div>`,
-      css: `.box {font-size: 32px}`
-    },
+    <p>
+      Background properties allow you to control the appearance behind an element’s content.
+      You can add solid colors, images, repeating patterns, and control how images fit inside elements.
+    </p>
 
-    completion: {
-      requiredHTML: ["box"],
+    <h3>background-color</h3>
+    <p>
+      The <code>background-color</code> property changes the background color of an element.
+    </p>
 
-      requiredCSS: ["background-color"]
-    }
+    <pre>
+.box {
+  background-color: lightblue;
+}
+    </pre>
+
+    <div style="background-color: lightblue; padding: 10px; border: 1px solid black;">
+      Example Background Color
+    </div>
+
+    <h3>background-image</h3>
+    <p>
+      The <code>background-image</code> property adds an image behind an element.
+    </p>
+
+    <pre>
+.box {
+  background-image: url('the link to your image would go here');
+}
+    </pre>
+
+    <h3>background-repeat</h3>
+    <p>
+      By default, background images repeat. You can stop this using
+      <code>background-repeat: no-repeat;</code>
+    </p>
+
+    <pre>
+.box {
+  background-repeat: no-repeat;
+}
+    </pre>
+
+    <h3>background-size</h3>
+    <p>
+      The <code>background-size</code> property controls how large the background image appears.
+    </p>
+
+    <pre>
+.box {
+  background-size: cover;
+}
+    </pre>
+
+    <p>
+      <strong>Your Challenge:</strong><br>
+      Add any background color you want to the box class to change it. If you want to take it a step further, try changing the color of the text too!
+    </p>
+  `,
+
+  hint: "Use background-color inside the .box selector. Example: background-color: blue;",
+
+  starterCode: {
+    html: `<div class="box">Hello World!</div>`,
+
+    css: `
+.box {
+  font-size: 32px;
+  padding: 30px;
+  text-align: center;
+}
+`
   },
+
+  completion: {
+  requiredHTML: [{ validTags: ["div"] }],
+
+  requiredCSS: [
+    {
+      selector: ".box",
+      validProperties: ["background-color"]
+    }
+  ]
+  }
+  },
+
   {
     id: "css-05",
     defaultUnlocked: false,
