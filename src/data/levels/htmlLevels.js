@@ -590,7 +590,7 @@ th {
   },
   {
     id: "html-09",
-    defaultUnlocked: true,
+    defaultUnlocked: false,
     title: "Forms",
     description: "Learn how to create interactive forms using HTML. Forms allow users to input and submit data, making them essential for user registration, contact pages, and more. In this level, you’ll explore form elements like <input>, <textarea>, <select>, and <button>, as well as how to structure a form properly.",
     concept: "html-forms",
