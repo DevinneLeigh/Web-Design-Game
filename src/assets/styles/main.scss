@@ -171,7 +171,7 @@ body {
     gap: 20px;
     height: 100%;
     @include lg { // 960px
-      width: 600px;
+      width: 500px;
     }
   .instructions-wrapper {
     flex: 1;
@@ -192,15 +192,15 @@ body {
     }
     .editor-section {
       height: 100%;
-      width: 100%;
         @include lg { // 960px
           height: 60%;
+          width: 500px;
         }
         .editor {
-          background: $dark2;
-          width: 100%;     
+          background: $dark2;     
           @include lg { // 960px
             overflow: auto;
+            
             height: 75%;
           }       
         }
