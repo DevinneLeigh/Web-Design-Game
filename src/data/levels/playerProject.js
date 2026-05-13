@@ -1,267 +1,281 @@
 export const playerProject = [
     {
         id: "project1",
-        defaultUnlocked: false,
         title: "1st Boss",
 
         instructions: `
     <h2>Instructions</h2>
 
     <p>
-        Create an example web page that covers the following concepts:
-        <ul>
-            <li>HTML Heading and Paragraphs</li>
-            <li>HTML Formatting</li>
-            <li>HTML Lists</li>
-            <li>CSS Fonts and Formatting</li>
-            <li>CSS Colors</li>
-        </ul>
+      Create a <strong>jumbotron hero section</strong> that highlights a main message on the page.
     </p>
 
     <p><strong>Follow these steps:</strong></p>
 
     <ol>
-      <li> 
-        Add a <code>h1</code> heading with the text <strong>"Welcome to My Website"</strong>, put it in between the <code>body</code> tags. 
-      </li><br>
+      <li>
+        In the HTML editor, create a container element with the class
+        <code>jumbotron</code>.
+      </li>
 
       <li>
-        Add CSS to the heading. Make sure the heading is centered. Add colors and formatting to the heading using CSS. You can choose any colors and formatting you like. 
-      </li><br>
+        Inside this container, add an <code>h1</code> heading with the text
+        <strong>"Welcome to My Website"</strong>.
+      </li>
 
       <li>
-        Below the heading, add a <code>h2</code> with the text
-        <strong>"Learning web design by completing challenges."</strong> Underline and center this text.  
-      </li><br>
-
-      <li>
-        Add a list of things you have already learned or want to learn about web design. Use either an ordered list <code>(ol)</code> or unordered list <code>(ul)</code>.
-      </li><br>
-
-      <li>
-        Add a <code>p</code> element, and write something about why you are interested in learning web design. Center the text and add color!</li>
+        Below the heading, add a paragraph <code>(p)</code> with the text
+        <strong>"Learn web design by completing challenges."</strong>.
+      </li>
     </ol>
 
+    <p><strong>Now style the section using CSS:</strong></p>
+
+    <ul>
+      <li>Select the <code>.jumbotron</code> class.</li>
+      <li>Add <code>padding</code> so there is space inside the container.</li>
+      <li>Give the section a <code>background-color</code> so it stands out.</li>
+      <li>Use <code>text-align</code> to center the content.</li>
+      <li>Increase the font size of the heading.</li>
+    </ul>
+
     <p>
-      When finished, the page should display a heading, text, and a list, all styled with CSS. Be creative and have fun designing your web page!
+      When finished, the page should display a large centered hero section with
+      a heading and supporting text.
     </p>
 
     `,
-        hint: "Feel stuck? Refer to the previous <em><b>HTML-1, HTML-2, HTML-3, CSS-1, CSS-2</b></em> levels for help!",
+        hint: "Use <h1>...</h1> inside the body.",
 
         starterCode: {
-            html: `<div>
-<body>
-</body>
-</div>`,
+            html: `<div></div>`,
             css: ``,
         },
 
         completion: {
             requiredHTML: [
                 {
-                    validTags: ["h1"],
-                    nickName: "main heading",
-                    content: "Welcome to My Website",
-                    contentNickName: "Header text",
-                },
-                {
-                    validTags: ["h2"],
-                    nickName: "subheading",
-                    content: "Learning web design by completing challenges\\.",
-                    contentNickName: "Subheading text",
-                },
-                {
-                    validTags: ["u"],
-                    nickName: "underlined text",
-                    content: "Learning web design by completing challenges\\.",
-                    contentNickName: "Underlined text",
-                },
-                {
-                    validTags: ["ol", "ul"],
-                    nickName: "ordered or unordered list",
+                    validTags: ["div"],
+                    class: "jumbotron",
+                    nickName: "jumbotron container",
+
                     childElements: [
                         {
-                            validTags: ["li"],
-                            nickName: "list item",
-                            count: 2,
+                            validTags: ["h1"],
+                            order: 1,
+
+                            content: "Welcome to My Website",
+                        },
+                        {
+                            validTags: ["p"],
+                            order: 2,
+
+                            content: "Learn web design by completing challenges\\.",
+                            contentNickName: "Learn web design by completing challenges.",
                         },
                     ],
-                },
-                {
-                    validTags: ["p"],
-                    nickName: "paragraph",
-                    content: ".+",
-                    contentNickName: "a paragraph about why you are interested in web design",
                 },
             ],
 
-            requiredCSS: [
-                {
-                    selector: "h1",
-                    properties: [
-                        {
-                            property: "text-align",
-                            value: [[{ value: "center" }]],
-                        },
-                        {
-                            property: "color",
-                        },
-                        {
-                            property: "font-size",
-                        },
-                    ],
+            requiredCSS: [{
+                    selector: ".jumbotron",
 
-                    selector: "h2",
-                    properties: [
-                        {
-                            property: "text-align",
-                            value: [[{ value: "center" }]],
-                            property:"text-decoration",
-                            value: [[{ value: "underline" }]],
-                        },
-                    ],
-
-                    selector: "p",
-                    properties: [
-                        {
-                            property: "text-align",
-                            value: [[{ value: "center" }]],
-                        },
-                        {
-                            property: "color",
-                        },
-                    ]
-                },
-            ],
+                    properties: [{
+                        property: "padding",
+                        value: "10",
+                        unit: "px",
+                        operator: ">=",
+                            
+                    },{
+                        property: "background-color"
+                    },{
+                        property: "text-align",
+                        value: "center",
+                    }]
+                }],
         },
         
     },
     {
         id: "project2",
-        defaultUnlocked: false,
+        defaultUnlocked: false, 
         title: "2nd Boss",
-
-        instructions: ``,
-        hint: "",
-
+    
+        instructions: `
+        <h2>Instructions</h2>
+    
+        <p>
+            Continue building your homepage by organizing content into sections
+            and styling the layout with CSS.
+        </p>
+    
+        <p><strong>In this challenge, practice using:</strong></p>
+    
+        <ul>
+            <li>Divs, spans, and sections</li>
+            <li>Classes and IDs</li>
+            <li>Parent and child elements</li>
+            <li>Padding and margin</li>
+            <li>Background styling</li>
+        </ul>
+    
+        <p><strong>Follow these steps:</strong></p>
+    
+        <ol>
+            <li>
+            Create a container using a <code>div</code> or <code>section</code> and give it the class <code>container</code>.
+            </li>
+            <li>
+            Inside that container, add a <strong>Heading (h1 or h2)</strong> and a <strong>Paragraph</strong>.
+            </li>
+            <li>
+            Add a <code>span</code> element anywhere inside your paragraph or heading.
+            </li>
+            <li>
+            In your CSS, give the <code>.container</code> some <code>padding</code> and a <code>background-color</code>.
+            </li>
+        </ol>
+        `,
+    
+        hint: "Make sure your h1/h2 and p tags are nested INSIDE your .container div. Don't forget to add padding and a background-color in the CSS tab!",
+    
         starterCode: {
-            html: `<div></div>`,
-            css: ``,
+            html: `<div class="container">\n  \n</div>`,
+            css: `.container {\n  \n}`,
         },
-
+    
         completion: {
             requiredHTML: [
                 {
-                    validTags: ["div"],
-                    class: "",
-                    nickName: "",
-
+                    validTags: ["div", "section"],
+                    class: "container",
+                    nickName: "layout container",
+                
                     childElements: [
                         {
-                            validTags: ["h1"],
-                            order: 1,
-
-                            content: "",
+                            validTags: ["h1", "h2"],
                         },
                         {
                             validTags: ["p"],
-                            order: 2,
-
-                            content: "",
-                            contentNickName: "",
                         },
+                        {
+                            validTags: ["span"],
+                        }
                     ],
                 },
             ],
-
-            requiredCSS: [],
+            requiredCSS: [
+                {
+                    selector: ".container",
+                    properties: [
+                        { property: "padding" },
+                        { property: "background-color" },
+                    ],
+                },
+            ],
         },
-        
     },
     {
         id: "project3",
         defaultUnlocked: false,
         title: "3rd Boss",
-
-        instructions: ``,
-        hint: "",
-
+    
+        instructions: `
+        <h2>Instructions</h2>
+    
+        <p>Time to make your page interactive! You'll be adding a data table and a contact form.</p>
+    
+        <p><strong>Follow these steps:</strong></p>
+    
+        <ol>
+            <li>Create a <code>div</code> with the class <code>container</code>.</li>
+            <li>Set the container's <code>display</code> property to <code>flex</code> or <code>grid</code> in your CSS.</li>
+            <li>Inside the container, add a <code>table</code>.</li>
+            <li>Below the table, add a <code>form</code> that contains at least one <code>button</code>.</li>
+        </ol>
+        `,
+    
+        hint: "Ensure your form has a button inside it, and your .container is set to display: flex or display: grid.",
+    
         starterCode: {
-            html: `<div></div>`,
-            css: ``,
+            html: `<div class="container">\n  \n</div>`,
+            css: `.container {\n  display: \n}`,
         },
-
+    
         completion: {
             requiredHTML: [
                 {
-                    validTags: ["div"],
-                    class: "",
-                    nickName: "",
-
+                    validTags: ["div", "section"],
+                    class: "container",
+                    nickName: "interactive layout",
                     childElements: [
-                        {
-                            validTags: ["h1"],
-                            order: 1,
-
-                            content: "",
+                        { validTags: ["table"] },
+                        { 
+                            validTags: ["form"],
+                            childElements: [{ validTags: ["button"] }] 
                         },
-                        {
-                            validTags: ["p"],
-                            order: 2,
-
-                            content: "",
-                            contentNickName: "",
-                        },
+                    ]
+                }
+            ],
+    
+            requiredCSS: [
+                {
+                    selector: ".container",
+                    properties: [
+                        { property: "display" }
                     ],
                 },
             ],
-
-            requiredCSS: [],
         },
-        
     },
     {
         id: "project4",
         defaultUnlocked: false,
         title: "4th Boss",
-
-        instructions: ``,
-        hint: "",
-
+    
+        instructions: `
+        <h2>Homepage Enhancement Challenge</h2>
+    
+        <p>Make your page pop with images, gradients, and animations!</p>
+    
+        <p><strong>Follow these steps:</strong></p>
+    
+        <ol>
+            <li>Inside your <code>.container</code>, add an <code>img</code> tag.</li>
+            <li>Use CSS to give the <code>.container</code> a <code>border-radius</code> and a <code>box-shadow</code>.</li>
+            <li>Apply a <code>background</code> (like a linear-gradient) to the container.</li>
+            <li>Add an <code>animation</code> property to the container to give it some movement.</li>
+        </ol>
+        `,
+    
+        hint: "To pass, ensure your .container has border-radius, box-shadow, background, and animation properties defined.",
+    
         starterCode: {
-            html: `<div></div>`,
-            css: ``,
+            html: `<div class="container">\n  <img src="https://via.placeholder.com/150" />\n</div>`,
+            css: `.container {\n  \n}`,
         },
-
+    
         completion: {
             requiredHTML: [
                 {
-                    validTags: ["div"],
-                    class: "",
-                    nickName: "",
-
-                    childElements: [
-                        {
-                            validTags: ["h1"],
-                            order: 1,
-
-                            content: "",
-                        },
-                        {
-                            validTags: ["p"],
-                            order: 2,
-
-                            content: "",
-                            contentNickName: "",
-                        },
+                    validTags: ["div", "section"],
+                    class: "container",
+                    childElements: [{ validTags: ["img"] }]
+                },
+            ],
+    
+            requiredCSS: [
+                {
+                    selector: ".container",
+                    properties: [
+                        { property: "border-radius" },
+                        { property: "box-shadow" },
+                        { property: "background" },
+                        { property: "animation" },
                     ],
                 },
             ],
-
-            requiredCSS: [],
         },
-        
-    },
+    }
 
-];
+]

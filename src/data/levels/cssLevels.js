@@ -1,7 +1,7 @@
 export const cssLevels = [
   {
     id: "css-01",
-    defaultUnlocked: true,
+    defaultUnlocked: false,
     title: "Fonts and Formatting",
     description: "Learn how to change the font family, size, and style of text using CSS. This level introduces you to font properties like font-family, font-size, font-weight, and font-style. You’ll learn how to apply different fonts to your webpage and understand the impact of typography on design and readability.",
     concept: "css-fonts-formatting",
@@ -240,7 +240,7 @@ p {
   },
   {
     id: "css-03",
-    defaultUnlocked: true,
+    defaultUnlocked: false,
     title: "Padding and Margin",
     description: "Learn how to control spacing and add white space around elements on your webpage using CSS. This level teaches you the difference between padding (space inside an element) and margin (space outside an element), and how to use these properties to improve the layout and readability of your content.",
     concept: "css-padding-margin",

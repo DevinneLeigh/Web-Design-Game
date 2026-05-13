@@ -125,9 +125,35 @@ const htmlCode = ref("")
 const cssCode = ref("")
 
 
+function isPlayerProject(levelId) {
+  return [
+    "project1",
+    "project2",
+    "project3",
+    "project4"
+  ].includes(levelId)
+}
+
+
 watch(level, (newLevel) => {
   if (!newLevel) return
 
+  // PLAYER PROJECTS
+  if (isPlayerProject(newLevel.id)) {
+
+    const savedHTML = localStorage.getItem("playerProject-html")
+    const savedCSS = localStorage.getItem("playerProject-css")
+
+    htmlCode.value =
+      savedHTML || newLevel.starterCode.html
+
+    cssCode.value =
+      savedCSS || newLevel.starterCode.css
+
+    return
+  }
+
+  // NORMAL LEVELS
   const htmlKey = `html-${newLevel.id}`
   const cssKey = `css-${newLevel.id}`
 
@@ -136,7 +162,10 @@ watch(level, (newLevel) => {
 
   cssCode.value =
     localStorage.getItem(cssKey) || newLevel.starterCode.css
+
 }, { immediate: true })
+
+
 
 const previewDoc = computed(() => `
   <html>
@@ -174,18 +203,45 @@ function openPopup({
   showPopup.value = true
 }
 
-function handleSave() {
-  const htmlKey = `html-${level.value.id}`
-  const cssKey = `css-${level.value.id}`
 
-  localStorage.setItem(htmlKey, htmlCode.value)
-  localStorage.setItem(cssKey, cssCode.value)
-  openPopup({
-    title: "CODE SAVED",
-    message: "Your progress has been saved.",
-    confetti: false,
-    buttonText: "OK"
-  })
+function saveCode(showPopup = true) {
+
+  // PLAYER PROJECTS
+  if (isPlayerProject(level.value.id)) {
+
+    localStorage.setItem(
+      "playerProject-html",
+      htmlCode.value
+    )
+
+    localStorage.setItem(
+      "playerProject-css",
+      cssCode.value
+    )
+
+  } else {
+
+    // NORMAL LEVELS
+    const htmlKey = `html-${level.value.id}`
+    const cssKey = `css-${level.value.id}`
+
+    localStorage.setItem(htmlKey, htmlCode.value)
+    localStorage.setItem(cssKey, cssCode.value)
+  }
+
+  if (showPopup) {
+    openPopup({
+      title: "CODE SAVED",
+      message: "Your progress has been saved.",
+      confetti: false,
+      buttonText: "OK"
+    })
+  }
+}
+
+
+function handleSave() {
+  saveCode(true)
 }
 
 function handleReset() {
@@ -204,14 +260,34 @@ function handleReset() {
 function confirmReset() {
   if (!level.value) return
 
-  const htmlKey = `html-${level.value.id}`
-  const cssKey = `css-${level.value.id}`
+  // PLAYER PROJECTS
+  if (isPlayerProject(level.value.id)) {
 
-  htmlCode.value = level.value.starterCode.html || ""
-  cssCode.value = level.value.starterCode.css || ""
+    htmlCode.value =
+      localStorage.getItem("playerProject-html")
+      || level.value.starterCode.html
+      || ""
 
-  localStorage.setItem(htmlKey, htmlCode.value)
-  localStorage.setItem(cssKey, cssCode.value)
+    cssCode.value =
+      localStorage.getItem("playerProject-css")
+      || level.value.starterCode.css
+      || ""
+
+  } else {
+
+    // NORMAL LEVELS RESET TO STARTER CODE
+    const htmlKey = `html-${level.value.id}`
+    const cssKey = `css-${level.value.id}`
+
+    htmlCode.value =
+      level.value.starterCode.html || ""
+
+    cssCode.value =
+      level.value.starterCode.css || ""
+
+    localStorage.setItem(htmlKey, htmlCode.value)
+    localStorage.setItem(cssKey, cssCode.value)
+  }
 
   showPopup.value = false
   isConfirmPopup.value = false
@@ -219,6 +295,7 @@ function confirmReset() {
 }
 
 function handleCheck() {
+  saveCode(false)
   const isCompleteNow = isLevelComplete()
 
   if (isCompleteNow) {
