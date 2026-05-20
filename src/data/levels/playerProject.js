@@ -82,15 +82,17 @@ export const playerProject = [
 
                     properties: [{
                         property: "padding",
-                        value: "10",
-                        unit: "px",
-                        operator: ">=",
+                        value: [[{
+                                value: 10,
+                                unit: "px",
+                                operator: ">=",
+                            }]]
                             
                     },{
                         property: "background-color"
                     },{
                         property: "text-align",
-                        value: "center",
+                        value: [[{value: "center"}]],
                     }]
                 }],
         },
