@@ -108,7 +108,33 @@ export const htmlLevels = [
     },
 
     completion: {
-      requiredHTML: [{validTags: ["b", "em", "u", "mark", "sub", "sup"]}],
+      requiredHTML: [
+          { validTags: ["b"], content: "bold", order: 1 },
+          { validTags: ["em"], content: "italic", order: 2 },
+          { validTags: ["u"], content: "underline", order: 3 },
+          {
+              validTags: ["p"],
+              content: "highlighted",
+              childElements: [
+                  {
+                      validTags: ["mark"],
+                      content: ".+",
+                      contentNickName: "at least a word",
+                  },
+              ],
+          },
+          {
+              validTags: ["p"],
+              content: "subscript or superscript",
+              childElements: [
+                  {
+                      validTags: ["sub", "sup"],
+                      content: ".+",
+                      contentNickName: "at least a word",
+                  },
+              ],
+          },
+      ],
       requiredCSS: []
     }
   },
