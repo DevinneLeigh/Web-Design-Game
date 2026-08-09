@@ -125,7 +125,7 @@
       <p>Make this one italic</p>
       <p>And this one underlined</p>
       <p>Add a highlighted word here</p>
-      <p>Add subscript or superscript here</p>`,css:""},completion:{requiredHTML:[{validTags:["b","em","u","mark","sub","sup"]}],requiredCSS:[]}},{id:"html-03",defaultUnlocked:!1,title:"Lists",description:"Learn how to organize information using ordered <ol> and unordered <ul> lists. Lists are essential for grouping related items, such as steps, tasks, or collections of data. You will also use list items <li> to define each entry. By the end of this level, you should understand when to use numbered lists versus bullet points and how to structure them properly.",concept:"html-lists",instructions:`
+      <p>Add subscript or superscript here</p>`,css:""},completion:{requiredHTML:[{validTags:["b"],content:"bold",order:1},{validTags:["em"],content:"italic",order:2},{validTags:["u"],content:"underline",order:3},{validTags:["p"],content:"highlighted",childElements:[{validTags:["mark"],content:".+",contentNickName:"at least a word"}]},{validTags:["p"],content:"subscript or superscript",childElements:[{validTags:["sub","sup"],content:".+",contentNickName:"at least a word"}]}],requiredCSS:[]}},{id:"html-03",defaultUnlocked:!1,title:"Lists",description:"Learn how to organize information using ordered <ol> and unordered <ul> lists. Lists are essential for grouping related items, such as steps, tasks, or collections of data. You will also use list items <li> to define each entry. By the end of this level, you should understand when to use numbered lists versus bullet points and how to structure them properly.",concept:"html-lists",instructions:`
         <h2>Adding Lists</h2>
 <p>Lists in HTML present information in a more visually appealing way than listing the same items in paragraphs.
         They are used to display related items separately, allowing the reader to more easily parse the information.
@@ -942,7 +942,7 @@ p {
       a heading and supporting text.
     </p>
 
-    `,hint:"Use <h1>...</h1> inside the body.",starterCode:{html:"<div></div>",css:""},completion:{requiredHTML:[{validTags:["div"],class:"jumbotron",nickName:"jumbotron container",childElements:[{validTags:["h1"],order:1,content:"Welcome to My Website"},{validTags:["p"],order:2,content:"Learn web design by completing challenges\\.",contentNickName:"Learn web design by completing challenges."}]}],requiredCSS:[{selector:".jumbotron",properties:[{property:"padding",value:"10",unit:"px",operator:">="},{property:"background-color"},{property:"text-align",value:"center"}]}]}},{id:"project2",defaultUnlocked:!1,title:"2nd Boss",instructions:`
+    `,hint:"Use <h1>...</h1> inside the body.",starterCode:{html:"<div></div>",css:""},completion:{requiredHTML:[{validTags:["div"],class:"jumbotron",nickName:"jumbotron container",childElements:[{validTags:["h1"],order:1,content:"Welcome to My Website"},{validTags:["p"],order:2,content:"Learn web design by completing challenges\\.",contentNickName:"Learn web design by completing challenges."}]}],requiredCSS:[{selector:".jumbotron",properties:[{property:"padding",value:[[{value:10,unit:"px",operator:">="}]]},{property:"background-color"},{property:"text-align",value:[[{value:"center"}]]}]}]}},{id:"project2",defaultUnlocked:!1,title:"2nd Boss",instructions:`
         <h2>Instructions</h2>
     
         <p>
